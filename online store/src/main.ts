@@ -1,7 +1,11 @@
 import './style.sass';
-import typescriptLogo from './typescript.svg';
-import { setupCounter } from './counter';
 
+// import typescriptLogo from './typescript.svg';
+import { setupCounter } from './counter';
+import { Card } from './components/view/Card/Card';
+import PRODUCTS from './data/state';
+
+const card = new Card(PRODUCTS);
 const app = document.querySelector<HTMLDivElement>('#app');
 if (app)
     app.innerHTML = `
@@ -19,6 +23,9 @@ if (app)
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
+  ${card.createCard()}
+
 `;
+
 const counter = document.querySelector<HTMLButtonElement>('#counter');
 if (counter) setupCounter(counter);
