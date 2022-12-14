@@ -1,12 +1,13 @@
-import "./style.sass";
-// import typescriptLogo from "./typescript.svg";
-import { setupCounter } from "./counter";
-const app = document.querySelector<HTMLDivElement>("#app");
+import './style.sass';
+import typescriptLogo from './typescript.svg';
+import { setupCounter } from './counter';
+
+const app = document.querySelector<HTMLDivElement>('#app');
 if (app)
-  app.innerHTML = `
+    app.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
+      <img src="./vite.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://www.typescriptlang.org/" target="_blank">
     </a>
@@ -19,5 +20,5 @@ if (app)
     </p>
   </div>
 `;
-const counter = document.querySelector<HTMLButtonElement>("#counter");
+const counter = document.querySelector<HTMLButtonElement>('#counter');
 if (counter) setupCounter(counter);
