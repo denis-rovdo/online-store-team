@@ -1,6 +1,6 @@
 import { Product } from "../types/types";
 
-export const PRODUCTS: Product[] = [
+const PRODUCTS: Product[] = [
   {
     id: 1,
     title: "Vacuum cleaner XB2142/08",
@@ -1826,3 +1826,6 @@ export const PRODUCTS: Product[] = [
     ],
   },
 ];
+
+
+export default PRODUCTS;
