@@ -8,7 +8,7 @@ import PRODUCTS from './data/state';
 const card = new Card(PRODUCTS);
 const app = document.querySelector<HTMLDivElement>('#app');
 if (app)
-  app.innerHTML = `
+    app.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="./vite.svg" class="logo" alt="Vite logo" />
@@ -25,8 +25,7 @@ if (app)
   </div>
   ${card.createCard()}
 
-`
-
+`;
 
 const counter = document.querySelector<HTMLButtonElement>('#counter');
 if (counter) setupCounter(counter);
