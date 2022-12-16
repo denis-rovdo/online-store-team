@@ -1,16 +1,15 @@
-import Cards from "./Card/Cards";
+import Cards from './Card/Cards';
+import FiltersView from './Filters/Filters';
+import PageView from './Pages/MainComponent/PageView';
 class AppView {
-  card: Cards;
-  content: HTMLDivElement;
-  constructor() {
-    const app = document.querySelector('#app');
-    this.content = document.createElement('div');
-    this.content.classList.add('content')
-    app?.append(this.content);
-
-    this.card = new Cards();
-  }
-
+    card: Cards;
+    mainPage: PageView;
+    filterByBrand: FiltersView;
+    constructor() {
+        this.mainPage = new PageView();
+        this.card = new Cards();
+        this.filterByBrand = new FiltersView();
+    }
 }
 
 export default AppView;
