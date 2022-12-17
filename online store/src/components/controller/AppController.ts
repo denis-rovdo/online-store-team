@@ -1,6 +1,7 @@
 import { Product } from './../../types/types';
 import Model from '../model/Model';
 import AppView from '../view/AppView';
+import addHandlersNavigation from '../../router/addHandlers';
 
 class AppController {
     view: AppView;
@@ -16,10 +17,10 @@ class AppController {
 
     // функция для отрисовки актуальных данных
     resetData = (data: Product[], count: number) => {
-        console.log(1);
         this.view.displayContent(data);
         this.view.basket.drawBasket(count.toString());
         this.view.price.drawPrice(this.model.getTotalSum().toString())
+
     };
     // пока что не готовая функция
     handleFilterByBrand = (brand: string) => {

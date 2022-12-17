@@ -1,3 +1,3 @@
-export const description = () => {
-    //рендер Страницы с описанием товара
+export const description = (id) => {
+    console.log('HELLO DESCRIPTION' + id)
 };

@@ -28,7 +28,7 @@ class Model {
             this.state.find((el) => (el.id === a ? this.basket.push(el) : ''));
         }
     };
-
+    // подсчитывает сумму всех товаров которые находятся в корзине
     getTotalSum() {
         const totalPrice = this.basket.reduce((acc, el) => {
             return el.price + acc;

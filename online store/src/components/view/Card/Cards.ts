@@ -1,3 +1,4 @@
+import addHandlersNavigation from '../../../router/addHandlers';
 import { Product } from './../../../types/types';
 import classes from './Cards.module.sass';
 
@@ -23,7 +24,7 @@ class Cards {
             </button>
             </a>`;
             const buttonDetail = ` 
-            <a class='${classes.buttonLinkDetails}'  href='#'>
+            <a class='${classes.buttonLinkDetails} forLink'  href='/description/${el.id}'>
             <button class='${classes.btn}'>Details
             </button>
             </a>
@@ -38,6 +39,8 @@ class Cards {
             const addLink = document.querySelector(`${classes.buttonLinkAdd}`);
             addLink?.setAttribute('data-id', `${el.id}`);
         });
+        addHandlersNavigation(`.${classes.buttonLinkDetails}`);
+
     }
     // Накидываем обработчики на кнопки Add, функция принимает функцию из контроллера
     bindAddProduct(handler: (data: number) => void) {

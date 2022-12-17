@@ -1,3 +1,3 @@
 export const basket = () => {
-    //рендер карзины
+    console.log('BASKET')
 };

@@ -29,5 +29,5 @@ type Category = 'Vacuum cleaners' | 'Сoffee machines' | 'Fridges' | 'Microwaves
 
 export type Routes = {
     path: string;
-    template: () => void | undefined
+    template: (data?: string) => void | undefined
 };
