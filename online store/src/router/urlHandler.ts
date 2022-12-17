@@ -1,4 +1,5 @@
 import { routes } from './routes';
+import { Routes } from '../types/types';
 
 export const urlHandler = () => {
     let url = window.location.pathname;
@@ -9,7 +10,7 @@ export const urlHandler = () => {
 
     let route: Routes | undefined = routes.find((item) => item.path === url);
     if (!route) {
-        route = routes[0].path;
+        route != routes[0].path;
     }
-    route.template();
+    route!.template!();
 };

@@ -24,9 +24,10 @@ type Brand =
     | 'Media'
     | 'Atlanta'
     | 'DeLonghi';
+
 type Category = 'Vacuum cleaners' | 'Сoffee machines' | 'Fridges' | 'Microwaves' | 'Kettles' | 'Washing machine';
 
 export type Routes = {
     path: string;
-    template: void /* не знаю что тут за тип будет */;
+    template: () => void | undefined
 };
