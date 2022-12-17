@@ -28,6 +28,15 @@ class Model {
             this.state.find((el) => (el.id === a ? this.basket.push(el) : ''));
         }
     };
+
+    getTotalSum() {
+        const totalPrice = this.basket.reduce((acc, el) => {
+            return el.price + acc;
+        }, 0)
+        return totalPrice;
+    }
 }
+
+
 
 export default Model;
