@@ -9,9 +9,10 @@ class AppController {
         this.view = view;
         this.model = model;
         this.resetData(this.model.data);
+        this.view.card.bindAddProduct(this.handleAddProduct);
     }
     resetData = (data: Product[]) => {
-        this.view.card.drawCard(data);
+        this.view.displayContent(data);
         this.view.filterByBrand.drawFilter();
     };
 
@@ -19,6 +20,10 @@ class AppController {
         this.model.filterWithParams(brand);
         // let data = this.model.data;
         this.view.filterByBrand.drawFilter();
+    };
+
+    handleAddProduct = (id: number) => {
+        this.model.addProduct(id);
     };
 }
 

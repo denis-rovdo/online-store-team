@@ -1,4 +1,4 @@
-import classes from './Filters.module.sass';
+// import classes from './Filters.module.sass';
 
 class FiltersView {
     drawFilter() {
