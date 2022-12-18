@@ -35,8 +35,8 @@ class AppController {
         this.resetData(this.model.data, this.model.basket.length);
 
     };
-
-    handlerSearchProduct = (textInput) => {
+    // для сортировки товара по тексту введенном в инпуте
+    handlerSearchProduct = (textInput: string) => {
         this.model.filterByValue(textInput);
         this.view.displayContent(this.model.data);
     }

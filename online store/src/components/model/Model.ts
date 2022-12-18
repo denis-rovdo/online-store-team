@@ -17,7 +17,9 @@ class Model {
         this.data = this.state.filter((el) => el.brand === params);
     };
 
-    filterByValue = (textInput) => {
+
+    // фильтр данных по введенному тексту в инпуте
+    filterByValue = (textInput: string) => {
         this.data = this.state.filter(el => {
             if (el.title.toLowerCase().indexOf(textInput) > -1) {
                 return true
@@ -25,8 +27,6 @@ class Model {
                 return false
             }
         })
-        console.log(this.state);
-        console.log(this.data);
     }
 
     // делает уникальный массив продуктов в корзине
