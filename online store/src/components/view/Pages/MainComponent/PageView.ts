@@ -28,7 +28,6 @@ class PageView {
     <div class="container">
 <div class="category"> 
 <div class="input">
-<input type='text'>
 </div>
 </div>
 <div class="content__block">

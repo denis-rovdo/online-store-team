@@ -13,6 +13,7 @@ class AppController {
         this.resetData(this.model.data, this.model.basket.length);
         // вызывает хендлер при добавлении продукта в корзину
         this.view.card.bindAddProduct(this.handleAddProduct);
+        this.view.search.bindSearchProduct(this.handlerSearchProduct);
     }
 
     // функция для отрисовки актуальных данных
@@ -32,8 +33,13 @@ class AppController {
     handleAddProduct = (id: number) => {
         this.model.addProduct(id);
         this.resetData(this.model.data, this.model.basket.length);
-        
+
     };
+
+    handlerSearchProduct = (textInput) => {
+        this.model.filterByValue(textInput);
+        this.view.displayContent(this.model.data);
+    }
 }
 
 export default AppController;

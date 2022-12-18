@@ -17,6 +17,18 @@ class Model {
         this.data = this.state.filter((el) => el.brand === params);
     };
 
+    filterByValue = (textInput) => {
+        this.data = this.state.filter(el => {
+            if (el.title.toLowerCase().indexOf(textInput) > -1) {
+                return true
+            } else {
+                return false
+            }
+        })
+        console.log(this.state);
+        console.log(this.data);
+    }
+
     // делает уникальный массив продуктов в корзине
     addProduct = (a: number) => {
         if (this.basket.length != 0) {
