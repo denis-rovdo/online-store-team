@@ -8,7 +8,7 @@ export const urlHandler = () => {
         url = '/';
     }
 
-    let route: Routes | undefined = routes.find((item) => item.path === url);
+    let route: Routes | undefined = routes.find((r) => r.path.test(url));
     if (!route) {
         route != routes[0].path;
     }

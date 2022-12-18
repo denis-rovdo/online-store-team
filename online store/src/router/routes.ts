@@ -1,24 +1,24 @@
 import { Routes } from '../types/types';
-import { product } from '../components/view/pages/product/product';
+import { home } from '../components/view/pages/home/home';
 import { notFound } from '../components/view/pages/not found/not-found';
-import { description } from '../components/view/pages/product description/description';
-import { basket } from '../components/view/pages/basket/basket';
+import { product } from '../components/view/pages/product/product';
+import { cart } from '../components/view/pages/cart/cart';
 
 export const routes: Routes[] = [
     {
-        path: '/404',
+        path: /\/404/,
         template: notFound,
     },
     {
-        path: '/',
+        path: /\/basket/,
+        template: cart,
+    },
+    {
+        path: /\/product\/.+/,
         template: product,
     },
     {
-        path: '/basket',
-        template: basket,
-    },
-    {
-        path: '/description',
-        template: description,
+        path: /\//,
+        template: home,
     },
 ];

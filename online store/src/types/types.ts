@@ -28,6 +28,6 @@ type Brand =
 type Category = 'Vacuum cleaners' | 'Сoffee machines' | 'Fridges' | 'Microwaves' | 'Kettles' | 'Washing machine';
 
 export type Routes = {
-    path: string;
+    path: RegExp;
     template: () => void | undefined
 };

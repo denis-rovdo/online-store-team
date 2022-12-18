@@ -12,4 +12,4 @@ const addHandlersNavigation = (className: string) => {
     });
 };
 
-addHandlersNavigation(''); //вызвать с веобходимым ласоом
+addHandlersNavigation(''); //вызвать с необходимым классом
