@@ -10,7 +10,7 @@ export const routes: Routes[] = [
         template: notFound,
     },
     {
-        path: /\/basket/,
+        path: /\/cart/,
         template: cart,
     },
     {
@@ -18,7 +18,7 @@ export const routes: Routes[] = [
         template: product,
     },
     {
-        path: /\//,
+        path: /\/$/,
         template: home,
     },
 ];
