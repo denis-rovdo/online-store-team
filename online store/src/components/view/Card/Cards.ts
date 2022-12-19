@@ -24,7 +24,7 @@ class Cards {
                                 </a>`;
             const buttonDetail = ` 
                                 <a class='${classes.buttonLinkDetails} forLink'  href='/product/${el.id}'>
-                                <button class='${classes.btn}'>Details</button>
+                                    <button class='${classes.btn}'>Details</button>
                                 </a>
             `;
             const buttonBlock = `<div class='${classes.buttonBlock}'>${buttonAdd}${buttonDetail}</div>`;

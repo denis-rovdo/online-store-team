@@ -12,5 +12,5 @@ export const urlHandler = () => {
     if (!route) {
         route != routes[0].path;
     }
-    route!.template!();
+    if (route) route.template();
 };

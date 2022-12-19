@@ -7,9 +7,8 @@ class Cart {
         cart.classList.add('cart');
         const cartImg = `
                         <a href='/cart'>
-                        <img class="${classes.cartImg}" src="https://www.svgrepo.com/show/59506/online-shop-cart.svg" alt="cart">
+                            <img class="${classes.cartImg}" src="https://www.svgrepo.com/show/59506/online-shop-cart.svg" alt="cart">
                         </a>
-    
     `;
         const cartCount = document.createElement('p');
         cartCount.className = `${classes.countProducts}`;

@@ -9,7 +9,7 @@ class Categories {
             categoryBlock?.classList.add(`${classes.categoryBlock}`);
             const categoryContent = `
                             <div>
-                            <h3 class='${classes.name}'>${el.name}</h3>
+                                <h3 class='${classes.name}'>${el.name}</h3>
                                 <img class='${classes.img}' src='${el.img}' alt='vacuum cleaner'>
                             </div>
       `;
