@@ -1,4 +1,4 @@
-import { Product } from './../../types/types';
+import { CategoriesProduct, Product } from './../../types/types';
 import Model from '../model/Model';
 import AppView from '../view/AppView';
 import addHandlersNavigation from '../../router/addHandlers';
@@ -11,11 +11,18 @@ class AppController {
         this.model = model;
         // отрисовывает данные при загрузке страницы
         this.resetData(this.model.data, this.model.basket.length);
+        // вызов отрисовки категорий
+        this.resetCategories(this.model.categories);
+        console.log(this.model.categories);
         // вызывает хендлер при добавлении продукта в корзину
         this.view.card.bindAddProduct(this.handleAddProduct);
         this.view.search.bindSearchProduct(this.handlerSearchProduct);
     }
-
+    //  сама функция отрисовки  категорий
+    resetCategories(arr: CategoriesProduct[]) {
+        console.log(arr);
+        this.view.categories.drawCategories(arr);
+    }
     // функция для отрисовки актуальных данных
     resetData = (data: Product[], count: number) => {
         this.view.displayContent(data);

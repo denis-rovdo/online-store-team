@@ -6,6 +6,7 @@ import PageView from './Pages/MainComponent/PageView';
 import Basket from './basket/Baset';
 import Price from './price/Price';
 import Search from './Search/Search';
+import Categories from './Categoreis/Categories';
 class AppView {
     card: Cards;
     mainPage: PageView;
@@ -13,6 +14,7 @@ class AppView {
     basket: Basket;
     price: Price;
     search: Search;
+    categories: Categories;
     constructor() {
         this.mainPage = new PageView();
         this.card = new Cards();
@@ -20,6 +22,7 @@ class AppView {
         this.price = new Price();
         this.filterByBrand = new FiltersView();
         this.search = new Search();
+        this.categories = new Categories();
     }
     //  отрисовка каточек
     displayContent(data: Product[]) {
