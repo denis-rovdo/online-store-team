@@ -1,22 +1,28 @@
-import { basket } from './Pages/basket/basket';
+import { cart } from './Pages/cart/cart';
 import { Product } from './../../types/types';
 import Cards from './Card/Cards';
 import FiltersView from './Filters/Filters';
 import PageView from './Pages/MainComponent/PageView';
-import Basket from './basket/Baset';
+import Cart from './cart/cart';
 import Price from './price/Price';
+import Search from './Search/Search';
+import Categories from './Categoreis/Categories';
 class AppView {
     card: Cards;
     mainPage: PageView;
     filterByBrand: FiltersView;
-    basket: Basket;
+    cart: Cart;
     price: Price;
+    search: Search;
+    categories: Categories;
     constructor() {
         this.mainPage = new PageView();
         this.card = new Cards();
-        this.basket = new Basket();
+        this.cart = new Cart();
         this.price = new Price();
         this.filterByBrand = new FiltersView();
+        this.search = new Search();
+        this.categories = new Categories();
     }
     //  отрисовка каточек
     displayContent(data: Product[]) {
@@ -32,7 +38,6 @@ class AppView {
             this.card.drawCard(data);
         }
     }
- 
 }
 
 export default AppView;

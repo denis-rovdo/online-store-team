@@ -1,4 +1,3 @@
-
 class PageView {
     body: HTMLBodyElement;
     app: HTMLDivElement;
@@ -9,7 +8,7 @@ class PageView {
         this.body = <HTMLBodyElement>document.querySelector('body');
         this.app = <HTMLDivElement>document.querySelector('#app');
         this.header = document.createElement('header');
-        this.header.classList.add('header')
+        this.header.classList.add('header');
         this.main = document.createElement('main');
         this.footer = document.createElement('footer');
         this.header.innerHTML = `<div class="container">
@@ -21,14 +20,13 @@ class PageView {
     <div class="total__price">
     <p class="total__price">0</p>
     </div>
-    <div class="basket">
+    <div class="cart">
     </div>
 </div>`;
         this.main.innerHTML = ` 
     <div class="container">
 <div class="category"> 
 <div class="input">
-<input type='text'>
 </div>
 </div>
 <div class="content__block">
