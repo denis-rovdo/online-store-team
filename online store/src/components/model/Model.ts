@@ -43,9 +43,6 @@ class Model {
                 category: 'Washing'
             },
         ];
-        this.filterParams = {
-            categories: []
-        }
     }
     // пока что не используется
     filterWithParams = (params: string) => {

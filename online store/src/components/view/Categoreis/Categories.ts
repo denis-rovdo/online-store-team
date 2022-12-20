@@ -31,9 +31,7 @@ class Categories {
                 handler(categoryData);
             }
         })
-
     }
-
 }
 
 export default Categories;
