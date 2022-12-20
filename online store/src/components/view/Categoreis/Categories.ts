@@ -24,8 +24,14 @@ class Categories {
             e.preventDefault();
             let target = e.target as Element;
             if (target.closest(`.${classes.categoryBlock}`)) {
-                let categoryData: string | null | undefined = target.closest(`.${classes.categoryBlock}`)?.getAttribute('data');
-                handler(categoryData);
+                let categoryData: HTMLDivElement | null = target.closest(`.${classes.categoryBlock}`);
+                if (!categoryData?.classList.contains(`${classes.active}`)) {
+                    categoryData?.classList.add(`${classes.active}`);
+                    let categoryAttribute = categoryData?.getAttribute('data');
+                    handler(categoryAttribute);
+                } else {
+                    categoryData?.classList.remove(`${classes.active}`);
+                }
             }
         })
     }
