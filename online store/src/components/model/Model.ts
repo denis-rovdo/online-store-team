@@ -15,28 +15,37 @@ class Model {
             {
                 name: 'Vacuum cleaners',
                 img: 'https://www.svgrepo.com/show/62969/vacuum-cleaner.svg',
+                category: 'Vacuum'
             },
             {
                 name: 'Coffee machines',
                 img: 'https://www.svgrepo.com/show/1281/coffee-maker.svg',
+                category: 'Coffee'
             },
             {
                 name: 'Fridges',
                 img: 'https://www.svgrepo.com/show/86056/fridge.svg',
+                category: 'Fridges'
             },
             {
                 name: 'Microwaves',
                 img: 'https://www.svgrepo.com/show/300115/microwave.svg',
+                category: 'Microwaves'
             },
             {
                 name: 'Kettles',
                 img: 'https://www.svgrepo.com/show/67724/kettle.svg',
+                category: 'Kettels'
             },
             {
                 name: 'Washing machine',
                 img: 'https://www.svgrepo.com/show/79028/washing-machine.svg',
+                category: 'Washing'
             },
         ];
+        this.filterParams = {
+            categories: []
+        }
     }
     // пока что не используется
     filterWithParams = (params: string) => {

@@ -16,6 +16,7 @@ class AppController {
         // вызывает хендлер при добавлении продукта в корзину
         this.view.card.bindAddProduct(this.handleAddProduct);
         this.view.search.bindSearchProduct(this.handlerSearchProduct);
+        this.view.categories.bindAddCategory(this.handlerAddCategory)
     }
     //  сама функция отрисовки  категорий
     resetCategories(arr: CategoriesProduct[]) {
@@ -28,6 +29,9 @@ class AppController {
         this.view.cart.drawCart(count.toString());
         this.view.price.drawPrice(this.model.getTotalSum().toString());
     };
+    handlerAddCategory() {
+        
+    }
     // пока что не готовая функция
     handleFilterByBrand = (brand: string) => {
         this.model.filterWithParams(brand);

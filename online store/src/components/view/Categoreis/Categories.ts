@@ -1,3 +1,4 @@
+import { Category } from './../../../types/types';
 import { CategoriesProduct } from '../../../types/types';
 import classes from './Categories.module.sass';
 
@@ -7,16 +8,32 @@ class Categories {
         data.forEach((el) => {
             const categoryBlock = document.createElement('div');
             categoryBlock?.classList.add(`${classes.categoryBlock}`);
+            categoryBlock.setAttribute('data', el.category);
             const categoryContent = `
-                            <div>
                                 <h3 class='${classes.name}'>${el.name}</h3>
                                 <img class='${classes.img}' src='${el.img}' alt='vacuum cleaner'>
-                            </div>
       `;
             categoryBlock.innerHTML = categoryContent;
             category?.append(categoryBlock);
         });
     }
+
+    bindAddCategory(handler: (data: string) => void) {
+        const category = document.querySelector('.category');
+        category?.addEventListener('click', (e) => {
+            e.preventDefault();
+            let target = e.target as Element;
+            if (target.closest(`.${classes.categoryBlock}`)) {
+                let categoryData: Element | null | String = target.closest(`.${classes.categoryBlock}`)
+                if (categoryData) {
+                    categoryData = categoryData.getAttribute('data');
+                }
+                handler(categoryData);
+            }
+        })
+
+    }
+
 }
 
 export default Categories;

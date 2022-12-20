@@ -30,6 +30,7 @@ export type Category = 'Vacuum cleaners' | 'Coffee machines' | 'Fridges' | 'Micr
 export interface CategoriesProduct {
     name: Category;
     img: string;
+    category: string;
 }
 
 export type Routes = {
