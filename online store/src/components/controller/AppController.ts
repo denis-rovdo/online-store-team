@@ -1,7 +1,6 @@
 import { CategoriesProduct, Product } from './../../types/types';
 import Model from '../model/Model';
 import AppView from '../view/AppView';
-import addHandlersNavigation from '../../router/addHandlers';
 
 class AppController {
     view: AppView;
