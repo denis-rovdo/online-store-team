@@ -14,3 +14,4 @@ export const urlHandler = () => {
     }
     if (route) route.template();
 };
+window.addEventListener(`load`, urlHandler); // проверка пути при загрузке станицы нужно вынести куда-то повыше 
