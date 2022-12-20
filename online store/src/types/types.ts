@@ -12,7 +12,6 @@ export interface Product {
     images: string[];
 }
 
-
 type Brand =
     | 'Philips'
     | 'Samsung'
@@ -26,20 +25,14 @@ type Brand =
     | 'Atlanta'
     | 'DeLonghi';
 
-export type Category =
-    | 'Vacuum cleaners'
-    | 'Coffee machines'
-    | 'Fridges'
-    | 'Microwaves'
-    | 'Kettles'
-    | 'Washing machine';
+export type Category = 'Vacuum cleaners' | 'Coffee machines' | 'Fridges' | 'Microwaves' | 'Kettles' | 'Washing machine';
 
 export interface CategoriesProduct {
-    name: Category,
-    img: string
-};
+    name: Category;
+    img: string;
+}
 
 export type Routes = {
-    path: string;
-    template: (data?: string) => void | undefined
+    path: RegExp;
+    template: () => void | undefined;
 };

@@ -4,7 +4,8 @@ class FiltersView {
     drawFilter() {
         const content = document.querySelector('.content');
         const filterBlock = document.createElement('div');
-        const filterByBrand = `<select id='filterByBrand'>
+        const filterByBrand = `
+    <select id='filterByBrand'>
       <option disable='Brand'>Brands</option>
       <option value='Philips'>Philips</option>
       <option value='Samsung'>Samsung</option>

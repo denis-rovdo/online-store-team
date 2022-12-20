@@ -5,7 +5,7 @@ export const urlRoute = (event: Event): void => {
     event.preventDefault();
     const target = <HTMLAnchorElement>event.target;
     if (target) {
-        window.history.pushState({}, '', target.parentElement.href);
+        window.history.pushState({}, '', target.href);
         urlHandler();
     }
 };
