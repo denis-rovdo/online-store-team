@@ -10,24 +10,21 @@ class Categories {
             categoryBlock?.classList.add(`${classes.categoryBlock}`);
             categoryBlock.setAttribute('data', el.category);
             const categoryContent = `
-                                <h3 class='${classes.name}'>${el.name}</h3>
-                                <img class='${classes.img}' src='${el.img}' alt='vacuum cleaner'>
-      `;
+                                      <h3 class='${classes.name}'>${el.name}</h3>
+                                      <img class='${classes.img}' src='${el.img}' alt='vacuum cleaner'>
+                                    `;
             categoryBlock.innerHTML = categoryContent;
             category?.append(categoryBlock);
         });
     }
 
-    bindAddCategory(handler: (data: string) => void) {
+    bindAddCategory(handler: (data: string | null | undefined) => void) {
         const category = document.querySelector('.category');
         category?.addEventListener('click', (e) => {
             e.preventDefault();
             let target = e.target as Element;
             if (target.closest(`.${classes.categoryBlock}`)) {
-                let categoryData: Element | null | String = target.closest(`.${classes.categoryBlock}`)
-                if (categoryData) {
-                    categoryData = categoryData.getAttribute('data');
-                }
+                let categoryData: string | null | undefined = target.closest(`.${classes.categoryBlock}`)?.getAttribute('data');
                 handler(categoryData);
             }
         })
