@@ -1,4 +1,8 @@
 export const notFound = () => {
-    //рендер страницы 404
-    console.log('404');
+    const main = document.querySelector('main');
+    const container = main?.querySelector('.container');
+    container?.replaceChildren();
+    const div = document.createElement('div');
+    div.innerText = `404 page not found`;
+    container?.append(div);
 };

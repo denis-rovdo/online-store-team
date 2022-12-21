@@ -3,8 +3,7 @@ import { routes } from '../../../../router/routes';
 export const product = () => {
     const url = window.location.pathname.split('/');
     const id = Number(url.at(-1)); // id нашей карточки
-    if (id < 0 || id > 100 || url.length > 3) {
-        history.pushState({}, '', '/404');
+    if (id < 0 || id > 100 || url.length > 3 || Number.isNaN(id)) {
         routes[0].template();
     } else {
         //если все ок то рендер нашей карточки по необходиомму пути

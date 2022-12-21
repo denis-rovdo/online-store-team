@@ -10,15 +10,15 @@ export const routes: Routes[] = [
         template: notFound,
     },
     {
-        path: /\/cart/,
+        path: /^\/cart$/,
         template: cart,
     },
     {
-        path: /\/product\/.+/,
+        path: /^\/product\/.+/,
         template: product,
     },
     {
-        path: /\/$/,
+        path: /^\/$/,
         template: home,
     },
 ];
