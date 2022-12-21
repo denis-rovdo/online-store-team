@@ -24,4 +24,16 @@ type Brand =
     | 'Media'
     | 'Atlanta'
     | 'DeLonghi';
-type Category = 'Vacuum cleaners' | 'Сoffee machines' | 'Fridges' | 'Microwaves' | 'Kettles' | 'Washing machine';
+
+export type Category = 'Vacuum cleaners' | 'Coffee machines' | 'Fridges' | 'Microwaves' | 'Kettles' | 'Washing machine';
+
+export interface CategoriesProduct {
+    name: Category;
+    img: string;
+    category: string;
+}
+
+export type Routes = {
+    path: RegExp;
+    template: () => void | undefined;
+};

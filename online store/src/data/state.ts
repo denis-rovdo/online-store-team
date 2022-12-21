@@ -1,4 +1,4 @@
-import { Product } from '../types/types';
+import { CategoriesProduct, Product } from '../types/types';
 
 const PRODUCTS: Product[] = [
     {
@@ -1448,7 +1448,7 @@ const PRODUCTS: Product[] = [
         rating: 5,
         stock: 3,
         brand: 'Philips',
-        category: 'Сoffee machines',
+        category: 'Coffee machines',
         thumbnail: 'https://cdn21vek.by/img/galleries/1043/244/preview_b/ep324670_philips_5d1264cd053ea.jpeg',
         images: [
             'https://cdn21vek.by/img/galleries/1043/244/preview_b/ep324670_philips_5d1264cd5ebee.jpeg',
@@ -1465,7 +1465,7 @@ const PRODUCTS: Product[] = [
         rating: 5,
         stock: 5,
         brand: 'Philips',
-        category: 'Сoffee machines',
+        category: 'Coffee machines',
         thumbnail: 'https://cdn21vek.by/img/galleries/6726/336/preview_b/ep223640_philips_6107df66dc6f1.jpeg',
         images: [
             'https://cdn21vek.by/img/galleries/6726/336/preview_b/ep223640_philips_6107df66dc6f1.jpeg',
@@ -1482,7 +1482,7 @@ const PRODUCTS: Product[] = [
         rating: 4,
         stock: 5,
         brand: 'Philips',
-        category: 'Сoffee machines',
+        category: 'Coffee machines',
         thumbnail: 'https://cdn21vek.by/img/galleries/6412/725/preview_b/ep122120_philips_60408aba78315.jpeg',
         images: [
             'https://cdn21vek.by/img/galleries/6412/725/preview_b/ep122120_philips_60408ad550b75.jpeg',
@@ -1499,7 +1499,7 @@ const PRODUCTS: Product[] = [
         rating: 2,
         stock: 5,
         brand: 'DeLonghi',
-        category: 'Сoffee machines',
+        category: 'Coffee machines',
         thumbnail:
             'https://cdn21vek.by/img/galleries/7596/596/preview_b/dinamicaecam35050b_delonghi_62ce9f266a2f7.jpeg',
         images: [
@@ -1517,7 +1517,7 @@ const PRODUCTS: Product[] = [
         rating: 3,
         stock: 2,
         brand: 'DeLonghi',
-        category: 'Сoffee machines',
+        category: 'Coffee machines',
         thumbnail: 'https://cdn21vek.by/img/galleries/5726/266/preview_b/ecam25023sb_delonghi_5e09c28d227dc.jpeg',
         images: [
             'https://cdn21vek.by/img/galleries/5726/266/preview_b/ecam25023sb_delonghi_5e09c28d47a3f.jpeg',
@@ -1534,7 +1534,7 @@ const PRODUCTS: Product[] = [
         rating: 4,
         stock: 4,
         brand: 'DeLonghi',
-        category: 'Сoffee machines',
+        category: 'Coffee machines',
         thumbnail:
             'https://cdn21vek.by/img/galleries/5842/181/preview_b/magnificassmartecam25031sb_delonghi_5e15b4c31a2cf.jpeg',
         images: [
@@ -1552,7 +1552,7 @@ const PRODUCTS: Product[] = [
         rating: 5,
         stock: 3,
         brand: 'DeLonghi',
-        category: 'Сoffee machines',
+        category: 'Coffee machines',
         thumbnail: 'https://cdn21vek.by/img/galleries/7784/251/preview_b/ecam45055s_delonghi_637f17865c573.jpeg',
         images: [
             'https://cdn21vek.by/img/galleries/7784/251/preview_b/ecam45055s_delonghi_637f178992cb3.jpeg',
@@ -1732,6 +1732,39 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7719/547/preview_b/f2j6hsfw_lg_633aca9e6c90b.jpeg',
             'https://cdn21vek.by/img/galleries/7719/547/preview_b/f2j6hsfw_lg_633acaa6addcb.jpeg',
         ],
+    },
+];
+
+export const categoriesProducts: CategoriesProduct[] = [
+    {
+        name: 'Vacuum cleaners',
+        img: 'https://www.svgrepo.com/show/62969/vacuum-cleaner.svg',
+        category: 'Vacuum',
+    },
+    {
+        name: 'Coffee machines',
+        img: 'https://www.svgrepo.com/show/1281/coffee-maker.svg',
+        category: 'Coffee',
+    },
+    {
+        name: 'Fridges',
+        img: 'https://www.svgrepo.com/show/86056/fridge.svg',
+        category: 'Fridges',
+    },
+    {
+        name: 'Microwaves',
+        img: 'https://www.svgrepo.com/show/300115/microwave.svg',
+        category: 'Microwaves',
+    },
+    {
+        name: 'Kettles',
+        img: 'https://www.svgrepo.com/show/67724/kettle.svg',
+        category: 'Kettels',
+    },
+    {
+        name: 'Washing machine',
+        img: 'https://www.svgrepo.com/show/79028/washing-machine.svg',
+        category: 'Washing',
     },
 ];
 
