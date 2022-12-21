@@ -11,7 +11,7 @@ export const product = () => {
         const container = main?.querySelector('.container');
         container?.replaceChildren();
         const div = document.createElement('div');
-        div.innerText = `CARD + ${id}`
+        div.innerText = `CARD + ${id}`;
         container?.append(div);
     }
 };

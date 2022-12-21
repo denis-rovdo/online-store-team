@@ -27,8 +27,10 @@ class AppView {
     //  отрисовка каточек
     displayContent(data: Product[]) {
         const cards = document.querySelector('.cards');
-        while (cards?.firstChild) {
+        const categoriesBlock = document.querySelector('.forReset');
+        while (cards?.firstChild && categoriesBlock?.firstChild) {
             cards.removeChild(cards.firstChild);
+            categoriesBlock.remove();
         }
         if (data.length === 0) {
             const p = document.createElement('p');

@@ -4,6 +4,6 @@ export const cart = () => {
     const container = main?.querySelector('.container');
     container?.replaceChildren();
     const div = document.createElement('div');
-    div.innerText = `cart помойка`
+    div.innerText = `cart помойка`;
     container?.append(div);
 };

@@ -1,4 +1,4 @@
-import { Product } from '../types/types';
+import { CategoriesProduct, Product } from '../types/types';
 
 const PRODUCTS: Product[] = [
     {
@@ -1732,6 +1732,39 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7719/547/preview_b/f2j6hsfw_lg_633aca9e6c90b.jpeg',
             'https://cdn21vek.by/img/galleries/7719/547/preview_b/f2j6hsfw_lg_633acaa6addcb.jpeg',
         ],
+    },
+];
+
+export const categoriesProducts: CategoriesProduct[] = [
+    {
+        name: 'Vacuum cleaners',
+        img: 'https://www.svgrepo.com/show/62969/vacuum-cleaner.svg',
+        category: 'Vacuum',
+    },
+    {
+        name: 'Coffee machines',
+        img: 'https://www.svgrepo.com/show/1281/coffee-maker.svg',
+        category: 'Coffee',
+    },
+    {
+        name: 'Fridges',
+        img: 'https://www.svgrepo.com/show/86056/fridge.svg',
+        category: 'Fridges',
+    },
+    {
+        name: 'Microwaves',
+        img: 'https://www.svgrepo.com/show/300115/microwave.svg',
+        category: 'Microwaves',
+    },
+    {
+        name: 'Kettles',
+        img: 'https://www.svgrepo.com/show/67724/kettle.svg',
+        category: 'Kettels',
+    },
+    {
+        name: 'Washing machine',
+        img: 'https://www.svgrepo.com/show/79028/washing-machine.svg',
+        category: 'Washing',
     },
 ];
 

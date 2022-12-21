@@ -8,11 +8,11 @@ export const urlHandler = () => {
         url = '/';
     }
 
-    let route: Routes | undefined = routes.find((r) => r.path.test(url));
+    const route: Routes | undefined = routes.find((r) => r.path.test(url));
     if (!route) {
         routes[0].template();
-    }else{
+    } else {
         route.template();
     }
 };
-window.addEventListener(`load`, urlHandler); // проверка пути при загрузке станицы нужно вынести куда-то повыше 
+window.addEventListener(`load`, urlHandler); // проверка пути при загрузке станицы нужно вынести куда-то повыше

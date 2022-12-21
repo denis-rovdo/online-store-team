@@ -16,14 +16,11 @@ class Cards {
             const thumbnail = `<img class='${classes.image}' src="${el.thumbnail}" alt='Grocery'>`;
             //    price
             const price = `<p class='${classes.price}'>${el.price}</p>`;
-            const addLinkButton = document.createElement('a');
-            addLinkButton.className = `${classes.buttonLinkAdd}`;
-            addLinkButton.setAttribute('data-id', `$`);
             const buttonAdd = `<a class='${classes.buttonLinkAdd}'  card-id='${el.id}'>
                                         <button class='${classes.btn}'>Add</button>
                                 </a>`;
             const buttonDetail = ` 
-                                <a class='${classes.buttonLinkDetails} forLink'  href='/product/${el.id}'>
+                                <a class='${classes.buttonLinkDetails} ${classes.routingAddEvent}'  href='/product/${el.id}'>
                                     <button class='${classes.btn}'>Details</button>
                                 </a>
             `;
@@ -34,7 +31,7 @@ class Cards {
             const addLink = document.querySelector(`${classes.buttonLinkAdd}`);
             addLink?.setAttribute('data-id', `${el.id}`);
         });
-        addHandlersNavigation(`.${classes.buttonLinkDetails}`);
+        addHandlersNavigation(`.${classes.routingAddEvent}`);
     }
     // Накидываем обработчики на кнопки Add, функция принимает функцию из контроллера
     bindAddProduct(handler: (data: number) => void) {

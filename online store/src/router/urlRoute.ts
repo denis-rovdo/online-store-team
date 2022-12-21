@@ -6,8 +6,8 @@ export const urlRoute = (event: Event): void => {
     const target = <HTMLElement>event.target;
     const element = <HTMLAnchorElement>target.parentElement;
 
-    if (element){
+    if (element) {
         window.history.pushState({}, '', element.href);
         urlHandler();
-    } 
+    }
 };

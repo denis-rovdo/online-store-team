@@ -1,3 +1,6 @@
+import addHandlersNavigation from '../../../../router/addHandlers';
+import classes from './PageView.module.sass';
+
 class PageView {
     body: HTMLBodyElement;
     app: HTMLDivElement;
@@ -13,7 +16,7 @@ class PageView {
         this.footer = document.createElement('footer');
         this.header.innerHTML = `<div class="container">
                                     <div class="logo">
-                                        <a href="/">
+                                        <a class='${classes.routingAddEvent}' href="/">
                                             <img class='header__img' src="https://avatars.mds.yandex.net/i?id=f3f1bbeca8b5022d0770b3a81b8b558fa11b885e-7092330-images-thumbs&n=13" alt="logo">
                                         </a>
                                     </div>
@@ -37,6 +40,7 @@ class PageView {
                             </div>`;
         this.footer.innerHTML = `<div class="container"></div>`;
         this.app.append(this.header, this.main, this.footer);
+        addHandlersNavigation(`.${classes.routingAddEvent}`);
     }
 }
 
