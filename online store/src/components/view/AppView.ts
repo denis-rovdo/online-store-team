@@ -39,7 +39,8 @@ class AppView {
         } else {
             this.card.drawCard(data);
         }
-        alert('HOME')
+        console.log(`Home page`)
+
     }
 }
 

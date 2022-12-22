@@ -31,7 +31,6 @@ class Cards {
             const addLink = document.querySelector(`${classes.buttonLinkAdd}`);
             addLink?.setAttribute('data-id', `${el.id}`);
             const buttonLink = document.querySelector('forLink');
-            console.log('CHANGE')
             buttonLink?.addEventListener('click', (e) => {
                 e.preventDefault();
             })

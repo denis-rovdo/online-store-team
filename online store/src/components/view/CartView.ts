@@ -21,7 +21,7 @@ class CartView {
     }
     cartContainer.append(cartContent);
     container?.append(cartContainer);
-    alert('CART')
+    console.log(`Page Cart`)
   }
 
 }
