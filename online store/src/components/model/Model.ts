@@ -47,4 +47,6 @@ class Model {
     }
 }
 
+export let modelSingleton: Model = new Model();
+
 export default Model;

@@ -1,6 +1,5 @@
 import { routes } from './routes';
 import { Routes } from '../types/types';
-
 export const urlHandler = () => {
     let url = window.location.pathname;
 
@@ -15,4 +14,4 @@ export const urlHandler = () => {
         route.template();
     }
 };
-window.addEventListener(`load`, urlHandler); // проверка пути при загрузке станицы нужно вынести куда-то повыше
+// window.addEventListener(`load`, urlHandler); // проверка пути при загрузке станицы нужно вынести куда-то повыше

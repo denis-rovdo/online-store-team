@@ -1,14 +1,17 @@
 import classes from './Search.module.sass';
 
 class Search {
-    inputBlock: HTMLDivElement | null;
+    inputBlock: HTMLInputElement | null;
     input: HTMLInputElement;
     constructor() {
-        this.inputBlock = document.querySelector('.input');
+        this.categoryContainer = document.querySelector('.category');
+        this.inputBlock = document.createElement('div');
+        this.inputBlock.className = 'input'
         this.input = document.createElement('input');
         this.input.setAttribute('type', 'text');
         this.input.setAttribute('placeholder', 'Search product');
         this.inputBlock?.append(this.input);
+        this.categoryContainer.append(this.inputBlock);
     }
     get _inputText() {
         return this.input.value.toLowerCase();

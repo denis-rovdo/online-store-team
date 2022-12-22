@@ -5,15 +5,20 @@ import AppView from '../view/AppView';
 class AppController {
     view: AppView;
     model: Model;
-    constructor(view: AppView, model: Model) {
+    constructor(view: AppView, modelSingleton: Model) {
         this.view = view;
-        this.model = model;
+        this.model = modelSingleton;
         // отрисовывает данные при загрузке страницы
         this.resetData(this.model.data, this.model.cart.length);
         // вызывает хендлер при добавлении продукта в корзину
         this.view.card.bindAddProduct(this.handleAddProduct);
         this.view.search.bindSearchProduct(this.handlerSearchProduct);
         this.view.categories.bindAddCategory(this.handlerAddCategory);
+    }
+    startPage() {
+        this.view.displayContent(this.model.data);
+        this.view.categories.drawCategories(this.model.categories);
+        // this.view.search.drawSearch();
     }
     //  сама функция отрисовки  категорий
     resetCategories(arr: CategoriesProduct[]) {

@@ -1,4 +1,3 @@
-import { cart } from './Pages/cart/cart';
 import { Product } from './../../types/types';
 import Cards from './Card/Cards';
 import FiltersView from './Filters/Filters';
@@ -39,6 +38,7 @@ class AppView {
         } else {
             this.card.drawCard(data);
         }
+        alert('HOME')
     }
 }
 

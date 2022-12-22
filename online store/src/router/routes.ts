@@ -1,24 +1,22 @@
+import { app } from './../main';
 import { Routes } from '../types/types';
-import { home } from '../components/view/pages/home/home';
-import { notFound } from '../components/view/pages/not found/not-found';
-import { product } from '../components/view/pages/product/product';
-import { cart } from '../components/view/pages/cart/cart';
+
 
 export const routes: Routes[] = [
     {
         path: /\/404/,
-        template: notFound,
+        template: app.notFoundController.startPage,
     },
     {
         path: /^\/cart$/,
-        template: cart,
+        template: app.cartController.startPage,
     },
     {
         path: /^\/product\/.+/,
-        template: product,
+        template: app.productController.startPage,
     },
     {
         path: /^\/$/,
-        template: home,
+        template: app.homeController.startPage,
     },
 ];

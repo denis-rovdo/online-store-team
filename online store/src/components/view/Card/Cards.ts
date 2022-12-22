@@ -21,7 +21,7 @@ class Cards {
                                 </a>`;
             const buttonDetail = ` 
                                 <a class='${classes.buttonLinkDetails} ${classes.routingAddEvent}'  href='/product/${el.id}'>
-                                    <button class='${classes.btn}'>Details</button>
+                                    <button class='${classes.btnDetails} forLink' id='${el.id}'>Details</button>
                                 </a>
             `;
             const buttonBlock = `<div class='${classes.buttonBlock}'>${buttonAdd}${buttonDetail}</div>`;
@@ -30,8 +30,13 @@ class Cards {
             cards?.append(card);
             const addLink = document.querySelector(`${classes.buttonLinkAdd}`);
             addLink?.setAttribute('data-id', `${el.id}`);
+            const buttonLink = document.querySelector('forLink');
+            console.log('CHANGE')
+            buttonLink?.addEventListener('click', (e) => {
+                e.preventDefault();
+            })
         });
-        addHandlersNavigation(`.${classes.routingAddEvent}`);
+
     }
     // Накидываем обработчики на кнопки Add, функция принимает функцию из контроллера
     bindAddProduct(handler: (data: number) => void) {
