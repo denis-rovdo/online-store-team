@@ -1,12 +1,12 @@
 
 
 class ProductView {
-  drawProduct() {
+  drawProduct(id) {
     const container = document.querySelector('main .container');
     while (container?.firstChild) {
       container.removeChild(container.firstChild)
     }
-    alert('PRODUCT');
+    console.log(id);
   }
 }
 

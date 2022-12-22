@@ -71,5 +71,5 @@ const locationHandler = async (location: string) => {
       alert("What's happened???")
   }
 
-  controller?.startPage();
+  controller?.startPage(id);
 }
