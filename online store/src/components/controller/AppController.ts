@@ -1,6 +1,8 @@
 import { CategoriesProduct, Product } from './../../types/types';
 import Model from '../model/Model';
 import AppView from '../view/AppView';
+import { urlRoute } from '../../main';
+import Search from '../view/Search/Search';
 
 class AppController {
     view: AppView;
@@ -9,49 +11,73 @@ class AppController {
         this.view = view;
         this.model = modelSingleton;
         // отрисовывает данные при загрузке страницы
-        this.resetData(this.model.data, this.model.cart.length);
         // вызывает хендлер при добавлении продукта в корзину
-        this.view.card.bindAddProduct(this.handleAddProduct);
-        this.view.search.bindSearchProduct(this.handlerSearchProduct);
-        this.view.categories.bindAddCategory(this.handlerAddCategory);
+        // this.resetData(this.model.data, this.model.cart.length)
+        // this.view.card.bindAddProduct(this.handleAddProduct);
+        // this.view.search.bindSearchProduct(this.handlerSearchProduct);
+        // this.view.categories.bindAddCategory(this.handlerAddCategory);
     }
     startPage() {
-        this.view.displayContent(this.model.data);
+        this.view.mainPage.drawLogo();
+        this.view.cart.drawCart(this.model.cart.length);
+        this.view.price.drawPrice(this.model.getTotalSum().toString());
         this.view.categories.drawCategories(this.model.categories);
-        // this.view.search.drawSearch();
+        this.view.search.drawSearch();
+        this.view.card.drawCard(this.model.data);
+        // this.view.displayContent(this.model.data);
+        // this.view.categories.drawCategories(this.model.categories);
+        // this.view.card.drawCard(this.model.data);
+        // this.view.displayContent(this.model.data);
+        // this.resetCategories(this.model.categories);
+        // this.view.cart.drawCart(this.model.cart.length);
+        // this.view.price.drawPrice(this.model.getTotalSum().toString());
+        // this.resetData(this.model.data, this.model.cart.length);
+        // console.log('START PAGE')
+        const anchors = document.querySelectorAll('.forLink');
+        anchors.forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                urlRoute(e, anchor.id);
+            })
+        })
     }
     //  сама функция отрисовки  категорий
-    resetCategories(arr: CategoriesProduct[]) {
-        this.view.categories.drawCategories(arr);
-    }
+    // resetCategories(arr: CategoriesProduct[]) {
+    //     this.view.categories.drawCategories(arr);
+    //     console.log('RESET CATEGORIES')
+
+    // }
     // функция для отрисовки актуальных данных
-    resetData(data: Product[], count: number) {
-        // вызов отрисовки категорий
-        this.resetCategories(this.model.categories);
-        this.view.displayContent(data);
-        this.view.cart.drawCart(count.toString());
-        this.view.price.drawPrice(this.model.getTotalSum().toString());
-    }
+    // resetData(data: Product[], count: number) {
+    //     // вызов отрисовки категорий
+    //     this.resetCategories(this.model.categories);
+    //     // this.view.displayContent(this.model.data);
+    //     this.view.cart.drawCart(this.model.cart.length);
+    //     this.view.price.drawPrice(this.model.getTotalSum().toString());
+    //     this.startPage();
+    //     console.log('RESET DATA');
+    // }
     // For categories handler
-    handlerAddCategory() {
-        console.log('123123');
-    }
+    // handlerAddCategory() {
+    //     console.log('123123');
+    // }
     // пока что не готовая функция
-    handleFilterByBrand = (brand: string) => {
-        this.model.filterWithParams(brand);
-        // let data = this.model.data;
-        this.view.filterByBrand.drawFilter();
-    };
+    // handleFilterByBrand = (brand: string) => {
+    //     this.model.filterWithParams(brand);
+    //     this.view.filterByBrand.drawFilter();
+    //     this.startPage()
+    // };
     //  функция вызывается при добавлении продукта и закидывает продукт в массив корзины.Перерисовка страницы с новыми данными
-    handleAddProduct = (id: number) => {
-        this.model.addProduct(id);
-        this.resetData(this.model.data, this.model.cart.length);
-    };
+    // handleAddProduct = (id: number) => {
+    //     this.model.addProduct(id);
+    //     this.resetData(this.model.data, this.model.cart.length);
+    // };
     // для сортировки товара по тексту введенном в инпуте
-    handlerSearchProduct = (textInput: string) => {
-        this.model.filterByValue(textInput);
-        this.view.displayContent(this.model.data);
-    };
+    // handlerSearchProduct = (textInput: string) => {
+    //     console.log(textInput)
+    //     this.model.filterByValue(textInput);
+    //     this.resetData(this.model.data, this.model.cart.length);
+    // };
 }
 
 export default AppController;

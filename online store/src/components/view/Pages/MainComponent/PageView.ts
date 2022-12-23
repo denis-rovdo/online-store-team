@@ -1,3 +1,4 @@
+import { urlRoute } from '../../../../main';
 import addHandlersNavigation from '../../../../router/addHandlers';
 import classes from './PageView.module.sass';
 
@@ -16,31 +17,59 @@ class PageView {
         this.footer = document.createElement('footer');
         this.header.innerHTML = `<div class="container">
                                     <div class="logo">
-                                        <a class='${classes.routingAddEvent}' href="/">
-                                            <img class='header__img forLink' src="https://avatars.mds.yandex.net/i?id=f3f1bbeca8b5022d0770b3a81b8b558fa11b885e-7092330-images-thumbs&n=13" alt="logo">
-                                        </a>
+                                            Logo
                                     </div>
                                     <div class="total__price">
-                                        <p class="total__price">0</p>
+                                        <p class="total__price">Price</p>
                                     </div>
-                                    <div class="cart"></div>
+                                    <div class="cart">Cart</div>
                                 </div>`;
         this.main.innerHTML = `
                             <div class="container">
                                 <div class="category">
-                                    
                                 </div>
                                 <div class="content__block">
                                     <div class="filters"></div>
                                     <div class="content">
                                         <div class="type__cards"></div>
-                                        <div div class="cards"></div>
+                                        <div div class="cards">Cards</div>
                                     </div>
                                 </div>
                             </div>`;
         this.footer.innerHTML = `<div class="container"></div>`;
         this.app.append(this.header, this.main, this.footer);
-        // addHandlersNavigation(`.${classes.routingAddEvent}`);
+        // logo.removeEventListener('click', (e) => {
+        //     urlRoute(e, '');
+        // })
+
+    }
+    drawLogo() {
+        const main = document.querySelector('main .container');
+        main!.innerHTML = `
+                                <div class="category">
+                                </div>
+                                <div class="content__block">
+                                    <div class="filters">Filters</div>
+                                    <div class="content">
+                                        <div class="type__cards">Type Cards</div>
+                                        <div div class="cards"></div>
+                                    </div>
+                                </div>
+                           
+        `
+        const header = document.querySelector('header .container');
+        const logoBlock = document.createElement('div');
+        const checkLogoBlock = document.querySelector('.logo');
+        if (checkLogoBlock) checkLogoBlock.remove()
+        logoBlock.className = 'logo'
+        const logoContent =
+            `
+        <a class='${classes.routingAddEvent}' href="/">
+                <img class='header__img forLink' src="https://avatars.mds.yandex.net/i?id=f3f1bbeca8b5022d0770b3a81b8b558fa11b885e-7092330-images-thumbs&n=13" alt="logo">
+         </a>
+        `
+        logoBlock.innerHTML = logoContent;
+        header?.prepend(logoBlock);
     }
 }
 

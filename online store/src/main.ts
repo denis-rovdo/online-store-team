@@ -9,6 +9,7 @@ import CartController from './components/controller/CartController';
 import ProductController from './components/controller/ProductController';
 import NotFoundController from './components/controller/NotFoundController';
 import CartView from './components/view/CartView';
+import { ScriptTarget } from 'typescript';
 
 export const app = new App(new AppController(new AppView(), modelSingleton), new CartController(new CartView()), new ProductController(), new NotFoundController());
 
@@ -19,13 +20,13 @@ export const app = new App(new AppController(new AppView(), modelSingleton), new
 
 
 
-const anchors = document.querySelectorAll('.forLink');
-anchors.forEach(anchor => {
-  anchor.addEventListener('click', (e) => {
-    e.preventDefault();
-    urlRoute(e, anchor.id);
-  })
-})
+// const anchors = document.querySelectorAll('.forLink');
+// anchors.forEach(anchor => {
+//   anchor.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     urlRoute(e, anchor.id);
+//   })
+// })
 
 
 export const urlRoute = (event: Event, location: string) => {
@@ -33,8 +34,7 @@ export const urlRoute = (event: Event, location: string) => {
   event.preventDefault();
   if (event.target === null) throw new Error('Event target :' + event.target);
   let target = event.target;
-  window.history.pushState({}, '', target.parentElement.href);
-  console.log(location)
+  window.history.pushState({}, '', target.parentElement.href)
   locationHandler(location);
 }
 
@@ -45,7 +45,7 @@ const locationHandler = async (location: string) => {
     location = '/';
   }
 
-  const id = window.location.pathname.split('/').at(-1);
+  const id: number = Number(window.location.pathname.split('/').at(-1));
   const firstPath = window.location.pathname.split('/').at(-2);
 
   // const pathName = window.location.pathname.split('/');
@@ -71,7 +71,7 @@ const locationHandler = async (location: string) => {
       alert("What's happened???")
   }
 
-  controller?.startPage(id);
+  controller?.startPage(id - 1);
 }
 
 window.addEventListener('load', (e) => {

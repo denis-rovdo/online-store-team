@@ -1,3 +1,4 @@
+import { urlRoute } from '../../../main';
 import addHandlersNavigation from '../../../router/addHandlers';
 import { Product } from './../../../types/types';
 import classes from './Cards.module.sass';
@@ -16,7 +17,7 @@ class Cards {
             const thumbnail = `<img class='${classes.image}' src="${el.thumbnail}" alt='Grocery'>`;
             //    price
             const price = `<p class='${classes.price}'>${el.price}</p>`;
-            const buttonAdd = `<a class='${classes.buttonLinkAdd}'  card-id='${el.id}'>
+            const buttonAdd = `<a  class='${classes.buttonLinkAdd}'  card-id='${el.id}'>
                                         <button class='${classes.btn}'>Add</button>
                                 </a>`;
             const buttonDetail = ` 
@@ -30,10 +31,6 @@ class Cards {
             cards?.append(card);
             const addLink = document.querySelector(`${classes.buttonLinkAdd}`);
             addLink?.setAttribute('data-id', `${el.id}`);
-            const buttonLink = document.querySelector('forLink');
-            buttonLink?.addEventListener('click', (e) => {
-                e.preventDefault();
-            })
         });
 
     }
@@ -42,7 +39,7 @@ class Cards {
         const cards = document.querySelector('.cards');
         cards?.addEventListener('click', (e) => {
             const target = e.target as Element;
-            if (target.className == `${classes.btn}`) {
+            if (target.className == `${classes.buttonLinkAdd}`) {
                 const currentID = Number(target.parentElement?.getAttribute('card-id'));
                 handler(currentID);
             }

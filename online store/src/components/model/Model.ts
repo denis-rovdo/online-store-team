@@ -27,6 +27,7 @@ class Model {
                 return false;
             }
         });
+        console.log(this.data)
     };
 
     // делает уникальный массив продуктов в корзине

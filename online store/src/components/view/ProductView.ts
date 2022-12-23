@@ -1,7 +1,7 @@
 
 
 class ProductView {
-  drawProduct(id) {
+  drawProduct(id:  number) {
     const container = document.querySelector('main .container');
     while (container?.firstChild) {
       container.removeChild(container.firstChild)

@@ -28,6 +28,7 @@ class Categories {
             e.preventDefault();
             const target = e.target as Element;
             if (target.closest(`.${classes.categoryBlock}`)) {
+                console.log(target)
                 const categoryData: HTMLDivElement | null = target.closest(`.${classes.categoryBlock}`);
                 if (!categoryData?.classList.contains(`${classes.active}`)) {
                     categoryData?.classList.add(`${classes.active}`);

@@ -1,9 +1,8 @@
 import { urlRoute } from '../../../main';
-import addHandlersNavigation from '../../../router/addHandlers';
 import classes from './cart.module.sass';
 
 class Cart {
-    drawCart(count: string) {
+    drawCart(count: string | number) {
         const cart = <HTMLDivElement>document.querySelector('.cart');
         cart.classList.add('cart');
         const cartImg = `
@@ -13,16 +12,9 @@ class Cart {
     `;
         const cartCount = document.createElement('p');
         cartCount.className = `${classes.countProducts}`;
-        cartCount.innerText = count;
+        cartCount.innerText = count as string;
         cart.innerHTML = cartImg;
         cart.append(cartCount);
-        console.log('change')
-        const link = document.querySelector('forLink');
-        link?.addEventListener('click', (e) => {
-            e.preventDefault();
-            urlRoute(e, link.id);
-        })
     }
 }
-
 export default Cart;

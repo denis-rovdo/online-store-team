@@ -20,28 +20,29 @@ class AppView {
         this.cart = new Cart();
         this.price = new Price();
         this.filterByBrand = new FiltersView();
-        this.search = new Search();
         this.categories = new Categories();
-    }
-    //  отрисовка каточек
-    displayContent(data: Product[]) {
-        
-        const cards = document.querySelector('.cards');
-        const categoriesBlock = document.querySelector('.forReset');
-        while (cards?.firstChild && categoriesBlock?.firstChild) {
-            cards.removeChild(cards.firstChild);
-            categoriesBlock.remove();
-        }
-        if (data.length === 0) {
-            const p = document.createElement('p');
-            p.innerText = 'Товаров не найдено';
-            cards?.append(p);
-        } else {
-            this.card.drawCard(data);
-        }
-        console.log(`Home page`)
+        this.search = new Search();
 
     }
+    //  отрисовка каточек
+    // displayContent(data: Product[]) {
+    //     const cards = document.querySelector('.cards');
+    //     const categoriesBlock = document.querySelector('.forReset');
+    //     while (cards?.firstChild && categoriesBlock?.firstChild) {
+    //         cards.removeChild(cards.firstChild);
+    //         categoriesBlock.remove();
+    //     }
+    //     if (data.length === 0) {
+    //         const p = document.createElement('p');
+    //         p.innerText = 'Товаров не найдено';
+    //         cards?.append(p);
+    //     } else {
+    //         this.mainPage.drawLogo();
+    //         this.card.drawCard(data);
+    //         this.search = new Search();
+    //         // this.cart.drawCart(0);
+    //     }
+    // }
 }
 
 export default AppView;
