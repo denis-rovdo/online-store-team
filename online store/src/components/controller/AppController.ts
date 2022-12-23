@@ -40,6 +40,8 @@ class AppController {
                 urlRoute(e, anchor.id);
             })
         })
+        console.log('HOME PAGE')
+
     }
     //  сама функция отрисовки  категорий
     // resetCategories(arr: CategoriesProduct[]) {

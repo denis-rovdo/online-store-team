@@ -5,6 +5,10 @@ class Cart {
     drawCart(count: string | number) {
         const cart = <HTMLDivElement>document.querySelector('.cart');
         cart.classList.add('cart');
+        while(cart.firstChild) {
+            console.log('REMOVE')
+            cart.removeChild(cart.firstChild);
+        }
         const cartImg = `
                         <a  href='/cart'>
                             <img class="${classes.cartImg} ${classes.routingAddEvent} forLink" src="https://www.svgrepo.com/show/59506/online-shop-cart.svg" alt="cart">

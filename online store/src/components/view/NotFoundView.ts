@@ -1,6 +1,11 @@
+import PageView from "./Pages/MainComponent/PageView";
 
 
 class NotFoundView {
+  mainPage: PageView;
+  constructor() {
+    this.mainPage = new PageView();
+  }
   drawNotFound() {
     const main = document.querySelector('main');
     const container = main?.querySelector('.container');

@@ -1,5 +1,3 @@
-import { urlRoute } from '../../../../main';
-import addHandlersNavigation from '../../../../router/addHandlers';
 import classes from './PageView.module.sass';
 
 class PageView {
@@ -9,6 +7,10 @@ class PageView {
     main: HTMLHeadElement | string;
     footer: HTMLHeadElement | string;
     constructor() {
+        const app = document.querySelector('#app');
+        while (app?.firstChild) {
+            app.removeChild(app.firstChild);
+        }
         this.body = <HTMLBodyElement>document.querySelector('body');
         this.app = <HTMLDivElement>document.querySelector('#app');
         this.header = document.createElement('header');
@@ -17,12 +19,11 @@ class PageView {
         this.footer = document.createElement('footer');
         this.header.innerHTML = `<div class="container">
                                     <div class="logo">
-                                            Logo
                                     </div>
                                     <div class="total__price">
-                                        <p class="total__price">Price</p>
+                                        <p class="total__price"></p>
                                     </div>
-                                    <div class="cart">Cart</div>
+                                    <div class="cart"></div>
                                 </div>`;
         this.main.innerHTML = `
                             <div class="container">
@@ -32,7 +33,7 @@ class PageView {
                                     <div class="filters"></div>
                                     <div class="content">
                                         <div class="type__cards"></div>
-                                        <div div class="cards">Cards</div>
+                                        <div div class="cards"></div>
                                     </div>
                                 </div>
                             </div>`;
@@ -44,14 +45,15 @@ class PageView {
 
     }
     drawLogo() {
+
         const main = document.querySelector('main .container');
         main!.innerHTML = `
                                 <div class="category">
                                 </div>
                                 <div class="content__block">
-                                    <div class="filters">Filters</div>
+                                    <div class="filters"></div>
                                     <div class="content">
-                                        <div class="type__cards">Type Cards</div>
+                                        <div class="type__cards"></div>
                                         <div div class="cards"></div>
                                     </div>
                                 </div>
@@ -69,6 +71,11 @@ class PageView {
          </a>
         `
         logoBlock.innerHTML = logoContent;
+
+        const cartBlock = document.querySelector('.cart');
+        while (cartBlock?.firstChild) {
+            cartBlock.removeChild(cartBlock.firstChild);
+        }
         header?.prepend(logoBlock);
     }
 }

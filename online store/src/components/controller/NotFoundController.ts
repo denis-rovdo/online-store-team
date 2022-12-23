@@ -8,6 +8,9 @@ class NotFoundController {
   }
   startPage() {
     this.view.drawNotFound();
+
+    console.log('NOT FOUND PAGE')
+
   }
 }
 
