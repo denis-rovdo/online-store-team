@@ -4,6 +4,7 @@ import { Product } from './../../../types/types';
 import classes from './Cards.module.sass';
 
 class Cards {
+    constructor() {}
     drawCard(data: Product[]) {
         const cards = document.querySelector('.cards');
         // card block
@@ -18,7 +19,7 @@ class Cards {
             //    price
             const price = `<p class='${classes.price}'>${el.price}</p>`;
             const buttonAdd = `<a  class='${classes.buttonLinkAdd}'  card-id='${el.id}'>
-                                        <button class='${classes.btn}'>Add</button>
+                                        <button class='${classes.btn} forAddCard'>Add</button>
                                 </a>`;
             const buttonDetail = ` 
                                 <a class='${classes.buttonLinkDetails} ${classes.routingAddEvent}'  href='/product/${el.id}'>
@@ -32,14 +33,15 @@ class Cards {
             const addLink = document.querySelector(`${classes.buttonLinkAdd}`);
             addLink?.setAttribute('data-id', `${el.id}`);
         });
-
     }
     // Накидываем обработчики на кнопки Add, функция принимает функцию из контроллера
     bindAddProduct(handler: (data: number) => void) {
         const cards = document.querySelector('.cards');
+        console.log(cards)
         cards?.addEventListener('click', (e) => {
+            console.log('Click')
             const target = e.target as Element;
-            if (target.className == `${classes.buttonLinkAdd}`) {
+            if (target.className == `${classes.btn}`) {
                 const currentID = Number(target.parentElement?.getAttribute('card-id'));
                 handler(currentID);
             }

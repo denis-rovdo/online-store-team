@@ -1,11 +1,14 @@
 import { Product } from "../../types/types";
+import Cart from "./cart/cart";
 import PageView from "./Pages/MainComponent/PageView";
 
 
 class ProductView {
   mainPage: PageView;
+  cart: Cart;
   constructor() {
     this.mainPage = new PageView();
+    this.cart = new Cart();
   }
   drawProduct(product: Product) {
     const container = document.querySelector('main .container');

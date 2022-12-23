@@ -5,7 +5,7 @@ class Cart {
     drawCart(count: string | number) {
         const cart = <HTMLDivElement>document.querySelector('.cart');
         cart.classList.add('cart');
-        while(cart.firstChild) {
+        while (cart.firstChild) {
             console.log('REMOVE')
             cart.removeChild(cart.firstChild);
         }

@@ -6,11 +6,13 @@ class Model {
     state: Product[];
     cart: Product[];
     categories: CategoriesProduct[];
+    totalPrice: number;
     constructor() {
         this.state = data;
         this.data = data;
         this.filterData = [];
         this.cart = [];
+        this.totalPrice = 0;
         this.categories = categoriesProducts;
     }
     // пока что не используется

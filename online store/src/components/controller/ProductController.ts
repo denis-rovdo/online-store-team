@@ -14,6 +14,7 @@ class ProductController {
   startPage(id: number) {
     this.view.mainPage.drawLogo();
     this.view.drawProduct(this.model.data[id]);
+    this.view.cart.drawCart(this.model.cart.length);
 
 
     const anchors = document.querySelectorAll('.forLink');

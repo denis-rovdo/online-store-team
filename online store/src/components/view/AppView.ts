@@ -25,24 +25,17 @@ class AppView {
 
     }
     //  отрисовка каточек
-    // displayContent(data: Product[]) {
-    //     const cards = document.querySelector('.cards');
-    //     const categoriesBlock = document.querySelector('.forReset');
-    //     while (cards?.firstChild && categoriesBlock?.firstChild) {
-    //         cards.removeChild(cards.firstChild);
-    //         categoriesBlock.remove();
-    //     }
-    //     if (data.length === 0) {
-    //         const p = document.createElement('p');
-    //         p.innerText = 'Товаров не найдено';
-    //         cards?.append(p);
-    //     } else {
-    //         this.mainPage.drawLogo();
-    //         this.card.drawCard(data);
-    //         this.search = new Search();
-    //         // this.cart.drawCart(0);
-    //     }
-    // }
+    bindAddProduct(handler: (data: number) => void) {
+        const cards = document.querySelector('.cards');
+        console.log(cards?.firstChild)
+        cards?.addEventListener('click', (e) => {
+            console.log('Click')
+            const target = e.target as Element;
+            if (target.className == `forAddCard`) {
+                const currentID = Number(target.parentElement?.getAttribute('card-id'));
+                handler(currentID);
+            }
+        });
+    }
 }
-
 export default AppView;
