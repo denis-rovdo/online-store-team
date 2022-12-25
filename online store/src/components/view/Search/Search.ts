@@ -18,7 +18,7 @@ class Search {
     // get _inputText() {
     //     return this.input.value.toLowerCase();
     // }
-    drawSearch() {
+    drawSearch(value: string) {
         const categoryContainer = document.querySelector('.category');
         const inputBlock = document.createElement('div');
         inputBlock.className = 'input'
@@ -26,6 +26,7 @@ class Search {
         input.classList.add('inputText');
         input.setAttribute('type', 'text');
         input.setAttribute('placeholder', 'Search product');
+        input.value = value;
         inputBlock?.append(input);
         categoryContainer!.prepend(inputBlock);
     }
@@ -33,6 +34,7 @@ class Search {
 
     bindSearchProduct(handler: (data: string) => void) {
         const input: HTMLInputElement | null = document.querySelector('.inputText');
+        input?.focus();
         input?.addEventListener('input', () => {
             const value = input.value
             handler(value);

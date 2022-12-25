@@ -1,4 +1,4 @@
-import { urlRoute } from '../../../main';
+import { hungRouteListeners, urlRoute } from '../../../main';
 import addHandlersNavigation from '../../../router/addHandlers';
 import { Product } from './../../../types/types';
 import classes from './Cards.module.sass';
@@ -7,8 +7,15 @@ class Cards {
     constructor() { }
     drawCard(data: Product[]) {
         const cards = document.querySelector('.cards');
+        while (cards?.firstChild) {
+            cards.removeChild(cards.firstChild);
+        }
         // card block
         data.forEach((el) => {
+            let checked = 'Add'
+            if (el.checking) {
+                checked = 'Delete'
+            }
             const card = document.createElement('div');
             card.classList.add(`${classes.card}`);
             card.setAttribute('data-id', `${el.id}`);
@@ -19,11 +26,11 @@ class Cards {
             //    price
             const price = `<p class='${classes.price}'>${el.price}</p>`;
             const buttonAdd = `<a  class='${classes.buttonLinkAdd}'  card-id='${el.id}'>
-                                        <button class='${classes.btn} forAddCard' >Add</button>
+                                        <button class='${classes.btn} forAddCard' >${checked}</button>
                                 </a>`;
             const buttonDetail = ` 
                                 <a class='${classes.buttonLinkDetails} ${classes.routingAddEvent}'  href='/product/${el.id}'>
-                                    <button class='${classes.btnDetails} forLink' id='${el.id}'>Details</button>
+                                    <button class='${classes.btnDetails} forLink detailButton' id='${el.id}'>Details</button>
                                 </a>
             `;
             const buttonBlock = `<div class='${classes.buttonBlock}'>${buttonAdd}${buttonDetail}</div>`;
@@ -32,20 +39,30 @@ class Cards {
             cards?.append(card);
             const addLink = document.querySelector(`${classes.buttonLinkAdd}`);
             addLink?.setAttribute('data-id', `${el.id}`);
-
         });
+        hungRouteListeners('detailButton');
     }
     // Накидываем обработчики на кнопки Add, функция принимает функцию из контроллера
-    bindAddProduct(handler: (data: number) => void) {
+    bindAddProduct(handler: (data: number, parameter: string) => void) {
         const cards = document.querySelector('.cards');
         cards?.addEventListener('click', (e) => {
             const target = e.target as Element;
-            if (target.className == `${classes.btn} forAddCard`) {
+            if (target.textContent === 'Delete') {
+                const currentContent = target.textContent;
+                target.textContent = 'Add';
                 const currentID = Number(target.parentElement?.getAttribute('card-id'));
-                handler(currentID);
+                handler(currentID, currentContent);
+            } else if (target.textContent === 'Add') {
+                const currentContent = target.textContent;
+                target.textContent = 'Delete';
+                const currentID = Number(target.parentElement?.getAttribute('card-id'));
+                handler(currentID, currentContent);
             }
+
+
         });
     }
 }
+// target.className == `${classes.btn} forAddCard`
 
 export default Cards;

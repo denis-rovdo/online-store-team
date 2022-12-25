@@ -13,19 +13,18 @@ class ProductController {
   }
   startPage(id: number) {
     this.view.mainPage.drawLogo();
-    this.view.drawProduct(this.model.data[id]);
+    this.model.findProductById(id);
+    this.view.drawProduct(this.model.data[0]);
     this.view.cart.drawCart(this.model.cart.length);
+    // const anchors = document.querySelectorAll('.forLink');
+    // anchors.forEach(anchor => {
+    //     anchor.addEventListener('click', (e) => {
+    //         e.preventDefault();
+    //         urlRoute(e, anchor.id);
+    //     })
+    // })
 
-
-    const anchors = document.querySelectorAll('.forLink');
-    anchors.forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            e.preventDefault();
-            urlRoute(e, anchor.id);
-        })
-    })
-
-    console.log('PRODUCT PAGE')
+    console.log('PRODUCT PAGE');
 
   }
 }

@@ -1,3 +1,4 @@
+import { hungRouteListeners } from '../../../../main';
 import classes from './PageView.module.sass';
 
 class PageView {
@@ -45,7 +46,6 @@ class PageView {
 
     }
     drawLogo() {
-
         const main = document.querySelector('main .container');
         main!.innerHTML = `
                                 <div class="category">
@@ -67,7 +67,7 @@ class PageView {
         const logoContent =
             `
         <a class='${classes.routingAddEvent}' href="/">
-                <img class='header__img forLink' src="https://avatars.mds.yandex.net/i?id=f3f1bbeca8b5022d0770b3a81b8b558fa11b885e-7092330-images-thumbs&n=13" alt="logo">
+                <img class='header__img forLink logoRouting' src="https://avatars.mds.yandex.net/i?id=f3f1bbeca8b5022d0770b3a81b8b558fa11b885e-7092330-images-thumbs&n=13" alt="logo">
          </a>
         `
         logoBlock.innerHTML = logoContent;
@@ -77,6 +77,7 @@ class PageView {
             cartBlock.removeChild(cartBlock.firstChild);
         }
         header?.prepend(logoBlock);
+        hungRouteListeners('logoRouting');
     }
 }
 

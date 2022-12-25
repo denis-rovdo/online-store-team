@@ -16,30 +16,19 @@ class AppController {
         // this.view.categories.bindAddCategory(this.handlerAddCategory);
     }
     startPage() {
+        this.model.resetData();
+        this.model.globalFilter();
         this.view.mainPage.drawLogo();
         this.view.card.drawCard(this.model.data);
         this.view.cart.drawCart(this.model.cart.length);
         this.view.price.drawPrice(this.model.getTotalSum().toString());
         this.view.categories.drawCategories(this.model.categories);
-        this.view.search.drawSearch();
-        
+        this.view.search.drawSearch(this.model.filters.search);
         this.view.card.bindAddProduct(this.handleAddProduct);
-        // this.view.displayContent(this.model.data);
-        // this.view.categories.drawCategories(this.model.categories);
-        // this.view.card.drawCard(this.model.data);
-        // this.view.displayContent(this.model.data);
-        // this.resetCategories(this.model.categories);
-        // this.view.cart.drawCart(this.model.cart.length);
-        // this.view.price.drawPrice(this.model.getTotalSum().toString());
-        // this.resetData(this.model.data, this.model.cart.length);
-        // console.log('START PAGE')
-        const anchors = document.querySelectorAll('.forLink');
-        anchors.forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                urlRoute(e, anchor.id);
-            })
-        })
+        this.view.categories.bindAddCategory(this.handlerAddCategory);
+        this.view.search.bindSearchProduct(this.handlerSearchProduct)
+
+
     }
     //  сама функция отрисовки  категорий
     // resetCategories(arr: CategoriesProduct[]) {
@@ -58,9 +47,18 @@ class AppController {
     //     console.log('RESET DATA');
     // }
     // For categories handler
-    // handlerAddCategory() {
-    //     console.log('123123');
-    // }
+    handlerAddCategory = (categoryValue: string, param: string): void => {
+        if (param === 'add') {
+            this.model.addFilterByCategories(categoryValue)
+            this.model.globalFilter();
+            this.view.card.drawCard(this.model.data);
+        }
+        if (param === 'delete') {
+            this.model.deleteFilterByCategories(categoryValue)
+            this.model.globalFilter();
+            this.view.card.drawCard(this.model.data);
+        }
+    }
     // пока что не готовая функция
     // handleFilterByBrand = (brand: string) => {
     //     this.model.filterWithParams(brand);
@@ -68,17 +66,31 @@ class AppController {
     //     this.startPage()
     // };
     //  функция вызывается при добавлении продукта и закидывает продукт в массив корзины.Перерисовка страницы с новыми данными
-    handleAddProduct = (id: number) => {
-        this.model.addProduct(id);
-        this.startPage();
-        
+    handleAddProduct = (id: number, parameter: string) => {
+        if (parameter === 'Add') {
+            this.model.addProduct(id);
+            this.view.cart.drawCart(this.model.cart.length);
+            this.view.price.drawPrice(this.model.getTotalSum().toString());
+            this.view.card.drawCard(this.model.data);
+
+        }
+        if (parameter === 'Delete') {
+            this.model.deleteProduct(id);
+            this.view.cart.drawCart(this.model.cart.length);
+            this.view.price.drawPrice(this.model.getTotalSum().toString());
+            this.view.card.drawCard(this.model.data);
+        }
+
+
     };
     // для сортировки товара по тексту введенном в инпуте
-    // handlerSearchProduct = (textInput: string) => {
-    //     console.log(textInput)
-    //     this.model.filterByValue(textInput);
-    //     this.resetData(this.model.data, this.model.cart.length);
-    // };
+    handlerSearchProduct = (textInput: string) => {
+        this.model.filterByValue(textInput);
+        this.startPage();
+        // this.model.globalFilter();
+        // this.view.card.drawCard(this.model.data);
+        // this.view.card.bindAddProduct(this.handleAddProduct);
+    };
 }
 
 export default AppController;

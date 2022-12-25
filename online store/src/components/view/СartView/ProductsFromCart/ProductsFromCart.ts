@@ -13,8 +13,8 @@ class ProductsFromCart {
       cartBlock.className = `${classes.cartBlock}`
       const cartContent =
         `
-      <h3>${el.title}</h3>g
-      <img src='${el.thumbnail}'
+      <h3>${el.title}</h3>
+      <img class='${classes.img}' src='${el.thumbnail}'
       <p>${el.description}</p>
       `
       cartBlock.innerHTML = cartContent;

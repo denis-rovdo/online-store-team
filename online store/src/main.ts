@@ -9,7 +9,6 @@ import CartController from './components/controller/CartController';
 import ProductController from './components/controller/ProductController';
 import NotFoundController from './components/controller/NotFoundController';
 import CartView from './components/view/CartView';
-import { ScriptTarget } from 'typescript';
 
 export const app = new App(new AppController(new AppView(), modelSingleton), new CartController(new CartView()), new ProductController(), new NotFoundController());
 
@@ -27,14 +26,23 @@ export const app = new App(new AppController(new AppView(), modelSingleton), new
 //     urlRoute(e, anchor.id);
 //   })
 // })
-
+export const hungRouteListeners = (className: string) => {
+  const anchors = document.querySelectorAll(`.${className}`);
+  anchors.forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      urlRoute(e, anchor.id);
+    })
+  })
+}
 
 export const urlRoute = (event: Event, location: string) => {
   event = event || window.event
   event.preventDefault();
   if (event.target === null) throw new Error('Event target :' + event.target);
-  let target = event.target;
-  window.history.pushState({}, '', target.parentElement.href)
+  let target = event.target as HTMLElement;
+  let parentTarget = target.parentElement as HTMLLinkElement;
+  window.history.pushState({}, '', parentTarget.href)
   locationHandler(location);
 }
 
@@ -71,9 +79,15 @@ const locationHandler = async (location: string) => {
       alert("What's happened???")
   }
 
-  controller?.startPage(id - 1);
+  controller?.startPage(id);
 }
 
-window.addEventListener('load', (e) => {
+
+
+
+
+
+window.addEventListener('load', () => {
   locationHandler('')
 });
+

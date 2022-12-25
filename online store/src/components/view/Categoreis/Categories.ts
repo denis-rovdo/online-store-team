@@ -1,4 +1,3 @@
-import { Category } from './../../../types/types';
 import { CategoriesProduct } from '../../../types/types';
 import classes from './Categories.module.sass';
 
@@ -22,20 +21,21 @@ class Categories {
         });
     }
 
-    bindAddCategory(handler: (data: string | null | undefined) => void) {
+    bindAddCategory(handler: (data: string, param: string) => void) {
         const category = document.querySelector('.category');
         category?.addEventListener('click', (e) => {
             e.preventDefault();
             const target = e.target as Element;
             if (target.closest(`.${classes.categoryBlock}`)) {
-                console.log(target)
                 const categoryData: HTMLDivElement | null = target.closest(`.${classes.categoryBlock}`);
                 if (!categoryData?.classList.contains(`${classes.active}`)) {
                     categoryData?.classList.add(`${classes.active}`);
                     const categoryAttribute = categoryData?.getAttribute('data');
-                    handler(categoryAttribute);
+                    handler(categoryAttribute!.toLocaleLowerCase(), 'add');
                 } else {
                     categoryData?.classList.remove(`${classes.active}`);
+                    const categoryAttribute = categoryData?.getAttribute('data');
+                    handler(categoryAttribute!.toLocaleLowerCase(), 'delete');
                 }
             }
         });
