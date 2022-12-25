@@ -14,8 +14,13 @@ class CartController {
   startPage() {
     this.view.mainPage.drawLogo();
     this.view.cart.drawCart(this.model.cart.length);
-    this.view.drawCart(this.model.cart);
+    this.view.products.drawCarts(this.model.cart);
 
+
+
+
+
+    
     const anchors = document.querySelectorAll('.forLink');
     anchors.forEach(anchor => {
       anchor.addEventListener('click', (e) => {
@@ -24,7 +29,6 @@ class CartController {
       })
     })
     console.log('CART PAGE')
-
   }
 }
 

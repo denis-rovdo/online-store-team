@@ -22,20 +22,6 @@ class AppView {
         this.filterByBrand = new FiltersView();
         this.categories = new Categories();
         this.search = new Search();
-
-    }
-    //  отрисовка каточек
-    bindAddProduct(handler: (data: number) => void) {
-        const cards = document.querySelector('.cards');
-        console.log(cards?.firstChild)
-        cards?.addEventListener('click', (e) => {
-            console.log('Click')
-            const target = e.target as Element;
-            if (target.className == `forAddCard`) {
-                const currentID = Number(target.parentElement?.getAttribute('card-id'));
-                handler(currentID);
-            }
-        });
     }
 }
 export default AppView;
