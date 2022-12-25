@@ -28,7 +28,6 @@ class CartController {
         urlRoute(e, anchor.id);
       })
     })
-    console.log('CART PAGE')
   }
 }
 

@@ -10,7 +10,6 @@ class Categories {
         categoriesBlock.classList.add('forReset');
         category?.append(categoriesBlock);
         data.forEach((el) => {
-            console.log(el.checking)
             const categoryBlock = document.createElement('div');
             if (el.checking) {
                 categoryBlock.classList.add(`${classes.active}`);
@@ -33,7 +32,6 @@ class Categories {
             const target = e.target as Element;
             if (target.closest(`.${classes.categoryBlock}`)) {
                 const categoryData: HTMLDivElement | null = target.closest(`.${classes.categoryBlock}`);
-                console.log(categoryData)
                 if (!categoryData?.classList.contains(`${classes.active}`)) {
                     categoryData?.classList.add(`${classes.active}`);
                     const categoryAttribute = categoryData?.getAttribute('data');

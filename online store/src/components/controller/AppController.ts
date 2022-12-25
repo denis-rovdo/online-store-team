@@ -8,12 +8,6 @@ class AppController {
     constructor(view: AppView, modelSingleton: Model) {
         this.view = view;
         this.model = modelSingleton;
-        // this.startPage();
-        // отрисовывает данные при загрузке страницы
-        // вызывает хендлер при добавлении продукта в корзину
-        // this.resetData(this.model.data, this.model.cart.length)
-        // this.view.search.bindSearchProduct(this.handlerSearchProduct);
-        // this.view.categories.bindAddCategory(this.handlerAddCategory);
     }
     startPage() {
         this.model.resetData();
@@ -24,11 +18,10 @@ class AppController {
         this.view.price.drawPrice(this.model.getTotalSum().toString());
         this.view.categories.drawCategories(this.model.categories);
         this.view.search.drawSearch(this.model.filters.search);
+
         this.view.card.bindAddProduct(this.handleAddProduct);
         this.view.categories.bindAddCategory(this.handlerAddCategory);
         this.view.search.bindSearchProduct(this.handlerSearchProduct)
-
-
     }
 
     // For categories handler
@@ -57,7 +50,6 @@ class AppController {
             this.view.cart.drawCart(this.model.cart.length);
             this.view.price.drawPrice(this.model.getTotalSum().toString());
             this.view.card.drawCard(this.model.data);
-
         }
         if (parameter === 'Delete') {
             this.model.deleteProduct(id);

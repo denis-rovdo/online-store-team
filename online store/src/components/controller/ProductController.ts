@@ -24,7 +24,6 @@ class ProductController {
     //     })
     // })
 
-    console.log('PRODUCT PAGE');
 
   }
 }
