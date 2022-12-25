@@ -35,11 +35,27 @@ class Model {
     }
     // добавление категории
     addFilterByCategories(categoryValue: string) {
+        this.categories.map(el => {
+            if (el.name.toLowerCase().indexOf(categoryValue.toLocaleLowerCase()) > -1) {
+                el.checking = !el.checking;
+            } else {
+                el.checking = el.checking;
+            }
+        });
         this.filters.categories.push(categoryValue);
+
     }
     // удаление категории 
     deleteFilterByCategories(categoryValue: string) {
+        this.categories.map((el) => {
+            if (el.name.toLowerCase().indexOf(categoryValue.toLocaleLowerCase()) > -1) {
+                el.checking = !el.checking;
+            } else {
+                el.checking = el.checking;
+            }
+        });
         this.filters.categories = this.filters.categories.filter(el => el.toLocaleLowerCase() !== categoryValue.toLocaleLowerCase());
+
     }
     // пока что не используется
     filterWithParams = (params: string) => {

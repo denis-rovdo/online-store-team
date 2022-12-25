@@ -3,13 +3,18 @@ import classes from './Categories.module.sass';
 
 class Categories {
     drawCategories(data: CategoriesProduct[]) {
+
         const category = document.querySelector('.category');
         const categoriesBlock = document.createElement('div');
         categoriesBlock.className = `${classes.categoriesBlock}`;
         categoriesBlock.classList.add('forReset');
         category?.append(categoriesBlock);
         data.forEach((el) => {
+            console.log(el.checking)
             const categoryBlock = document.createElement('div');
+            if (el.checking) {
+                categoryBlock.classList.add(`${classes.active}`);
+            }
             categoryBlock?.classList.add(`${classes.categoryBlock}`);
             categoryBlock.setAttribute('data', el.category);
             const categoryContent = `
@@ -28,6 +33,7 @@ class Categories {
             const target = e.target as Element;
             if (target.closest(`.${classes.categoryBlock}`)) {
                 const categoryData: HTMLDivElement | null = target.closest(`.${classes.categoryBlock}`);
+                console.log(categoryData)
                 if (!categoryData?.classList.contains(`${classes.active}`)) {
                     categoryData?.classList.add(`${classes.active}`);
                     const categoryAttribute = categoryData?.getAttribute('data');

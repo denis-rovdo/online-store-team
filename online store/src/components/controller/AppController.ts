@@ -30,22 +30,7 @@ class AppController {
 
 
     }
-    //  сама функция отрисовки  категорий
-    // resetCategories(arr: CategoriesProduct[]) {
-    //     this.view.categories.drawCategories(arr);
-    //     console.log('RESET CATEGORIES')
 
-    // }
-    // функция для отрисовки актуальных данных
-    // resetData(data: Product[], count: number) {
-    //     // вызов отрисовки категорий
-    //     this.resetCategories(this.model.categories);
-    //     // this.view.displayContent(this.model.data);
-    //     this.view.cart.drawCart(this.model.cart.length);
-    //     this.view.price.drawPrice(this.model.getTotalSum().toString());
-    //     this.startPage();
-    //     console.log('RESET DATA');
-    // }
     // For categories handler
     handlerAddCategory = (categoryValue: string, param: string): void => {
         if (param === 'add') {
@@ -80,16 +65,11 @@ class AppController {
             this.view.price.drawPrice(this.model.getTotalSum().toString());
             this.view.card.drawCard(this.model.data);
         }
-
-
     };
     // для сортировки товара по тексту введенном в инпуте
     handlerSearchProduct = (textInput: string) => {
         this.model.filterByValue(textInput);
         this.startPage();
-        // this.model.globalFilter();
-        // this.view.card.drawCard(this.model.data);
-        // this.view.card.bindAddProduct(this.handleAddProduct);
     };
 }
 
