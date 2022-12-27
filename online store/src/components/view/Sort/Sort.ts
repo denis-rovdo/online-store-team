@@ -40,7 +40,7 @@ class Sort {
     filters?.append(sortBlock);
   }
 
-  bindSort(handler) {
+  bindSort(handler: (data: string) => void) {
     const selectBlockBySort = document.querySelector('.selectSort');
     selectBlockBySort?.addEventListener('change', (e) => {
       let target = e.target as HTMLSelectElement;
