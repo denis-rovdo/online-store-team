@@ -1,5 +1,5 @@
 import { Product, CategoriesProduct } from './../../types/types';
-import data, { categoriesProducts } from '../../data/state';
+import data, { brandsFilter, categoriesProducts } from '../../data/state';
 class Model {
     data: Product[];
     filterData: Array<string>;
@@ -9,6 +9,10 @@ class Model {
     totalPrice: number;
     inputValue: string;
     filterCategories: Array<string>;
+    brands: {
+        name: string,
+        checked: boolean,
+    }
     filters: {
         search: string,
         categories: Array<string>,
@@ -31,7 +35,32 @@ class Model {
         this.cart = [];
         this.totalPrice = 0;
         this.categories = categoriesProducts;
+        this.brands = brandsFilter;
         this.inputValue = '';
+    }
+    addFilterByBrand(brand) {
+        this.brands.map(el => {
+            if (el.name.toLowerCase().indexOf(brand.toLocaleLowerCase()) > -1) {
+                el.checked = !el.checked;
+            } else {
+                el.checked = el.checked;
+            }
+        });
+        this.filters.brands.push(brand);
+        console.log(this.filters.brands);
+    }
+
+    deleteFilterByBrand(brand) {
+        this.brands.map(el => {
+            if (el.name.toLowerCase().indexOf(brand.toLocaleLowerCase()) > -1) {
+                el.checked = !el.checked;
+            } else {
+                el.checked = el.checked;
+            }
+        });
+        this.filters.brands = this.filters.brands.filter(el => el.toLocaleLowerCase() !== brand.toLocaleLowerCase());
+        console.log(this.filters.brands);
+
     }
     // добавление категории
     addFilterByCategories(categoryValue: string) {
@@ -111,6 +140,20 @@ class Model {
             this.data = this.data.filter((el) => {
                 this.filters.categories.some(categoryValueFromArray => {
                     if (el.category.toLocaleLowerCase().indexOf(categoryValueFromArray.toLocaleLowerCase()) > -1) {
+                        filtersData.push(el)
+                        return true;
+                    } else {
+                        return false;
+                    }
+                })
+            });
+            this.data = filtersData;
+        }
+        if (this.filters.brands.length !== 0) {
+            let filtersData: Product[] = [];
+            this.data = this.data.filter((el) => {
+                this.filters.brands.some(brandValueFromArray => {
+                    if (el.brand.toLocaleLowerCase().indexOf(brandValueFromArray.toLocaleLowerCase()) > -1) {
                         filtersData.push(el)
                         return true;
                     } else {

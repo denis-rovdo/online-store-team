@@ -1,28 +1,43 @@
 // import classes from './Filters.module.sass';
 
 class FiltersView {
-    drawFilter() {
-        const content = document.querySelector('.content');
-        const filterBlock = document.createElement('div');
-        const filterByBrand = `
-    <select id='filterByBrand'>
-      <option disable='Brand'>Brands</option>
-      <option value='Philips'>Philips</option>
-      <option value='Samsung'>Samsung</option>
-      <option value='Xiaomi'>Xiaomi</option>
-      <option value='Bosch'>Bosch</option>
-      <option value='LG'>LG</option>
-      <option value='ATLANT'>ATLANT</option>
-      <option value='BEKO'>BEKO</option>
-      <option value='Horizont'>Horizont</option>
-      <option value='Media'>Media</option>
-      <option value='Atlanta'>Atlanta</option>
-      <option value='DeLonghi'>DeLonghi</option>
-    </select>`;
-        filterBlock.innerHTML = filterByBrand;
+    drawFilter(data) {
+        const content = document.querySelector('.filters');
+        const brand = document.createElement('div');
+        brand.className = 'brandsBlock';
+        content?.append(brand);
+        data.forEach(el => {
+            let checking = '';
+            if (el.checked) {
+                checking = 'checked'
+            }
+            const filterBlock = document.createElement('div');
+            const filterByBrand = `
+            <input class="brands" type="checkbox" id="${el.name}" name="brands" value="${el.name}" ${checking}/>
+            <label for="${el.name}">${el.name}</label>
+      `;
 
-        content?.prepend(filterBlock);
+            filterBlock.innerHTML = filterByBrand;
+
+            brand?.prepend(filterBlock);
+        })
     }
+
+    bindAddBrand(handler) {
+        const brandInputs = document.querySelectorAll('.brands');
+        brandInputs.forEach(inp => {
+            inp.addEventListener('change', () => {
+                if (inp.checked) {
+                    handler(inp.value, 'Check')
+                } else {
+                    console.log(inp.value)
+                    handler(inp.value, 'Uncheck')
+                }
+            })
+
+        })
+    }
+
 }
 
 export default FiltersView;

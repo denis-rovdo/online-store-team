@@ -1873,4 +1873,51 @@ export const categoriesProducts: CategoriesProduct[] = [
     },
 ];
 
+export const brandsFilter = [
+    {
+        name: 'Philips',
+        checked: false,
+    },
+    {
+        name: 'Samsung',
+        checked: false,
+    },
+    {
+        name: 'Xiaomi',
+        checked: false,
+    },
+    {
+        name: 'Bosch',
+        checked: false,
+    },
+    {
+        name: 'LG',
+        checked: false,
+    },
+    {
+        name: 'ATLANT',
+        checked: false,
+    },
+    {
+        name: 'BEKO',
+        checked: false,
+    },
+    {
+        name: 'Horizont',
+        checked: false,
+    },
+    {
+        name: 'Media',
+        checked: false,
+    },
+    {
+        name: 'Atlanta',
+        checked: false,
+    },
+    {
+        name: 'DeLonghi',
+        checked: false,
+    },
+    
+]
 export default PRODUCTS;

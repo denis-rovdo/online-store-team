@@ -18,7 +18,9 @@ class AppController {
         this.view.price.drawPrice(this.model.getTotalSum().toString());
         this.view.categories.drawCategories(this.model.categories);
         this.view.search.drawSearch(this.model.filters.search);
+        this.view.filterByBrand.drawFilter(this.model.brands);
 
+        this.view.filterByBrand.bindAddBrand(this.handleFilterByBrand);
         this.view.card.bindAddProduct(this.handleAddProduct);
         this.view.categories.bindAddCategory(this.handlerAddCategory);
         this.view.search.bindSearchProduct(this.handlerSearchProduct)
@@ -38,11 +40,24 @@ class AppController {
         }
     }
     // пока что не готовая функция
-    // handleFilterByBrand = (brand: string) => {
-    //     this.model.filterWithParams(brand);
-    //     this.view.filterByBrand.drawFilter();
-    //     this.startPage()
-    // };
+    handleFilterByBrand = (value, brand: string) => {
+        if (brand === 'Check') {
+            this.model.addFilterByBrand(value);
+            this.model.globalFilter();
+            this.view.card.drawCard(this.model.data);
+
+
+        }
+        if (brand === 'Uncheck') {
+            this.model.deleteFilterByBrand(value);
+            this.model.globalFilter();
+            this.view.card.drawCard(this.model.data);
+
+        }
+        // this.model.filterWithParams(brand);
+        // this.view.filterByBrand.drawFilter();
+        // this.startPage()
+    };
     //  функция вызывается при добавлении продукта и закидывает продукт в массив корзины.Перерисовка страницы с новыми данными
     handleAddProduct = (id: number, parameter: string) => {
         if (parameter === 'Add') {
