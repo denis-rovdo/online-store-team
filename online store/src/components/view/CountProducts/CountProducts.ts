@@ -8,11 +8,11 @@ class CountProducts {
       typeCardsBlock.removeChild(typeCardsBlock.firstChild);
     }
     const countProductsBlock = document.createElement('div');
-    const countProcutsContent =
+    const countProductsContent =
       `
     Stock: ${value}
     `
-    countProductsBlock.innerHTML = countProcutsContent;
+    countProductsBlock.innerHTML = countProductsContent;
     typeCardsBlock?.append(countProductsBlock);
   }
 }
