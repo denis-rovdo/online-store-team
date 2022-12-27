@@ -12,7 +12,7 @@ class Model {
     brands: {
         name: string,
         checked: boolean,
-    }
+    }[]
     filters: {
         search: string,
         categories: Array<string>,
@@ -38,7 +38,7 @@ class Model {
         this.brands = brandsFilter;
         this.inputValue = '';
     }
-    addFilterByBrand(brand) {
+    addFilterByBrand(brand: string) {
         this.brands.map(el => {
             if (el.name.toLowerCase().indexOf(brand.toLocaleLowerCase()) > -1) {
                 el.checked = !el.checked;
@@ -50,7 +50,7 @@ class Model {
         console.log(this.filters.brands);
     }
 
-    deleteFilterByBrand(brand) {
+    deleteFilterByBrand(brand: string) {
         this.brands.map(el => {
             if (el.name.toLowerCase().indexOf(brand.toLocaleLowerCase()) > -1) {
                 el.checked = !el.checked;
@@ -60,7 +60,6 @@ class Model {
         });
         this.filters.brands = this.filters.brands.filter(el => el.toLocaleLowerCase() !== brand.toLocaleLowerCase());
         console.log(this.filters.brands);
-
     }
     // добавление категории
     addFilterByCategories(categoryValue: string) {

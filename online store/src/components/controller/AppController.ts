@@ -40,13 +40,11 @@ class AppController {
         }
     }
     // пока что не готовая функция
-    handleFilterByBrand = (value, brand: string) => {
+    handleFilterByBrand = (value: string, brand: string) => {
         if (brand === 'Check') {
             this.model.addFilterByBrand(value);
             this.model.globalFilter();
             this.view.card.drawCard(this.model.data);
-
-
         }
         if (brand === 'Uncheck') {
             this.model.deleteFilterByBrand(value);
