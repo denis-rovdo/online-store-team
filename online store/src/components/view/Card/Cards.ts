@@ -10,6 +10,12 @@ class Cards {
         while (cards?.firstChild) {
             cards.removeChild(cards.firstChild);
         }
+        if (data.length === 0) {
+            const paragraph = document.createElement('p');
+            const paragraphContent = 'Товаров не найдено';
+            paragraph.innerHTML = paragraphContent;
+            cards?.append(paragraph);
+        }
         // card block
         data.forEach((el) => {
             let checked = 'Add'
