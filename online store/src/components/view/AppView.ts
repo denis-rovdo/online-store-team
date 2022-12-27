@@ -6,6 +6,7 @@ import Price from './price/Price';
 import Search from './Search/Search';
 import Categories from './Categoreis/Categories';
 import Sort from './Sort/Sort';
+import CountProducts from './CountProducts/CountProducts';
 class AppView {
     card: Cards;
     mainPage: PageView;
@@ -15,6 +16,7 @@ class AppView {
     search: Search;
     categories: Categories;
     sort: Sort;
+    countProduct: CountProducts;
     constructor() {
         this.mainPage = new PageView();
         this.card = new Cards();
@@ -24,6 +26,7 @@ class AppView {
         this.categories = new Categories();
         this.search = new Search();
         this.sort = new Sort();
+        this.countProduct = new CountProducts();
     }
 }
 export default AppView;

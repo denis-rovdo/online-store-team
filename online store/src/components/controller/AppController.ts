@@ -20,6 +20,7 @@ class AppController {
         this.view.search.drawSearch(this.model.filters.search);
         this.view.filterByBrand.drawFilter(this.model.brands);
         this.view.sort.drawSort(this.model.filters.sortString);
+        this.view.countProduct.drawCount(this.model.data.length);
 
         this.view.filterByBrand.bindAddBrand(this.handleFilterByBrand);
         this.view.card.bindAddProduct(this.handleAddProduct);
@@ -38,11 +39,15 @@ class AppController {
             this.model.addFilterByCategories(categoryValue)
             this.model.globalFilter();
             this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
         }
         if (param === 'delete') {
             this.model.deleteFilterByCategories(categoryValue)
             this.model.globalFilter();
             this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
         }
     }
     // пока что не готовая функция
@@ -51,11 +56,15 @@ class AppController {
             this.model.addFilterByBrand(value);
             this.model.globalFilter();
             this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
         }
         if (brand === 'Uncheck') {
             this.model.deleteFilterByBrand(value);
             this.model.globalFilter();
             this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
 
         }
         // this.model.filterWithParams(brand);
@@ -71,12 +80,16 @@ class AppController {
             this.view.cart.drawCart(this.model.cart.length);
             this.view.price.drawPrice(this.model.getTotalSum().toString());
             this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
         }
         if (parameter === 'Delete') {
             this.model.deleteProduct(id);
             this.view.cart.drawCart(this.model.cart.length);
             this.view.price.drawPrice(this.model.getTotalSum().toString());
             this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
         }
     };
     // для сортировки товара по тексту введенном в инпуте
