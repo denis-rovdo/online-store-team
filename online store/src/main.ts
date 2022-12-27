@@ -91,3 +91,8 @@ window.addEventListener('load', () => {
   locationHandler('')
 });
 
+window.addEventListener('popstate', (event) => {
+  locationHandler('');
+})
+
+

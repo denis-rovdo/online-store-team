@@ -19,13 +19,28 @@ class AppController {
         this.view.categories.drawCategories(this.model.categories);
         this.view.search.drawSearch(this.model.filters.search);
         this.view.filterByBrand.drawFilter(this.model.brands);
+        this.view.sort.drawSort();
 
+        this.view.sort.bindSort(this.handlerSelectSotr);
         this.view.filterByBrand.bindAddBrand(this.handleFilterByBrand);
         this.view.card.bindAddProduct(this.handleAddProduct);
         this.view.categories.bindAddCategory(this.handlerAddCategory);
         this.view.search.bindSearchProduct(this.handlerSearchProduct)
     }
-
+    handlerSelectSotr(value) {
+        if (value === 'PriceASC') {
+            console.log('ASCPRICE')
+        }
+        if (value === 'PriceDESC') {
+            console.log('PRICEDESC')
+        }
+        if (value === 'RatingASC') {
+            console.log('ASCRATING');
+        }
+        if (value === 'RatingDESC') {
+            console.log('DESCRATING')
+        }
+    }
     // For categories handler
     handlerAddCategory = (categoryValue: string, param: string): void => {
         if (param === 'add') {
