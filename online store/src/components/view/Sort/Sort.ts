@@ -2,18 +2,38 @@
 
 
 class Sort {
-  drawSort() {
+  drawSort(currentSort: string) {
+    let defaultValue;
+    let currentPriceASC = '';
+    let currentPriceDESC = '';
+    let currentRatingASC = '';
+    let currentRatingDESC = '';
+    if (currentSort === '') {
+      defaultValue = 'selected="selected"';
+    }
+    if (currentSort === 'PriceASC') {
+      currentPriceASC = 'selected="selected"';
+    }
+    if (currentSort === 'PriceDESC') {
+      currentPriceDESC = 'selected="selected"';
+    }
+    if (currentSort === 'RatingASC') {
+      currentRatingASC = 'selected="selected"';
+    }
+    if (currentSort === 'RatingDESC') {
+      currentRatingDESC = 'selected="selected"';
+    }
     const filters = document.querySelector('.filters');
     const sortBlock = document.createElement('div');
     sortBlock.className = 'sortBlock'
     const sortElement =
       `
       <select class='selectSort' name="sorting">
-      <option value="" selected="selected" disabled>Default</option>
-        <option class='sortElement' value="PriceASC" >Sort by price ASC</option>
-        <option class='sortElement' value="PriceDESC">Sort by price DESC</option>
-        <option class='sortElement' value="RatingASC">Sort by rating ASC</option>
-        <option class='sortElement' value="RatingDESC">Sort by rating DESC</option>
+      <option value="" ${defaultValue}>Default</option>
+        <option class='sortElement' value="PriceASC" ${currentPriceASC} >Sort by price ASC</option>
+        <option class='sortElement' value="PriceDESC" ${currentPriceDESC}>Sort by price DESC</option>
+        <option class='sortElement' value="RatingASC" ${currentRatingASC}>Sort by rating ASC</option>
+        <option class='sortElement' value="RatingDESC" ${currentRatingDESC}>Sort by rating DESC</option>
     </select>
       `
     sortBlock.innerHTML = sortElement;
@@ -21,13 +41,10 @@ class Sort {
   }
 
   bindSort(handler) {
-    // const options = document.querySelectorAll('.sortElement');
-    // options.forEach(el => {
-    //   el.addEventListener('')
-    // })
     const selectBlockBySort = document.querySelector('.selectSort');
-    selectBlockBySort?.addEventListener('change', () => {
-      handler(selectBlockBySort.value);
+    selectBlockBySort?.addEventListener('change', (e) => {
+      let target = e.target as HTMLSelectElement;
+      handler(target.value);
     })
   }
 }

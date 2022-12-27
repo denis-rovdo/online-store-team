@@ -18,7 +18,8 @@ class Model {
         categories: Array<string>,
         brands: Array<string>,
         haveCount: Array<number>,
-        priceCount: Array<number>
+        priceCount: Array<number>,
+        sortString: string;
     }
     constructor() {
         this.state = data;
@@ -29,6 +30,7 @@ class Model {
             brands: [],
             haveCount: [],
             priceCount: [],
+            sortString: '',
         }
         this.filterData = [];
         this.filterCategories = [];
@@ -38,6 +40,12 @@ class Model {
         this.brands = brandsFilter;
         this.inputValue = '';
     }
+
+    addSortValue(value: string) {
+        this.filters.sortString = value;
+    }
+
+
     addFilterByBrand(brand: string) {
         this.brands.map(el => {
             if (el.name.toLowerCase().indexOf(brand.toLocaleLowerCase()) > -1) {
@@ -162,7 +170,32 @@ class Model {
             });
             this.data = filtersData;
         }
+        if (this.filters.sortString.length !== 0) {
+            // console.log(this.filters.sortString);
+            if (this.filters.sortString === 'PriceASC') {
+                this.data = this.data.sort((a, b) => {
+                    return a.price - b.price
+                })
+            }
+            if (this.filters.sortString === 'PriceDESC') {
+                this.data = this.data.sort((a, b) => {
+                    return b.price - a.price
+                })
+            }
+            if (this.filters.sortString === 'RatingASC') {
+                this.data = this.data.sort((a, b) => {
+                    return a.rating - b.rating
+                })
+            }
+            if (this.filters.sortString === 'RatingDESC') {
+                this.data = this.data.sort((a, b) => {
+                    return b.rating - a.rating
+                })
+            }
+        }
     }
+
+
 }
 
 export let modelSingleton: Model = new Model();

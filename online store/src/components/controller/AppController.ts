@@ -19,27 +19,18 @@ class AppController {
         this.view.categories.drawCategories(this.model.categories);
         this.view.search.drawSearch(this.model.filters.search);
         this.view.filterByBrand.drawFilter(this.model.brands);
-        this.view.sort.drawSort();
+        this.view.sort.drawSort(this.model.filters.sortString);
 
-        this.view.sort.bindSort(this.handlerSelectSotr);
         this.view.filterByBrand.bindAddBrand(this.handleFilterByBrand);
         this.view.card.bindAddProduct(this.handleAddProduct);
         this.view.categories.bindAddCategory(this.handlerAddCategory);
-        this.view.search.bindSearchProduct(this.handlerSearchProduct)
+        this.view.search.bindSearchProduct(this.handlerSearchProduct);
+        this.view.sort.bindSort(this.handlerSelectSort);
     }
-    handlerSelectSotr(value) {
-        if (value === 'PriceASC') {
-            console.log('ASCPRICE')
-        }
-        if (value === 'PriceDESC') {
-            console.log('PRICEDESC')
-        }
-        if (value === 'RatingASC') {
-            console.log('ASCRATING');
-        }
-        if (value === 'RatingDESC') {
-            console.log('DESCRATING')
-        }
+    handlerSelectSort = (stringValue: string) => {
+        this.model.addSortValue(stringValue);
+        this.model.globalFilter();
+        this.view.card.drawCard(this.model.data);
     }
     // For categories handler
     handlerAddCategory = (categoryValue: string, param: string): void => {
@@ -71,6 +62,8 @@ class AppController {
         // this.view.filterByBrand.drawFilter();
         // this.startPage()
     };
+
+
     //  функция вызывается при добавлении продукта и закидывает продукт в массив корзины.Перерисовка страницы с новыми данными
     handleAddProduct = (id: number, parameter: string) => {
         if (parameter === 'Add') {
