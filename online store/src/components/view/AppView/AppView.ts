@@ -1,6 +1,6 @@
 import Cards from './Card/Cards';
 import FiltersView from './Filters/Filters';
-import PageView from './Pages/MainComponent/PageView';
+import PageView from '../Pages/MainComponent/PageView';
 import Cart from './cart/cart';
 import Price from './price/Price';
 import Search from './Search/Search';

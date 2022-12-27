@@ -1,7 +1,7 @@
-import { Product } from "../../types/types";
-import Cart from "./cart/cart";
-import PageView from "./Pages/MainComponent/PageView";
-import ProductsFromCart from "./СartView/ProductsFromCart/ProductsFromCart";
+import { Product } from "../../../types/types";
+import Cart from "../AppView/cart/cart";
+import PageView from "../Pages/MainComponent/PageView";
+import ProductsFromCart from "./ProductsFromCart/ProductsFromCart";
 
 
 class CartView {

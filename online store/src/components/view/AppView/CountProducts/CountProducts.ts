@@ -1,7 +1,6 @@
 
 
 class CountProducts {
-
   drawCount(value: number) {
     const typeCardsBlock = document.querySelector('.type__cards');
     while (typeCardsBlock?.firstChild) {

@@ -1,4 +1,4 @@
-import { hungRouteListeners, urlRoute } from '../../../main';
+import { hungRouteListeners, urlRoute } from '../../../../main';
 import classes from './cart.module.sass';
 
 class Cart {

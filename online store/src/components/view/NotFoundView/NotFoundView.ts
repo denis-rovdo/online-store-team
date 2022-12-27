@@ -1,4 +1,4 @@
-import PageView from "./Pages/MainComponent/PageView";
+import PageView from "../Pages/MainComponent/PageView";
 
 
 class NotFoundView {

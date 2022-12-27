@@ -4,11 +4,11 @@ import './style.sass';
 // import typescriptLogo from './typescript.svg';
 import App from './components/app/App';
 import AppController from './components/controller/AppController';
-import AppView from './components/view/AppView';
+import AppView from './components/view/AppView/AppView';
 import CartController from './components/controller/CartController';
 import ProductController from './components/controller/ProductController';
 import NotFoundController from './components/controller/NotFoundController';
-import CartView from './components/view/CartView';
+import CartView from './components/view/СartView/CartView';
 
 export const app = new App(new AppController(new AppView(), modelSingleton), new CartController(new CartView()), new ProductController(), new NotFoundController());
 

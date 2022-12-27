@@ -1,5 +1,5 @@
 import Model from '../model/Model';
-import AppView from '../view/AppView';
+import AppView from '../view/AppView/AppView';
 import { urlRoute } from '../../main';
 
 class AppController {
@@ -28,6 +28,7 @@ class AppController {
         this.view.search.bindSearchProduct(this.handlerSearchProduct);
         this.view.sort.bindSort(this.handlerSelectSort);
     }
+
     handlerSelectSort = (stringValue: string) => {
         this.model.addSortValue(stringValue);
         this.model.globalFilter();
@@ -50,7 +51,7 @@ class AppController {
 
         }
     }
-    // пока что не готовая функция
+    // фильтрация по брэнду
     handleFilterByBrand = (value: string, brand: string) => {
         if (brand === 'Check') {
             this.model.addFilterByBrand(value);
@@ -67,9 +68,6 @@ class AppController {
 
 
         }
-        // this.model.filterWithParams(brand);
-        // this.view.filterByBrand.drawFilter();
-        // this.startPage()
     };
 
 
@@ -81,7 +79,6 @@ class AppController {
             this.view.price.drawPrice(this.model.getTotalSum().toString());
             this.view.card.drawCard(this.model.data);
             this.view.countProduct.drawCount(this.model.data.length);
-
         }
         if (parameter === 'Delete') {
             this.model.deleteProduct(id);

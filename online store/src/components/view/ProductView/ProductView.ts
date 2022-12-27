@@ -1,6 +1,6 @@
-import { Product } from "../../types/types";
-import Cart from "./cart/cart";
-import PageView from "./Pages/MainComponent/PageView";
+import { Product } from "../../../types/types";
+import Cart from "../AppView/cart/cart";
+import PageView from "../Pages/MainComponent/PageView";
 
 
 class ProductView {

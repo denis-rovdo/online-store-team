@@ -1,7 +1,7 @@
 import Model, { modelSingleton } from './../model/Model';
-import CartView from "../view/CartView";
+import CartView from "../view/СartView/CartView";
 import { urlRoute } from '../../main';
-import Cart from '../view/cart/cart';
+import Cart from '../view/AppView/cart/cart';
 
 
 class CartController {

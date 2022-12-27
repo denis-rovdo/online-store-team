@@ -1,4 +1,4 @@
-import NotFoundView from "../view/NotFoundView";
+import NotFoundView from "../view/NotFoundView/NotFoundView";
 
 
 class NotFoundController {

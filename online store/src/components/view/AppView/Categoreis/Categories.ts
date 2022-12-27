@@ -1,9 +1,8 @@
-import { CategoriesProduct } from '../../../types/types';
+import { CategoriesProduct } from '../../../../types/types';
 import classes from './Categories.module.sass';
 
 class Categories {
     drawCategories(data: CategoriesProduct[]) {
-
         const category = document.querySelector('.category');
         const categoriesBlock = document.createElement('div');
         categoriesBlock.className = `${classes.categoriesBlock}`;

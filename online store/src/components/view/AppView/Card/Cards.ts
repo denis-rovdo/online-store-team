@@ -1,6 +1,6 @@
-import { hungRouteListeners, urlRoute } from '../../../main';
-import addHandlersNavigation from '../../../router/addHandlers';
-import { Product } from './../../../types/types';
+import { hungRouteListeners, urlRoute } from '../../../../main';
+import addHandlersNavigation from '../../../../router/addHandlers';
+import { Product } from '../../../../types/types';
 import classes from './Cards.module.sass';
 
 class Cards {
