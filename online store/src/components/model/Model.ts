@@ -1,3 +1,4 @@
+import { notFound } from './../view/Pages/not found/not-found';
 import { Product, CategoriesProduct } from './../../types/types';
 import data, { brandsFilter, categoriesProducts } from '../../data/state';
 class Model {
@@ -29,7 +30,7 @@ class Model {
             categories: [],
             brands: [],
             haveCount: [],
-            priceCount: [],
+            priceCount: [42, 4500],
             sortString: '',
         }
         this.filterData = [];
@@ -39,6 +40,31 @@ class Model {
         this.categories = categoriesProducts;
         this.brands = brandsFilter;
         this.inputValue = '';
+    }
+
+    getMinAndMaxPrice() {
+        if(this.data.length === 0) {
+            this.filters.priceCount[0] = 42;
+            this.filters.priceCount[1] = 4500;
+        }else{
+            const priceArr = [...this.data].sort((a, b) => {
+                return a.price - b.price
+            })
+            
+            const maxPrice = priceArr.at(-1).price;
+            const minPrise = priceArr[0].price
+            this.filters.priceCount[0] = minPrise;
+            this.filters.priceCount[1] = maxPrice;
+            //this.filterByPrice(minPrise, maxPrice)
+            console.log(this.filters.priceCount);
+        }
+       
+
+    }
+
+    filterByPrice(lowerNumber, upperNumber) {
+        this.filters.priceCount[0] = +lowerNumber;
+        this.filters.priceCount[1] = +upperNumber;
     }
 
     addSortValue(value: string) {
@@ -192,6 +218,16 @@ class Model {
                 })
             }
         }
+        
+        this.data = this.data.filter((el) => {
+            if (this.filters.priceCount[0] < el.price &&  el.price <=  this.filters.priceCount[1]) {
+                return true;
+            } else {
+                return false;
+            }
+            
+        })
+        console.log( this.data);
     }
 
 
