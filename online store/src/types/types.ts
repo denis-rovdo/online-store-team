@@ -10,6 +10,7 @@ export interface Product {
     category: Category;
     thumbnail: string;
     images: string[];
+    checking: boolean;
 }
 
 type Brand =
@@ -31,6 +32,7 @@ export interface CategoriesProduct {
     name: Category;
     img: string;
     category: string;
+    checking: boolean;
 }
 
 export type Routes = {

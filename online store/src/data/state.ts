@@ -18,6 +18,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7229/538/preview_b/xb214208_philips_62cfc6b217386.jpeg',
             'https://cdn21vek.by/img/galleries/7229/538/preview_b/xb214208_philips_62cfc6b4dd4bf.jpeg',
         ],
+        checking: false,
     },
     {
         id: 2,
@@ -36,6 +37,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/364/562/preview_b/fc640401_philips_58c7158e5ae8f.jpeg',
             'https://cdn21vek.by/img/galleries/364/562/preview_b/fc640401_philips_58c7158f1f0dd.jpeg',
         ],
+        checking: false,
     },
     {
         id: 3,
@@ -54,6 +56,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6966/822/preview_b/fc933109_philips_6170ffb542cdf.jpeg',
             'https://cdn21vek.by/img/galleries/6966/822/preview_b/fc933109_philips_6170ffb677c17.jpeg',
         ],
+        checking: false,
     },
     {
         id: 4,
@@ -71,6 +74,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/475/513/preview_b/fc829301_philips_59df57443b828.jpeg',
             'https://cdn21vek.by/img/galleries/475/513/preview_b/fc829301_philips_5a2550189876e.jpeg',
         ],
+        checking: false,
     },
     {
         id: 5,
@@ -89,6 +93,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6167/913/preview_b/xd301001_philips_5f6ae48ceb31a.png',
             'https://cdn21vek.by/img/galleries/6167/913/preview_b/xd301001_philips_5f6ae48d757c9.png',
         ],
+        checking: false,
     },
     {
         id: 6,
@@ -107,6 +112,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5655/959/preview_b/bwd41720_bosch_5d66566e71e1a.jpeg',
             'https://cdn21vek.by/img/galleries/5655/959/preview_b/bwd41720_bosch_5d66566f44586.jpeg',
         ],
+        checking: false,
     },
     {
         id: 7,
@@ -125,6 +131,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5909/975/preview_b/bcs611am_bosch_5e5cd24690ea0.jpeg',
             'https://cdn21vek.by/img/galleries/5909/975/preview_b/bcs611am_bosch_5e5cd249b3cef.jpeg',
         ],
+        checking: false,
     },
     {
         id: 8,
@@ -143,6 +150,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7259/227/preview_b/bgs05pu2_bosch_620a3e5258615.jpeg',
             'https://cdn21vek.by/img/galleries/7259/227/preview_b/bgs05pu2_bosch_620a3e539e5ce.jpeg',
         ],
+        checking: false,
     },
     {
         id: 9,
@@ -161,6 +169,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7242/815/preview_b/bgs21wpow_bosch_620f5ca7224fa.jpeg',
             'https://cdn21vek.by/img/galleries/7242/815/preview_b/bgs21wpow_bosch_620f5caa2f602.jpeg',
         ],
+        checking: false,
     },
     {
         id: 10,
@@ -178,6 +187,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7898/275/preview_b/bch3k2301_bosch_637205657b558.jpeg',
             'https://cdn21vek.by/img/galleries/7898/275/preview_b/bch3k2301_bosch_63720567a20d8.jpeg',
         ],
+        checking: false,
     },
     {
         id: 11,
@@ -197,6 +207,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6349/474/preview_b/mihandheldvacuumcleanerprog10bhr4307glmjscxqpt_xiaomi_604b09c3bc348.jpeg',
             'https://cdn21vek.by/img/galleries/6349/474/preview_b/mihandheldvacuumcleanerprog10bhr4307glmjscxqpt_xiaomi_604b09c44553f.jpeg',
         ],
+        checking: false,
     },
     {
         id: 12,
@@ -215,6 +226,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6353/442/preview_b/mihandheldvacuumcleanerlightbhr4636glmjwxcq03dy_xiaomi_60756b030cdd8.jpeg',
             'https://cdn21vek.by/img/galleries/6353/442/preview_b/mihandheldvacuumcleanerlightbhr4636glmjwxcq03dy_xiaomi_60756b036c46a.jpeg',
         ],
+        checking: false,
     },
     {
         id: 13,
@@ -233,6 +245,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7292/916/preview_b/mivacuumcleanerminibhr5156eussxcq01xy_xiaomi_622ef0a428842.jpeg',
             'https://cdn21vek.by/img/galleries/7292/916/preview_b/mivacuumcleanerminibhr5156eussxcq01xy_xiaomi_622ef0a5055b3.jpeg',
         ],
+        checking: false,
     },
     {
         id: 14,
@@ -251,6 +264,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7750/268/preview_b/mivacuumcleanerg11mjwxcq05xyhwbhr5512eu_xiaomi_632848f09bd2a.jpeg',
             'https://cdn21vek.by/img/galleries/7750/268/preview_b/mivacuumcleanerg11mjwxcq05xyhwbhr5512eu_xiaomi_632848a9ca9de.jpeg',
         ],
+        checking: false,
     },
     {
         id: 15,
@@ -269,6 +283,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7116/178/preview_b/mivacuumcleanerg9mjscxcq1tbhr4368gl_xiaomi_61b98f09d5a65.jpeg',
             'https://cdn21vek.by/img/galleries/7116/178/preview_b/mivacuumcleanerg9mjscxcq1tbhr4368gl_xiaomi_61b98f1a1199f.jpeg',
         ],
+        checking: false,
     },
     {
         id: 16,
@@ -287,6 +302,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/891/149/preview_b/vcc4131s3axev_samsung_5cc2ffa98dc10.jpeg',
             'https://cdn21vek.by/img/galleries/891/149/preview_b/vcc4131s3axev_samsung_5cc2ffa9ce860.jpeg',
         ],
+        checking: false,
     },
     {
         id: 17,
@@ -304,6 +320,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/13/452/preview_b/samsung_sc4520_1_56b8646a7a237.jpeg',
             'https://cdn21vek.by/img/galleries/13/452/preview_b/samsung_sc4520_1_589b818a7dcec.jpeg',
         ],
+        checking: false,
     },
     {
         id: 18,
@@ -322,6 +339,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/447/337/preview_b/sc18m21b0s2vc18m21b0s2ev_samsung_5901e0328ea3d.jpeg',
             'https://cdn21vek.by/img/galleries/447/337/preview_b/sc18m21b0s2vc18m21b0s2ev_samsung_5901e032d5919.jpeg',
         ],
+        checking: false,
     },
     {
         id: 19,
@@ -340,6 +358,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/450/918/preview_b/sc18m31a0huevvc18m31a0huev_samsung_590da1bd54708.jpeg',
             'https://cdn21vek.by/img/galleries/450/918/preview_b/sc18m31a0huevvc18m31a0huev_samsung_590da1bd9a260.jpeg',
         ],
+        checking: false,
     },
     {
         id: 20,
@@ -357,6 +376,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/663/469/preview_b/sc18m2130sr_samsung_5b7ae88a26445.jpeg',
             'https://cdn21vek.by/img/galleries/663/469/preview_b/sc18m2130sr_samsung_5b7ae88a71132.jpeg',
         ],
+        checking: false,
     },
     {
         id: 21,
@@ -374,6 +394,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/394/159/preview_b/vk69662n_lg_5907932b584a8.jpeg',
             'https://cdn21vek.by/img/galleries/394/159/preview_b/vk69662n_lg_57fce452b2ad3.jpeg',
         ],
+        checking: false,
     },
     {
         id: 22,
@@ -391,6 +412,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6300/59/preview_b/vc5420nhtw_lg_5fdc7e658f90f.jpeg',
             'https://cdn21vek.by/img/galleries/6300/59/preview_b/vc5420nhtw_lg_5fdc7e65b6aa3.jpeg',
         ],
+        checking: false,
     },
     {
         id: 23,
@@ -408,6 +430,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6259/885/preview_b/vc5420nnts_lg_5fae0d4aa8617.jpeg',
             'https://cdn21vek.by/img/galleries/6259/885/preview_b/vc5420nnts_lg_5fae0d4ace5a6.jpeg',
         ],
+        checking: false,
     },
     {
         id: 24,
@@ -426,6 +449,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5974/228/preview_b/vk89689hu_lg_5e956c086fdb6.jpeg',
             'https://cdn21vek.by/img/galleries/5974/228/preview_b/vk89689hu_lg_5e956c09948d3.png',
         ],
+        checking: false,
     },
     {
         id: 25,
@@ -443,6 +467,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5974/227/preview_b/vk89309h_lg_5e95691d4b56b.jpeg',
             'https://cdn21vek.by/img/galleries/5974/227/preview_b/vk89309h_lg_5e95691d7b8fa.jpeg',
         ],
+        checking: false,
     },
     {
         id: 26,
@@ -461,6 +486,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6111/241/preview_b/serie4vitafreshkgn39xi28r_bosch_5f3e1ded347e5.jpeg',
             'https://cdn21vek.by/img/galleries/6111/241/preview_b/serie4vitafreshkgn39xi28r_bosch_5f3e1ded69261.jpeg',
         ],
+        checking: false,
     },
     {
         id: 27,
@@ -479,6 +505,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/465/29/preview_b/kgv36xw21r_bosch_596e03e6982df.jpeg',
             'https://cdn21vek.by/img/galleries/465/29/preview_b/kgv36xw21r_bosch_596e03e860e1a.jpeg',
         ],
+        checking: false,
     },
     {
         id: 28,
@@ -496,6 +523,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/466/561/preview_b/kgv36nw1ar_bosch_59956bd76d943.jpeg',
             'https://cdn21vek.by/img/galleries/466/561/preview_b/kgv36nw1ar_bosch_59956e06ed3c3.jpeg',
         ],
+        checking: false,
     },
     {
         id: 29,
@@ -515,6 +543,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6152/114/preview_b/serie6vitafreshpluskgn39ai32r_bosch_5f6435c9ccacb.png',
             'https://cdn21vek.by/img/galleries/6152/114/preview_b/serie6vitafreshpluskgn39ai32r_bosch_5f6435ca012c4.png',
         ],
+        checking: false,
     },
     {
         id: 30,
@@ -533,6 +562,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7634/547/preview_b/kgn39ai33r_bosch_62dbea5478ff9.png',
             'https://cdn21vek.by/img/galleries/7634/547/preview_b/kgn39ai33r_bosch_62dbea533eb96.png',
         ],
+        checking: false,
     },
     {
         id: 31,
@@ -550,6 +580,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7731/486/preview_b/doorcoolinggwb509smjm_lg_631a37abcfaa4.jpeg',
             'https://cdn21vek.by/img/galleries/7731/486/preview_b/doorcoolinggwb509smjm_lg_631a49b57e0b2.jpeg',
         ],
+        checking: false,
     },
     {
         id: 32,
@@ -567,6 +598,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7731/418/preview_b/doorcoolinggwb459sqlm_lg_631a2d28d5cfd.jpeg',
             'https://cdn21vek.by/img/galleries/7731/418/preview_b/doorcoolinggwb459sqlm_lg_631a2c560203c.jpeg',
         ],
+        checking: false,
     },
     {
         id: 33,
@@ -584,6 +616,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7731/434/preview_b/doorcoolinggwb509slkm_lg_631ae32521d2e.jpeg',
             'https://cdn21vek.by/img/galleries/7731/434/preview_b/doorcoolinggwb509slkm_lg_631ae300032ce.jpeg',
         ],
+        checking: false,
     },
     {
         id: 34,
@@ -601,6 +634,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7731/514/preview_b/doorcoolinggwb509sbnm_lg_631a3e7f8a2f8.jpeg',
             'https://cdn21vek.by/img/galleries/7731/514/preview_b/doorcoolinggwb509sbnm_lg_631a37658a9ab.jpeg',
         ],
+        checking: false,
     },
     {
         id: 35,
@@ -618,6 +652,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5827/560/preview_b/gab379slul_lg_5e2fdd5dc98ab.png',
             'https://cdn21vek.by/img/galleries/5827/560/preview_b/gab379slul_lg_5e2fdd5c85ee9.png',
         ],
+        checking: false,
     },
     {
         id: 36,
@@ -636,6 +671,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/58/129/preview_b/atlant_4208000_57f24b096aba4.jpeg',
             'https://cdn21vek.by/img/galleries/58/129/preview_b/atlant_4208000_57f24b17c20c8.jpeg',
         ],
+        checking: false,
     },
     {
         id: 37,
@@ -654,6 +690,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/58/130/preview_b/atlant_4210000_57f2579165290.jpeg',
             'https://cdn21vek.by/img/galleries/58/130/preview_b/atlant_4210000_57f257a5dd442.jpeg',
         ],
+        checking: false,
     },
     {
         id: 38,
@@ -672,6 +709,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/59/712/preview_b/atlant_283595_3.jpeg',
             'https://cdn21vek.by/img/galleries/59/712/preview_b/atlant_283595_2.jpeg',
         ],
+        checking: false,
     },
     {
         id: 39,
@@ -690,6 +728,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/461/713/preview_b/4624101_atlant_5aaa2469776c4.jpeg',
             'https://cdn21vek.by/img/galleries/461/713/preview_b/4624101_atlant_5aaa246c3e111.jpeg',
         ],
+        checking: false,
     },
     {
         id: 40,
@@ -708,6 +747,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5/9/preview_b/atlant_6023031_57ee54577cae4.jpeg',
             'https://cdn21vek.by/img/galleries/5/9/preview_b/atlant_6023031_57ee54619353c.jpeg',
         ],
+        checking: false,
     },
     {
         id: 41,
@@ -726,6 +766,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7353/345/preview_b/cnmv5335e20vs_beko_6251cd3eee934.jpeg',
             'https://cdn21vek.by/img/galleries/7167/631/preview_b/cnmv5335e20vw_beko_6251cb6133343.png',
         ],
+        checking: false,
     },
     {
         id: 42,
@@ -744,6 +785,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7167/643/preview_b/cnmv5335e20vxr_beko_61f39429b18a9.jpeg',
             'https://cdn21vek.by/img/galleries/7167/643/preview_b/cnmv5335e20vxr_beko_61f3941e1cc2b.jpeg',
         ],
+        checking: false,
     },
     {
         id: 43,
@@ -762,6 +804,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7167/643/preview_b/cnmv5335e20vxr_beko_61f39429b18a9.jpeg',
             'https://cdn21vek.by/img/galleries/7167/643/preview_b/cnmv5335e20vxr_beko_61f3941e1cc2b.jpeg',
         ],
+        checking: false,
     },
     {
         id: 44,
@@ -780,6 +823,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7247/685/preview_b/b5rcnk403zwb_beko_62040b56cd395.jpeg',
             'https://cdn21vek.by/img/galleries/7247/685/preview_b/b5rcnk403zwb_beko_62040b585508e.jpeg',
         ],
+        checking: false,
     },
     {
         id: 45,
@@ -797,6 +841,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6419/181/preview_b/rb33a3440sawt_samsung_6053747ce75fa.jpeg',
             'https://cdn21vek.by/img/galleries/6419/181/preview_b/rb33a3440sawt_samsung_605374806b88c.jpeg',
         ],
+        checking: false,
     },
     {
         id: 46,
@@ -814,6 +859,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6419/184/preview_b/rb33a3440wwwt_samsung_6053723c13b36.jpeg',
             'https://cdn21vek.by/img/galleries/6419/184/preview_b/rb33a3440wwwt_samsung_60537240d4022.jpeg',
         ],
+        checking: false,
     },
     {
         id: 47,
@@ -831,6 +877,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6230/694/preview_b/rb37a5470sawt_samsung_5fc4c5955700a.jpeg',
             'https://cdn21vek.by/img/galleries/6230/694/preview_b/rb37a5470sawt_samsung_5fc4c595c3d9c.jpeg',
         ],
+        checking: false,
     },
     {
         id: 48,
@@ -848,6 +895,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6709/994/preview_b/rb30n4020b1wt_samsung_60f6be8d16bbd.jpeg',
             'https://cdn21vek.by/img/galleries/6709/994/preview_b/rb30n4020b1wt_samsung_60f6be8e4d8b6.jpeg',
         ],
+        checking: false,
     },
     {
         id: 49,
@@ -865,6 +913,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/59/928/preview_b/lg_ms20r42d_596d1c735625a.jpeg',
             'https://cdn21vek.by/img/galleries/59/928/preview_b/lg_ms20r42d_596d1a1709d0a.jpeg',
         ],
+        checking: false,
     },
     {
         id: 50,
@@ -882,6 +931,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/54/584/preview_b/lg_ms2042db_596cd8549c690.jpeg',
             'https://cdn21vek.by/img/galleries/54/584/preview_b/lg_ms2042db_596cd8556b87c.jpeg',
         ],
+        checking: false,
     },
     {
         id: 51,
@@ -899,6 +949,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/903/144/preview_b/ms2042darb_lg_5c77f15bbce74.jpeg',
             'https://cdn21vek.by/img/galleries/903/144/preview_b/ms2042darb_lg_5c77f15c3b749.jpeg',
         ],
+        checking: false,
     },
     {
         id: 52,
@@ -916,6 +967,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/502/721/preview_b/mw23w35gib_lg_5b44f3e0a9af8.jpeg',
             'https://cdn21vek.by/img/galleries/502/721/preview_b/mw23w35gib_lg_5ab2044277621.jpeg',
         ],
+        checking: false,
     },
     {
         id: 53,
@@ -933,6 +985,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/780/532/preview_b/ms23j5133ak_samsung_5bfe5f5f52469.jpeg',
             'https://cdn21vek.by/img/galleries/780/532/preview_b/ms23j5133ak_samsung_5bfe5f6909215.jpeg',
         ],
+        checking: false,
     },
     {
         id: 54,
@@ -950,6 +1003,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/786/580/preview_b/me88sutbw_samsung_5c176ddb97c1c.jpeg',
             'https://cdn21vek.by/img/galleries/786/580/preview_b/me88sutbw_samsung_5c176dde75379.jpeg',
         ],
+        checking: false,
     },
     {
         id: 55,
@@ -967,6 +1021,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5719/718/preview_b/ms23k3614awbw_samsung_5e186671b3337.png',
             'https://cdn21vek.by/img/galleries/5719/718/preview_b/ms23k3614awbw_samsung_5e186672138bb.png',
         ],
+        checking: false,
     },
     {
         id: 56,
@@ -984,6 +1039,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/786/571/preview_b/me88subbw_samsung_5c6140511c675.jpeg',
             'https://cdn21vek.by/img/galleries/786/571/preview_b/me88subbw_samsung_5c61405174e50.jpeg',
         ],
+        checking: false,
     },
     {
         id: 57,
@@ -1002,6 +1058,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/882/758/preview_b/fem513mb0_bosch_5c6c5e446d7e0.jpeg',
             'https://cdn21vek.by/img/galleries/882/758/preview_b/fem513mb0_bosch_5c6c5e452e0c1.jpeg',
         ],
+        checking: false,
     },
     {
         id: 58,
@@ -1019,6 +1076,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/65542/753/preview_b/ffl020mb2_bosch_6198cf2ef0238.jpeg',
             'https://cdn21vek.by/img/galleries/65542/753/preview_b/ffl020mb2_bosch_6198cf3015f91.jpeg',
         ],
+        checking: false,
     },
     {
         id: 59,
@@ -1036,6 +1094,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/65542/757/preview_b/ffl020ms1_bosch_6198d1418ee9e.jpeg',
             'https://cdn21vek.by/img/galleries/65542/757/preview_b/ffl020ms1_bosch_6198d142abe4a.jpeg',
         ],
+        checking: false,
     },
     {
         id: 60,
@@ -1054,6 +1113,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7887/821/preview_b/bfl523mb3_bosch_638d91b80c8d9.jpeg',
             'https://cdn21vek.by/img/galleries/7887/821/preview_b/bfl523mb3_bosch_638d91b80c8d9.jpeg',
         ],
+        checking: false,
     },
     {
         id: 61,
@@ -1071,6 +1131,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/460/950/preview_b/20mw7001378aaw_horizont_59491f6600d59.jpeg',
             'https://cdn21vek.by/img/galleries/460/950/preview_b/20mw7001378aaw_horizont_59491f6600d59.jpeg',
         ],
+        checking: false,
     },
     {
         id: 62,
@@ -1089,6 +1150,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/223/101/preview_b/20mw7001479bkb_horizont_5fdc9d0266a5f.png',
             'https://cdn21vek.by/img/galleries/223/101/preview_b/20mw7001479bkb_horizont_5fdc9d036be7c.png',
         ],
+        checking: false,
     },
     {
         id: 63,
@@ -1106,6 +1168,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6233/145/preview_b/20mw7001378hcw_horizont_5fb505f8eed36.png',
             'https://cdn21vek.by/img/galleries/6233/145/preview_b/20mw7001378hcw_horizont_5fb505ff490aa.png',
         ],
+        checking: false,
     },
     {
         id: 64,
@@ -1123,6 +1186,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6266/221/preview_b/20mw7001378hts_horizont_5fb4f14eb05b6.png',
             'https://cdn21vek.by/img/galleries/6266/221/preview_b/20mw7001378hts_horizont_5fb4f1489cbf5.png',
         ],
+        checking: false,
     },
     {
         id: 65,
@@ -1140,6 +1204,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/361/358/preview_b/720cpi_midea_5f8492c05e629.jpeg',
             'https://cdn21vek.by/img/galleries/361/358/preview_b/720cpi_midea_5f8492c0d856e.jpeg',
         ],
+        checking: false,
     },
     {
         id: 66,
@@ -1157,6 +1222,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/361/355/preview_b/mm720c4ew_midea_570f420c72f6a.jpeg',
             'https://cdn21vek.by/img/galleries/361/355/preview_b/mm720c4ew_midea_5acb5608c6b40.jpeg',
         ],
+        checking: false,
     },
     {
         id: 67,
@@ -1175,6 +1241,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6979/162/preview_b/am720s220b_midea_6167ea8d6e747.jpeg',
             'https://cdn21vek.by/img/galleries/6979/162/preview_b/am720s220b_midea_6167ea8d6e747.jpeg',
         ],
+        checking: false,
     },
     {
         id: 68,
@@ -1192,6 +1259,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/374/949/preview_b/mm720cpis_midea_5763c0a020170.jpeg',
             'https://cdn21vek.by/img/galleries/374/949/preview_b/mm720cpis_midea_5763c0a08009d.jpeg',
         ],
+        checking: false,
     },
     {
         id: 69,
@@ -1211,6 +1279,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7808/386/preview_b/mielectrickettle2bhr5927eumjdsh04ym_xiaomi_637b240f0d599.jpeg',
             'https://cdn21vek.by/img/galleries/7808/386/preview_b/mielectrickettle2bhr5927eumjdsh04ym_xiaomi_637b2417723f2.jpeg',
         ],
+        checking: false,
     },
     {
         id: 70,
@@ -1230,6 +1299,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6229/431/preview_b/mismartkettleprobhr4198glmjhwsh02ym_xiaomi_5f99278c09052.jpeg',
             'https://cdn21vek.by/img/galleries/6229/431/preview_b/mismartkettleprobhr4198glmjhwsh02ym_xiaomi_5f99278c3a6bc.jpeg',
         ],
+        checking: false,
     },
     {
         id: 71,
@@ -1249,6 +1319,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/807/357/preview_b/mielectrickettleskv4035gl_xiaomi_5c52eb547726c.jpeg',
             'https://cdn21vek.by/img/galleries/807/357/preview_b/mielectrickettleskv4035gl_xiaomi_5c52e9c5e605b.jpeg',
         ],
+        checking: false,
     },
     {
         id: 72,
@@ -1267,6 +1338,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/602/283/preview_b/hd935280_philips_5b0414b78651b.jpeg',
             'https://cdn21vek.by/img/galleries/602/283/preview_b/hd935280_philips_5b0414b974088.jpeg',
         ],
+        checking: false,
     },
     {
         id: 73,
@@ -1284,6 +1356,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/53/962/preview_b/philips_vivacollectionhd934201_61e51565da173.jpeg',
             'https://cdn21vek.by/img/galleries/53/962/preview_b/philips_vivacollectionhd934201_61e51565da173.jpeg',
         ],
+        checking: false,
     },
     {
         id: 74,
@@ -1302,6 +1375,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6966/801/preview_b/hd935190_philips_619de7258d2f6.jpeg',
             'https://cdn21vek.by/img/galleries/6966/801/preview_b/hd935190_philips_619de72708a83.jpeg',
         ],
+        checking: false,
     },
     {
         id: 76,
@@ -1319,6 +1393,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/32/847/preview_b/bosch_twk7601_74622.jpeg',
             'https://cdn21vek.by/img/galleries/32/847/preview_b/bosch_twk7601_74622.jpeg',
         ],
+        checking: false,
     },
     {
         id: 77,
@@ -1336,6 +1411,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/97/397/preview_b/twk7809_bosch_5453b213b07a7.jpeg',
             'https://cdn21vek.by/img/galleries/97/397/preview_b/twk7809_bosch_5453b213b07a7.jpeg',
         ],
+        checking: false,
     },
     {
         id: 78,
@@ -1353,6 +1429,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/435/404/preview_b/twk7s05_bosch_58ddf9da55805.jpeg',
             'https://cdn21vek.by/img/galleries/435/404/preview_b/twk7s05_bosch_58ddf9da893b5.jpeg',
         ],
+        checking: false,
     },
     {
         id: 79,
@@ -1370,6 +1447,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5827/745/preview_b/twk4p439_bosch_5dfe55b375554.jpeg',
             'https://cdn21vek.by/img/galleries/5827/745/preview_b/twk4p439_bosch_5dfe55b388a6a.jpeg',
         ],
+        checking: false,
     },
     {
         id: 80,
@@ -1387,6 +1465,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/494/912/preview_b/ath2591_atlanta_62bebe392dccf.jpeg',
             'https://cdn21vek.by/img/galleries/494/912/preview_b/ath2591_atlanta_62bebe4453716.jpeg',
         ],
+        checking: false,
     },
     {
         id: 81,
@@ -1404,6 +1483,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6908/576/preview_b/ath2377_atlanta_6149b79dc3392.jpeg',
             'https://cdn21vek.by/img/galleries/6908/576/preview_b/ath2377_atlanta_6149b79eef435.jpeg',
         ],
+        checking: false,
     },
     {
         id: 82,
@@ -1421,6 +1501,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/504/928/preview_b/ath691_atlanta_5a55a195e66b9.jpeg',
             'https://cdn21vek.by/img/galleries/504/928/preview_b/ath691_atlanta_5a55a195e66b9.jpeg',
         ],
+        checking: false,
     },
     {
         id: 83,
@@ -1438,6 +1519,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/363/60/preview_b/ath2431_atlanta_5735a56d2d3da.jpeg',
             'https://cdn21vek.by/img/galleries/363/60/preview_b/ath2431_atlanta_5735a56d2d3da.jpeg',
         ],
+        checking: false,
     },
     {
         id: 84,
@@ -1455,6 +1537,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/1043/244/preview_b/ep324670_philips_5d1264cdd0c2f.jpeg',
             'https://cdn21vek.by/img/galleries/1043/244/preview_b/ep324670_philips_5d1264ce537c8.jpeg',
         ],
+        checking: false,
     },
     {
         id: 85,
@@ -1472,6 +1555,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6726/336/preview_b/ep223640_philips_6107df66dc6f1.jpeg',
             'https://cdn21vek.by/img/galleries/6726/336/preview_b/ep223640_philips_6107df66dc6f1.jpeg',
         ],
+        checking: false,
     },
     {
         id: 86,
@@ -1489,6 +1573,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6412/725/preview_b/ep122120_philips_60408ad4e3634.jpeg',
             'https://cdn21vek.by/img/galleries/6412/725/preview_b/ep122120_philips_60408ad515539.jpeg',
         ],
+        checking: false,
     },
     {
         id: 87,
@@ -1507,6 +1592,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7596/596/preview_b/dinamicaecam35050b_delonghi_62ce9f327b797.jpeg',
             'https://cdn21vek.by/img/galleries/7596/596/preview_b/dinamicaecam35050b_delonghi_62ce9f381feaf.jpeg',
         ],
+        checking: false,
     },
     {
         id: 88,
@@ -1524,6 +1610,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5726/266/preview_b/ecam25023sb_delonghi_5e09c28d6a73a.jpeg',
             'https://cdn21vek.by/img/galleries/5726/266/preview_b/ecam25023sb_delonghi_5e09c28da5dd9.jpeg',
         ],
+        checking: false,
     },
     {
         id: 89,
@@ -1542,6 +1629,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/5842/181/preview_b/magnificassmartecam25031sb_delonghi_5e15b4c3998a4.jpeg',
             'https://cdn21vek.by/img/galleries/5842/181/preview_b/magnificassmartecam25031sb_delonghi_5e15b4c36011d.jpeg',
         ],
+        checking: false,
     },
     {
         id: 90,
@@ -1559,6 +1647,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7784/251/preview_b/ecam45055s_delonghi_637f178bd70b1.jpeg',
             'https://cdn21vek.by/img/galleries/7784/251/preview_b/ecam45055s_delonghi_637f1793398b9.jpeg',
         ],
+        checking: false,
     },
     {
         id: 91,
@@ -1576,6 +1665,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6868/914/preview_b/wlw24k4hoe_bosch_614191e7d87b3.jpeg',
             'https://cdn21vek.by/img/galleries/6868/914/preview_b/wlw24k4hoe_bosch_614191e8476f6.jpeg',
         ],
+        checking: false,
     },
     {
         id: 92,
@@ -1593,6 +1683,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7845/854/preview_b/wna14404pl_bosch_635a27f6bc1eb.jpeg',
             'https://cdn21vek.by/img/galleries/7845/854/preview_b/wna14404pl_bosch_635a27ff5a197.jpeg',
         ],
+        checking: false,
     },
     {
         id: 93,
@@ -1610,6 +1701,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7323/619/preview_b/wlp20260bl_bosch_622f17b2b278c.jpeg',
             'https://cdn21vek.by/img/galleries/7323/619/preview_b/wlp20260bl_bosch_622f17b1b6bd7.jpeg',
         ],
+        checking: false,
     },
     {
         id: 94,
@@ -1627,6 +1719,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7692/648/preview_b/wlp2026ebl_bosch_630392dd7414d.jpeg',
             'https://cdn21vek.by/img/galleries/7692/648/preview_b/wlp2026ebl_bosch_630392e06c6de.jpeg',
         ],
+        checking: false,
     },
     {
         id: 95,
@@ -1645,6 +1738,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/10/652/preview_b/atlant_50107_5831d88a8fc6d.jpeg',
             'https://cdn21vek.by/img/galleries/10/652/preview_b/atlant_50107_5831d88f72012.jpeg',
         ],
+        checking: false,
     },
     {
         id: 96,
@@ -1663,6 +1757,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/100/297/preview_b/60101000_atlant_583c95a581bf3.jpeg',
             'https://cdn21vek.by/img/galleries/100/297/preview_b/60101000_atlant_583c95a88bbfa.jpeg',
         ],
+        checking: false,
     },
     {
         id: 97,
@@ -1680,6 +1775,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6106/513/preview_b/60121401_atlant_5f76ca379315d.jpeg',
             'https://cdn21vek.by/img/galleries/6106/513/preview_b/60121401_atlant_5f76ca3826a18.jpeg',
         ],
+        checking: false,
     },
     {
         id: 98,
@@ -1697,6 +1793,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/6106/306/preview_b/70121301_atlant_5f23c600a1107.jpeg',
             'https://cdn21vek.by/img/galleries/6106/306/preview_b/70121301_atlant_5f23c600c296c.jpeg',
         ],
+        checking: false,
     },
     {
         id: 99,
@@ -1714,6 +1811,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/961/345/preview_b/f2j3ns0w_lg_5cac7dec27408.jpeg',
             'https://cdn21vek.by/img/galleries/961/345/preview_b/f2j3ns0w_lg_5cac7dec6cf0a.jpeg',
         ],
+        checking: false,
     },
     {
         id: 100,
@@ -1732,6 +1830,7 @@ const PRODUCTS: Product[] = [
             'https://cdn21vek.by/img/galleries/7719/547/preview_b/f2j6hsfw_lg_633aca9e6c90b.jpeg',
             'https://cdn21vek.by/img/galleries/7719/547/preview_b/f2j6hsfw_lg_633acaa6addcb.jpeg',
         ],
+        checking: false,
     },
 ];
 
@@ -1740,32 +1839,85 @@ export const categoriesProducts: CategoriesProduct[] = [
         name: 'Vacuum cleaners',
         img: 'https://www.svgrepo.com/show/62969/vacuum-cleaner.svg',
         category: 'Vacuum',
+        checking: false,
     },
     {
         name: 'Coffee machines',
         img: 'https://www.svgrepo.com/show/1281/coffee-maker.svg',
         category: 'Coffee',
+        checking: false,
     },
     {
         name: 'Fridges',
         img: 'https://www.svgrepo.com/show/86056/fridge.svg',
         category: 'Fridges',
+        checking: false,
     },
     {
         name: 'Microwaves',
         img: 'https://www.svgrepo.com/show/300115/microwave.svg',
-        category: 'Microwaves',
+        category: 'Microwave',
+        checking: false,
     },
     {
         name: 'Kettles',
         img: 'https://www.svgrepo.com/show/67724/kettle.svg',
-        category: 'Kettels',
+        category: 'Kettles',
+        checking: false,
     },
     {
         name: 'Washing machine',
         img: 'https://www.svgrepo.com/show/79028/washing-machine.svg',
         category: 'Washing',
+        checking: false,
     },
 ];
 
+export const brandsFilter = [
+    {
+        name: 'Philips',
+        checked: false,
+    },
+    {
+        name: 'Samsung',
+        checked: false,
+    },
+    {
+        name: 'Xiaomi',
+        checked: false,
+    },
+    {
+        name: 'Bosch',
+        checked: false,
+    },
+    {
+        name: 'LG',
+        checked: false,
+    },
+    {
+        name: 'ATLANT',
+        checked: false,
+    },
+    {
+        name: 'BEKO',
+        checked: false,
+    },
+    {
+        name: 'Horizont',
+        checked: false,
+    },
+    {
+        name: 'Media',
+        checked: false,
+    },
+    {
+        name: 'Atlanta',
+        checked: false,
+    },
+    {
+        name: 'DeLonghi',
+        checked: false,
+    },
+    
+]
 export default PRODUCTS;

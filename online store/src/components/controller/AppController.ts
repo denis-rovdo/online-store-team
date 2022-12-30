@@ -1,51 +1,96 @@
-import { CategoriesProduct, Product } from './../../types/types';
 import Model from '../model/Model';
-import AppView from '../view/AppView';
+import AppView from '../view/AppView/AppView';
+import { urlRoute } from '../../main';
 
 class AppController {
     view: AppView;
     model: Model;
-    constructor(view: AppView, model: Model) {
+    constructor(view: AppView, modelSingleton: Model) {
         this.view = view;
-        this.model = model;
-        // отрисовывает данные при загрузке страницы
-        this.resetData(this.model.data, this.model.cart.length);
-        // вызывает хендлер при добавлении продукта в корзину
-        this.view.card.bindAddProduct(this.handleAddProduct);
-        this.view.search.bindSearchProduct(this.handlerSearchProduct);
-        this.view.categories.bindAddCategory(this.handlerAddCategory);
+        this.model = modelSingleton;
     }
-    //  сама функция отрисовки  категорий
-    resetCategories(arr: CategoriesProduct[]) {
-        this.view.categories.drawCategories(arr);
-    }
-    // функция для отрисовки актуальных данных
-    resetData(data: Product[], count: number) {
-        // вызов отрисовки категорий
-        this.resetCategories(this.model.categories);
-        this.view.displayContent(data);
-        this.view.cart.drawCart(count.toString());
+    startPage() {
+        this.model.resetData();
+        this.model.globalFilter();
+        this.view.mainPage.drawLogo();
+        this.view.card.drawCard(this.model.data);
+        this.view.cart.drawCart(this.model.cart.length);
         this.view.price.drawPrice(this.model.getTotalSum().toString());
+        this.view.categories.drawCategories(this.model.categories);
+        this.view.search.drawSearch(this.model.filters.search);
+        this.view.filterByBrand.drawFilter(this.model.brands);
+        this.view.sort.drawSort(this.model.filters.sortString);
+        this.view.countProduct.drawCount(this.model.data.length);
+
+        this.view.filterByBrand.bindAddBrand(this.handleFilterByBrand);
+        this.view.card.bindAddProduct(this.handleAddProduct);
+        this.view.categories.bindAddCategory(this.handlerAddCategory);
+        this.view.search.bindSearchProduct(this.handlerSearchProduct);
+        this.view.sort.bindSort(this.handlerSelectSort);
+    }
+
+    handlerSelectSort = (stringValue: string) => {
+        this.model.addSortValue(stringValue);
+        this.model.globalFilter();
+        this.view.card.drawCard(this.model.data);
     }
     // For categories handler
-    handlerAddCategory() {
-        console.log('123123');
+    handlerAddCategory = (categoryValue: string, param: string): void => {
+        if (param === 'add') {
+            this.model.addFilterByCategories(categoryValue)
+            this.model.globalFilter();
+            this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
+        }
+        if (param === 'delete') {
+            this.model.deleteFilterByCategories(categoryValue)
+            this.model.globalFilter();
+            this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
+        }
     }
-    // пока что не готовая функция
-    handleFilterByBrand = (brand: string) => {
-        this.model.filterWithParams(brand);
-        // let data = this.model.data;
-        this.view.filterByBrand.drawFilter();
+    // фильтрация по брэнду
+    handleFilterByBrand = (value: string, brand: string) => {
+        if (brand === 'Check') {
+            this.model.addFilterByBrand(value);
+            this.model.globalFilter();
+            this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
+        }
+        if (brand === 'Uncheck') {
+            this.model.deleteFilterByBrand(value);
+            this.model.globalFilter();
+            this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+        }
     };
+
+
     //  функция вызывается при добавлении продукта и закидывает продукт в массив корзины.Перерисовка страницы с новыми данными
-    handleAddProduct = (id: number) => {
-        this.model.addProduct(id);
-        this.resetData(this.model.data, this.model.cart.length);
+    handleAddProduct = (id: number, parameter: string) => {
+        if (parameter === 'Add') {
+            this.model.addProduct(id);
+            this.view.cart.drawCart(this.model.cart.length);
+            this.view.price.drawPrice(this.model.getTotalSum().toString());
+            this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+        }
+        if (parameter === 'Delete') {
+            this.model.deleteProduct(id);
+            this.view.cart.drawCart(this.model.cart.length);
+            this.view.price.drawPrice(this.model.getTotalSum().toString());
+            this.view.card.drawCard(this.model.data);
+            this.view.countProduct.drawCount(this.model.data.length);
+
+        }
     };
     // для сортировки товара по тексту введенном в инпуте
     handlerSearchProduct = (textInput: string) => {
         this.model.filterByValue(textInput);
-        this.view.displayContent(this.model.data);
+        this.startPage();
     };
 }
 

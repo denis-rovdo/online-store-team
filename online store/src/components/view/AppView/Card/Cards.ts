@@ -1,12 +1,27 @@
-import addHandlersNavigation from '../../../router/addHandlers';
-import { Product } from './../../../types/types';
+import { hungRouteListeners, urlRoute } from '../../../../main';
+import addHandlersNavigation from '../../../../router/addHandlers';
+import { Product } from '../../../../types/types';
 import classes from './Cards.module.sass';
 
 class Cards {
+    constructor() { }
     drawCard(data: Product[]) {
         const cards = document.querySelector('.cards');
+        while (cards?.firstChild) {
+            cards.removeChild(cards.firstChild);
+        }
+        if (data.length === 0) {
+            const paragraph = document.createElement('p');
+            const paragraphContent = 'Товаров не найдено';
+            paragraph.innerHTML = paragraphContent;
+            cards?.append(paragraph);
+        }
         // card block
         data.forEach((el) => {
+            let checked = 'Add'
+            if (el.checking) {
+                checked = 'Delete'
+            }
             const card = document.createElement('div');
             card.classList.add(`${classes.card}`);
             card.setAttribute('data-id', `${el.id}`);
@@ -16,12 +31,12 @@ class Cards {
             const thumbnail = `<img class='${classes.image}' src="${el.thumbnail}" alt='Grocery'>`;
             //    price
             const price = `<p class='${classes.price}'>${el.price}</p>`;
-            const buttonAdd = `<a class='${classes.buttonLinkAdd}'  card-id='${el.id}'>
-                                        <button class='${classes.btn}'>Add</button>
+            const buttonAdd = `<a  class='${classes.buttonLinkAdd}'  card-id='${el.id}'>
+                                        <button class='${classes.btn} forAddCard' >${checked}</button>
                                 </a>`;
             const buttonDetail = ` 
                                 <a class='${classes.buttonLinkDetails} ${classes.routingAddEvent}'  href='/product/${el.id}'>
-                                    <button class='${classes.btn}'>Details</button>
+                                    <button class='${classes.btnDetails} forLink detailButton' id='${el.id}'>Details</button>
                                 </a>
             `;
             const buttonBlock = `<div class='${classes.buttonBlock}'>${buttonAdd}${buttonDetail}</div>`;
@@ -31,19 +46,27 @@ class Cards {
             const addLink = document.querySelector(`${classes.buttonLinkAdd}`);
             addLink?.setAttribute('data-id', `${el.id}`);
         });
-        addHandlersNavigation(`.${classes.routingAddEvent}`);
+        hungRouteListeners('detailButton');
     }
     // Накидываем обработчики на кнопки Add, функция принимает функцию из контроллера
-    bindAddProduct(handler: (data: number) => void) {
+    bindAddProduct(handler: (data: number, parameter: string) => void) {
         const cards = document.querySelector('.cards');
         cards?.addEventListener('click', (e) => {
             const target = e.target as Element;
-            if (target.className == `${classes.btn}`) {
+            if (target.textContent === 'Delete') {
+                const currentContent = target.textContent;
+                target.textContent = 'Add';
                 const currentID = Number(target.parentElement?.getAttribute('card-id'));
-                handler(currentID);
+                handler(currentID, currentContent);
+            } else if (target.textContent === 'Add') {
+                const currentContent = target.textContent;
+                target.textContent = 'Delete';
+                const currentID = Number(target.parentElement?.getAttribute('card-id'));
+                handler(currentID, currentContent);
             }
         });
     }
 }
+// target.className == `${classes.btn} forAddCard`
 
 export default Cards;
