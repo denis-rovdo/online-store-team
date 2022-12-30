@@ -65,8 +65,6 @@ class AppController {
             this.model.globalFilter();
             this.view.card.drawCard(this.model.data);
             this.view.countProduct.drawCount(this.model.data.length);
-
-
         }
     };
 

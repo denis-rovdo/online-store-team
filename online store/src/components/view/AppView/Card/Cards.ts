@@ -64,8 +64,6 @@ class Cards {
                 const currentID = Number(target.parentElement?.getAttribute('card-id'));
                 handler(currentID, currentContent);
             }
-
-
         });
     }
 }
