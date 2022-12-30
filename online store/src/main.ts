@@ -58,7 +58,7 @@ const locationHandler = async (location: string) => {
 
   // const pathName = window.location.pathname.split('/');
   const page = (window.location.pathname === '/')
-    ? '/' : ('/' + firstPath === '/product')
+    ? '/' : ('/' + firstPath === '/product' && (id > 0 && id < 100))
       ? '/product' : window.location.pathname === '/cart'
         ? '/cart' : '/404'
   let controller;
