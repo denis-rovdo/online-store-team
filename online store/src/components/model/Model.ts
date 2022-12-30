@@ -114,6 +114,7 @@ class Model {
     //добавляет продукт в корзину делает уникальный массив продуктов в корзине
     addProduct = (a: number) => {
         this.state.map(el => el.id === a ? el.checking = !el.checking : '');
+        this.state[a - 1].stock--
         if (this.cart.length != 0) {
             this.cart.some((el) => el.id === a) ? '' : this.state.find((el) => (el.id === a ? this.cart.push(el) : ''));
         }
@@ -123,6 +124,7 @@ class Model {
     };
     // удаляем продукт из массива ккорзины
     deleteProduct(a: number) {
+        this.state[a - 1].stock++
         this.state.map(el => el.id === a ? el.checking = !el.checking : '');
         this.cart = this.cart.filter(el => el.id !== a);
     }
