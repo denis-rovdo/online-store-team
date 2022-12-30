@@ -31,7 +31,6 @@ class ProductController {
   }
 
   handleAddProduct = (id: number, parameter: string) => {
-    console.log('Handler')
     if (parameter === 'Add') {
       this.model.addProduct(id);
       this.view.cart.drawCart(this.model.cart.length);

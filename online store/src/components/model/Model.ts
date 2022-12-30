@@ -55,7 +55,6 @@ class Model {
             }
         });
         this.filters.brands.push(brand);
-        console.log(this.filters.brands);
     }
 
     deleteFilterByBrand(brand: string) {
@@ -67,7 +66,6 @@ class Model {
             }
         });
         this.filters.brands = this.filters.brands.filter(el => el.toLocaleLowerCase() !== brand.toLocaleLowerCase());
-        console.log(this.filters.brands);
     }
     // добавление категории
     addFilterByCategories(categoryValue: string) {
@@ -173,7 +171,6 @@ class Model {
             this.data = filtersData;
         }
         if (this.filters.sortString.length !== 0) {
-            // console.log(this.filters.sortString);
             if (this.filters.sortString === 'PriceASC') {
                 this.data = this.data.sort((a, b) => {
                     return a.price - b.price
