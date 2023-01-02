@@ -33,24 +33,22 @@ class AppController {
         this.model.addSortValue(stringValue);
         this.model.globalFilter();
         this.view.card.drawCard(this.model.data);
-    }
+    };
     // For categories handler
     handlerAddCategory = (categoryValue: string, param: string): void => {
         if (param === 'add') {
-            this.model.addFilterByCategories(categoryValue)
+            this.model.addFilterByCategories(categoryValue);
             this.model.globalFilter();
             this.view.card.drawCard(this.model.data);
             this.view.countProduct.drawCount(this.model.data.length);
-
         }
         if (param === 'delete') {
-            this.model.deleteFilterByCategories(categoryValue)
+            this.model.deleteFilterByCategories(categoryValue);
             this.model.globalFilter();
             this.view.card.drawCard(this.model.data);
             this.view.countProduct.drawCount(this.model.data.length);
-
         }
-    }
+    };
     // фильтрация по брэнду
     handleFilterByBrand = (value: string, brand: string) => {
         if (brand === 'Check') {
@@ -58,7 +56,6 @@ class AppController {
             this.model.globalFilter();
             this.view.card.drawCard(this.model.data);
             this.view.countProduct.drawCount(this.model.data.length);
-
         }
         if (brand === 'Uncheck') {
             this.model.deleteFilterByBrand(value);
@@ -67,7 +64,6 @@ class AppController {
             this.view.countProduct.drawCount(this.model.data.length);
         }
     };
-
 
     //  функция вызывается при добавлении продукта и закидывает продукт в массив корзины.Перерисовка страницы с новыми данными
     handleAddProduct = (id: number, parameter: string) => {
@@ -84,7 +80,6 @@ class AppController {
             this.view.price.drawPrice(this.model.getTotalSum().toString());
             this.view.card.drawCard(this.model.data);
             this.view.countProduct.drawCount(this.model.data.length);
-
         }
     };
     // для сортировки товара по тексту введенном в инпуте
