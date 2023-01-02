@@ -4,7 +4,6 @@ import { Product } from '../../../../types/types';
 import classes from './Cards.module.sass';
 
 class Cards {
-    constructor() { }
     drawCard(data: Product[]) {
         const cards = document.querySelector('.cards');
         while (cards?.firstChild) {
@@ -18,9 +17,9 @@ class Cards {
         }
         // card block
         data.forEach((el) => {
-            let checked = 'Add'
+            let checked = 'Add';
             if (el.checking) {
-                checked = 'Delete'
+                checked = 'Delete';
             }
             const card = document.createElement('div');
             card.classList.add(`${classes.card}`);

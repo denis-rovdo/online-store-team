@@ -18,7 +18,7 @@ class Search {
         const input: HTMLInputElement | null = document.querySelector('.inputText');
         input?.focus();
         input?.addEventListener('input', () => {
-            const value = input.value
+            const value = input.value;
             handler(value);
         });
     }

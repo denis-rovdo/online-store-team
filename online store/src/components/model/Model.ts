@@ -11,17 +11,18 @@ class Model {
     inputValue: string;
     filterCategories: Array<string>;
     brands: {
-        name: string,
-        checked: boolean,
-    }[]
+        name: string;
+        checked: boolean;
+    }[];
     filters: {
-        search: string,
-        categories: Array<string>,
-        brands: Array<string>,
-        haveCount: Array<number>,
-        priceCount: Array<number>,
+        search: string;
+        categories: Array<string>;
+        brands: Array<string>;
+        haveCount: Array<number>;
+        priceCount: Array<number>;
         sortString: string;
-    }
+    };
+    countProductInsideCart: Array<object>
     constructor() {
         this.state = data;
         this.data = data;
@@ -32,14 +33,29 @@ class Model {
             haveCount: [],
             priceCount: [42, 4500],
             sortString: '',
-        }
+        };
         this.filterData = [];
         this.filterCategories = [];
         this.cart = [];
+        this.countProductInsideCart = [];
         this.totalPrice = 0;
         this.categories = categoriesProducts;
         this.brands = brandsFilter;
         this.inputValue = '';
+    }
+    addCurrentProductInCart(id) {
+        let currentProduct = this.state.filter(el => el.id == id);
+        this.countProductInsideCart.push(currentProduct[0]);
+        this.state[id - 1].stock--;
+    }
+    deleteCurrentProductInCart(id) {
+        let currentProduct = this.countProductInsideCart.findIndex(el => el.id == id);
+        this.countProductInsideCart.splice(currentProduct, 1);
+        this.state[id - 1].stock++
+    }
+
+    getCurrentProductSum() {
+
     }
 
     getMinAndMaxPrice() {
@@ -71,51 +87,46 @@ class Model {
         this.filters.sortString = value;
     }
 
-
     addFilterByBrand(brand: string) {
-        this.brands.map(el => {
+        this.brands.map((el) => {
             if (el.name.toLowerCase().indexOf(brand.toLocaleLowerCase()) > -1) {
-                el.checked = !el.checked;
-            } else {
-                el.checked = el.checked;
+                if (el.checked === true) el.checked = false;
+                if (el.checked === false) el.checked = true;
             }
         });
         this.filters.brands.push(brand);
     }
 
     deleteFilterByBrand(brand: string) {
-        this.brands.map(el => {
+        this.brands.map((el) => {
             if (el.name.toLowerCase().indexOf(brand.toLocaleLowerCase()) > -1) {
-                el.checked = !el.checked;
-            } else {
-                el.checked = el.checked;
+                if (el.checked === true) el.checked = false;
+                if (el.checked === false) el.checked = true;
             }
         });
-        this.filters.brands = this.filters.brands.filter(el => el.toLocaleLowerCase() !== brand.toLocaleLowerCase());
+        this.filters.brands = this.filters.brands.filter((el) => el.toLocaleLowerCase() !== brand.toLocaleLowerCase());
     }
     // добавление категории
     addFilterByCategories(categoryValue: string) {
-        this.categories.map(el => {
+        this.categories.map((el) => {
             if (el.name.toLowerCase().indexOf(categoryValue.toLocaleLowerCase()) > -1) {
-                el.checking = !el.checking;
-            } else {
-                el.checking = el.checking;
+                if (el.checking === true) el.checking = false;
+                if (el.checking === false) el.checking = true;
             }
         });
         this.filters.categories.push(categoryValue);
-
     }
-    // удаление категории 
+    // удаление категории
     deleteFilterByCategories(categoryValue: string) {
         this.categories.map((el) => {
             if (el.name.toLowerCase().indexOf(categoryValue.toLocaleLowerCase()) > -1) {
-                el.checking = !el.checking;
-            } else {
-                el.checking = el.checking;
+                if (el.checking === true) el.checking = false;
+                if (el.checking === false) el.checking = true;
             }
         });
-        this.filters.categories = this.filters.categories.filter(el => el.toLocaleLowerCase() !== categoryValue.toLocaleLowerCase());
-
+        this.filters.categories = this.filters.categories.filter(
+            (el) => el.toLocaleLowerCase() !== categoryValue.toLocaleLowerCase()
+        );
     }
     // пока что не используется
     filterWithParams = (params: string) => {
@@ -127,7 +138,7 @@ class Model {
         this.inputValue = '';
     }
     findProductById(id: number) {
-        this.data = this.state.filter(el => el.id === id);
+        this.data = this.state.filter((el) => el.id === id);
     }
     // фильтр данных по введенному тексту в инпуте
     filterByValue = (textInput: string) => {
@@ -137,10 +148,10 @@ class Model {
 
     //добавляет продукт в корзину делает уникальный массив продуктов в корзине
     addProduct = (a: number) => {
-        this.state.map(el => el.id === a ? el.checking = !el.checking : '');
-        this.state[a - 1].stock--
+        this.state.map((el) => (el.id === a ? (el.checking = !el.checking) : ''));
+        this.state[a - 1].stock--;
         if (this.cart.length != 0) {
-            this.cart.some((el) => el.id === a) ? '' : this.state.find((el) => (el.id === a ? this.cart.push(el) : ''));
+            this.cart.some((el) => el.id === a) ? '' : this.state.find((el) => (el.id === a ? this.cart.push(el)  : ''));
         }
         if (this.cart.length === 0) {
             this.state.find((el) => (el.id === a ? this.cart.push(el) : ''));
@@ -148,16 +159,20 @@ class Model {
     };
     // удаляем продукт из массива ккорзины
     deleteProduct(a: number) {
-        this.state[a - 1].stock++
-        this.state.map(el => el.id === a ? el.checking = !el.checking : '');
-        this.cart = this.cart.filter(el => el.id !== a);
+        this.state[a - 1].stock++;
+        this.state.map((el) => (el.id === a ? (el.checking = !el.checking) : ''));
+        this.cart = this.cart.filter((el) => el.id !== a);
     }
     // подсчитывает сумму всех товаров которые находятся в корзине
     getTotalSum() {
         const totalPrice = this.cart.reduce((acc, el) => {
             return el.price + acc;
         }, 0);
-        return totalPrice;
+        const priceFromCart = this.countProductInsideCart.reduce((acc, el) => {
+            return el.price + acc;
+        }, 0)
+        console.log(priceFromCart);
+        return totalPrice + priceFromCart;
     }
     // сортирует наши данные по всем критериям
     globalFilter() {
@@ -169,53 +184,53 @@ class Model {
             }
         });
         if (this.filters.categories.length !== 0) {
-            let filtersData: Product[] = [];
+            const filtersData: Product[] = [];
             this.data = this.data.filter((el) => {
-                this.filters.categories.some(categoryValueFromArray => {
+                this.filters.categories.some((categoryValueFromArray) => {
                     if (el.category.toLocaleLowerCase().indexOf(categoryValueFromArray.toLocaleLowerCase()) > -1) {
-                        filtersData.push(el)
+                        filtersData.push(el);
                         return true;
                     } else {
                         return false;
                     }
-                })
+                });
             });
             this.data = filtersData;
         }
         if (this.filters.brands.length !== 0) {
-            let filtersData: Product[] = [];
+            const filtersData: Product[] = [];
             this.data = this.data.filter((el) => {
-                this.filters.brands.some(brandValueFromArray => {
+                this.filters.brands.some((brandValueFromArray) => {
                     if (el.brand.toLocaleLowerCase().indexOf(brandValueFromArray.toLocaleLowerCase()) > -1) {
-                        filtersData.push(el)
+                        filtersData.push(el);
                         return true;
                     } else {
                         return false;
                     }
-                })
+                });
             });
             this.data = filtersData;
         }
         if (this.filters.sortString.length !== 0) {
             if (this.filters.sortString === 'PriceASC') {
                 this.data = this.data.sort((a, b) => {
-                    return a.price - b.price
-                })
+                    return a.price - b.price;
+                });
             }
             if (this.filters.sortString === 'PriceDESC') {
                 this.data = this.data.sort((a, b) => {
-                    return b.price - a.price
-                })
+                    return b.price - a.price;
+                });
             }
             if (this.filters.sortString === 'RatingASC') {
                 this.data = this.data.sort((a, b) => {
-                    return a.rating - b.rating
-                })
+                    return a.rating - b.rating;
+                });
             }
             if (this.filters.sortString === 'RatingDESC') {
                 this.data = this.data.sort((a, b) => {
-                    return b.rating - a.rating
-                })
+                    return b.rating - a.rating;
+                });
             }
         }
         
@@ -229,10 +244,8 @@ class Model {
         })
         console.log( this.data);
     }
-
-
 }
 
-export let modelSingleton: Model = new Model();
+export const modelSingleton: Model = new Model();
 
 export default Model;
