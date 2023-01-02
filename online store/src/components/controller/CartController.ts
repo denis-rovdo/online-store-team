@@ -12,16 +12,26 @@ class CartController {
     }
     startPage() {
         this.view.mainPage.drawLogo();
-        this.view.cart.drawCart(this.model.cart.length);
-        this.view.products.drawCarts(this.model.cart);
+        this.view.cart.drawCart(this.model.cart.length, this.model.countProductInsideCart.length);
+        this.view.products.drawCarts(this.model.cart, this.model.getTotalSum().toString(), this.model.countProductInsideCart.length);
 
-        const anchors = document.querySelectorAll('.forLink');
-        anchors.forEach((anchor) => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                urlRoute(e, anchor.id);
-            });
-        });
+        this.view.products.bindAddAndDeleteProduct(this.handlerAddOrDeleteProduct)
+    }
+
+    handlerAddOrDeleteProduct = (id, status) => {
+        if (status === 'add') {
+            this.model.addCurrentProductInCart(id);
+        }
+        if (status === 'delete') {
+            this.model.deleteCurrentProductInCart(id);
+        }
+        this.view.cart.drawCart(this.model.cart.length + this.model.countProductInsideCart.length);
+        this.view.price.drawPrice(this.model.getTotalSum().toString());
+        this.view.products.drawCarts(this.model.cart, this.model.getTotalSum().toString(), this.model.countProductInsideCart.length);
+
+
+        this.view.products.bindAddAndDeleteProduct(this.handlerAddOrDeleteProduct)
+
     }
 }
 

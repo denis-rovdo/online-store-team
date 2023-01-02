@@ -21,6 +21,7 @@ class Model {
         priceCount: Array<number>;
         sortString: string;
     };
+    countProductInsideCart: Array<object>
     constructor() {
         this.state = data;
         this.data = data;
@@ -35,10 +36,25 @@ class Model {
         this.filterData = [];
         this.filterCategories = [];
         this.cart = [];
+        this.countProductInsideCart = [];
         this.totalPrice = 0;
         this.categories = categoriesProducts;
         this.brands = brandsFilter;
         this.inputValue = '';
+    }
+    addCurrentProductInCart(id) {
+        let currentProduct = this.state.filter(el => el.id == id);
+        this.countProductInsideCart.push(currentProduct[0]);
+        this.state[id - 1].stock--;
+    }
+    deleteCurrentProductInCart(id) {
+        let currentProduct = this.countProductInsideCart.findIndex(el => el.id == id);
+        this.countProductInsideCart.splice(currentProduct, 1);
+        this.state[id - 1].stock++
+    }
+
+    getCurrentProductSum() {
+
     }
 
     addSortValue(value: string) {
@@ -109,7 +125,7 @@ class Model {
         this.state.map((el) => (el.id === a ? (el.checking = !el.checking) : ''));
         this.state[a - 1].stock--;
         if (this.cart.length != 0) {
-            this.cart.some((el) => el.id === a) ? '' : this.state.find((el) => (el.id === a ? this.cart.push(el) : ''));
+            this.cart.some((el) => el.id === a) ? '' : this.state.find((el) => (el.id === a ? this.cart.push(el)  : ''));
         }
         if (this.cart.length === 0) {
             this.state.find((el) => (el.id === a ? this.cart.push(el) : ''));
@@ -126,7 +142,11 @@ class Model {
         const totalPrice = this.cart.reduce((acc, el) => {
             return el.price + acc;
         }, 0);
-        return totalPrice;
+        const priceFromCart = this.countProductInsideCart.reduce((acc, el) => {
+            return el.price + acc;
+        }, 0)
+        console.log(priceFromCart);
+        return totalPrice + priceFromCart;
     }
     // сортирует наши данные по всем критериям
     globalFilter() {

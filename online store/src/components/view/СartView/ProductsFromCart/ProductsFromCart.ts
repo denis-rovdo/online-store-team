@@ -2,21 +2,32 @@ import { Product } from './../../../../types/types';
 import classes from './ProductsFromCart.module.sass';
 
 class ProductsFromCart {
-    drawCarts(data: Product[]) {
-        const container = document.querySelector('main .container');
-        while (container?.firstChild) {
-            container.removeChild(container.firstChild);
-        }
-        if (data.length !== 0) {
-            const mainCartContainer = document.createElement('div');
-            mainCartContainer.className = 'mainCartContainer';
-            mainCartContainer.style.width = '95%';
-            mainCartContainer.style.display = 'flex';
-            mainCartContainer.style.justifyContent = 'space-between';
+  drawCarts(data: Product[], totalSum, currentCountProducts) {
+    console.log(currentCountProducts)
+    const container = document.querySelector('main .container');
+    while (container?.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+    if (data.length === 0) {
+      const notFoundProduct = document.createElement('div');
+      notFoundProduct.style.textAlign = 'center';
+      notFoundProduct.style.textTransform = 'uppercase';
 
-            const productInCart = document.createElement('div');
-            productInCart.className = `${classes.productInCart}`;
-            const productInCartContent = `
+      const notFoundProductContent = `Cart is Empty`;
+      notFoundProduct.innerHTML = notFoundProductContent;
+      container?.append(notFoundProduct);
+    }
+    if (data.length !== 0) {
+      // основной контейнер
+      const mainCartContainer = document.createElement('div');
+      mainCartContainer.className = 'mainCartContainer';
+      mainCartContainer.style.width = '95%';
+      mainCartContainer.style.display = 'flex';
+      mainCartContainer.style.justifyContent = 'space-between';
+      // верхний блок с контроллером лимита и страницами
+      const productInCart = document.createElement('div');
+      productInCart.className = `${classes.productInCart}`;
+      const productInCartContent = `
       <div class='${classes.titleAndPageControl}'>
           <h2 style='font-size: 130%'>Products in Cart</h2>
           <div class='${classes.cartController}'>
@@ -26,23 +37,22 @@ class ProductsFromCart {
               </div>
               <div class='page' style='margin-left:20px'>
                   Page:
-                  <button class='${classes.pageButton}'> < </button>
+                  <button class='${classes.pageButton} '> < </button>
                   <span style='font-size: 140%;margin: 0 0.5rem;'> 1 </span>
                   <button class='${classes.pageButton}'> > </button>
               </div>
           </div>
       </div>
       `;
-            productInCart.innerHTML = productInCartContent;
+      productInCart.innerHTML = productInCartContent;
+      // Сами карточки товаров в корзине
+      const prodItem = document.createElement('div');
+      prodItem.className = 'prod-item';
+      data.forEach((el, id) => {
+        const cartBlock = document.createElement('div');
+        cartBlock.className = `${classes.cartBlock}`;
 
-            const prodItem = document.createElement('div');
-            prodItem.className = 'prod-item';
-            data.forEach((el, id) => {
-                const cartBlock = document.createElement('div');
-                cartBlock.className = `${classes.cartBlock}`;
-                // <img src='${el.thumbnail}' alt='photoProduct'  style='height: 150px; max-width:55px'>
-
-                const cartContent = `
+        const cartContent = `
         <div class='${classes.itemI}' >${id + 1}</div>
         <div class='${classes.itemInfo}'>
             <div class='${classes.imgBlock}'>
@@ -63,32 +73,28 @@ class ProductsFromCart {
         </div>
         <div class='${classes.numberControl}'>
             <div class='${classes.stockControl}'>Stock: ${el.stock}</div>
-            <div class='${classes.icDecControl}'>
-                <button class='${classes.icDecButton}'> + </button> <span>1</span> <button class='${
-                    classes.icDecButton
-                }'> - </button>
+            <div class='${classes.icDecControl}' data-id='${el.id}'>
+                <button class='${classes.icDecButton} buttonPlus'> + </button> <span>1</span> <button class='${classes.icDecButton}  buttonMinus'> - </button>
             </div>
             <div class='${classes.amountCount}'>${el.price}</div>
         </div>
         `;
 
-                cartBlock.innerHTML = cartContent;
-                console.log(cartBlock);
-                prodItem.append(cartBlock);
-            });
+        cartBlock.innerHTML = cartContent;
+        prodItem.append(cartBlock);
+      });
 
-            productInCart.append(prodItem);
-            console.log(prodItem);
-            // Right block for buy
-            const totalCart = document.createElement('div');
-            totalCart.className = `${classes.totalCart}`;
-            const totalCartContent = `
+      productInCart.append(prodItem);
+      // Правая панель для покупки и скидок
+      const totalCart = document.createElement('div');
+      totalCart.className = `${classes.totalCart}`;
+      const totalCartContent = `
       <h2 class='${classes.totalCartTitle}'>Summary</h2>
       <div class='${classes.countProducts}'>
-          <span>Products: ${data.length}</span>
+          <span>Products: ${data.length + currentCountProducts}</span>
       </div>
       <div class='${classes.totalPrice}'>
-        <span>Total: (Общая сумма)</span>
+        <span>Total: ${totalSum}</span>
       </div>
       <div class='${classes.promoCodeSearch}'>
         <input type='search' placeholder='Enter promo code' class='${classes.promoCodeInput}' >
@@ -96,21 +102,32 @@ class ProductsFromCart {
       <span class='${classes.promoCodeTestText}'>Promo for test: 'RS', 'EPM'</span>
       <button class='${classes.buyButton}'>BUY NOW</button>
       `;
-            totalCart.innerHTML = totalCartContent;
-            mainCartContainer.append(productInCart);
-            mainCartContainer.append(totalCart);
-            container?.append(mainCartContainer);
-        }
-        if (data.length === 0) {
-            const notFoundProduct = document.createElement('div');
-            notFoundProduct.style.textAlign = 'center';
-            notFoundProduct.style.textTransform = 'uppercase';
-
-            const notFoundProductContent = `Cart is Empty`;
-            notFoundProduct.innerHTML = notFoundProductContent;
-            container?.append(notFoundProduct);
-        }
+      totalCart.innerHTML = totalCartContent;
+      mainCartContainer.append(productInCart);
+      mainCartContainer.append(totalCart);
+      container?.append(mainCartContainer);
     }
+
+  }
+  bindAddAndDeleteProduct(handler) {
+    const buttonController = document.querySelectorAll(`.${classes.icDecControl}`);
+    buttonController.forEach(el => {
+      el.addEventListener('click', (e) => {
+        let target = e.target as Element;
+        if (target.className === `${classes.icDecButton} buttonPlus`) {
+          let status = 'add';
+          const id = target.parentElement?.getAttribute('data-id')
+          handler(id, status);
+        }
+        if (target.className === `${classes.icDecButton}  buttonMinus`) {
+          let status = 'delete';
+          const id = target.parentElement?.getAttribute('data-id')
+          handler(id, status);
+        }
+      })
+    })
+
+  }
 }
 
 export default ProductsFromCart;
