@@ -20,6 +20,7 @@ class Model {
         brands: Array<string>,
         haveCount: Array<number>,
         priceCount: Array<number>,
+        stockCount: Array<number>,
         sortString: string;
     }
     constructor() {
@@ -31,6 +32,7 @@ class Model {
             brands: [],
             haveCount: [],
             priceCount: [42, 4500],
+            stockCount: [1,52],
             sortString: '',
         }
         this.filterData = [];
@@ -40,6 +42,30 @@ class Model {
         this.categories = categoriesProducts;
         this.brands = brandsFilter;
         this.inputValue = '';
+    }
+
+    getMinAndMaxStock() {
+        if(this.data.length === 0) {
+            this.filters.stockCount[0] = 1;
+            this.filters.stockCount[1] = 52;
+        }else{
+            const stockArr = [...this.data].sort((a, b) => {
+                return a.stock - b.stock
+            })
+            
+            const maxStock = stockArr.at(-1).stock;
+            const minStock = stockArr[0].stock
+            this.filters.stockCount[0] = minStock;
+            this.filters.stockCount[1] = maxStock;
+            console.log(this.filters.stockCount);
+        }
+       
+
+    }
+
+    filterByStock(lowerNumber:string, upperNumber:string) {
+        this.filters.stockCount[0] = +lowerNumber;
+        this.filters.stockCount[1] = +upperNumber;
     }
 
     getMinAndMaxPrice() {
@@ -55,14 +81,13 @@ class Model {
             const minPrise = priceArr[0].price
             this.filters.priceCount[0] = minPrise;
             this.filters.priceCount[1] = maxPrice;
-            //this.filterByPrice(minPrise, maxPrice)
-            console.log(this.filters.priceCount);
+                       
         }
        
 
     }
 
-    filterByPrice(lowerNumber, upperNumber) {
+    filterByPrice(lowerNumber:string, upperNumber:string) {
         this.filters.priceCount[0] = +lowerNumber;
         this.filters.priceCount[1] = +upperNumber;
     }
@@ -218,16 +243,26 @@ class Model {
                 })
             }
         }
-        
+        this.getMinAndMaxPrice()
+    
         this.data = this.data.filter((el) => {
-            if (this.filters.priceCount[0] < el.price &&  el.price <=  this.filters.priceCount[1]) {
+            if (this.filters.priceCount[0] <= el.price &&  el.price <=  this.filters.priceCount[1]) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+       
+        this.getMinAndMaxStock();
+        this.data = this.data.filter((el) => {
+            if (this.filters.stockCount[0] <= el.stock &&  el.stock <=  this.filters.stockCount[1]) {
                 return true;
             } else {
                 return false;
             }
             
         })
-        console.log( this.data);
+   
     }
 
 
