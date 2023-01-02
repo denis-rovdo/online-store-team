@@ -55,7 +55,7 @@ class AppController {
         this.model.addSortValue(stringValue);
         this.model.globalFilter();
         this.view.card.drawCard(this.model.data);
-    }
+    };
     // For categories handler
     handlerAddCategory = (categoryValue: string, param: string): void => {
         if (param === 'add') {
@@ -100,7 +100,6 @@ class AppController {
         this.view.dualStockSlider.bindeStockInput(this.handlerChangeStock);
     };
 
-
     //  функция вызывается при добавлении продукта и закидывает продукт в массив корзины.Перерисовка страницы с новыми данными
     handleAddProduct = (id: number, parameter: string) => {
         if (parameter === 'Add') {
@@ -108,7 +107,6 @@ class AppController {
         }
         if (parameter === 'Delete') {
             this.model.deleteProduct(id);
-
         }
         this.view.cart.drawCart(this.model.cart.length);
         this.view.price.drawPrice(this.model.getTotalSum().toString());

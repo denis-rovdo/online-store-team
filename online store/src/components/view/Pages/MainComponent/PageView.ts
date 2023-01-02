@@ -43,7 +43,6 @@ class PageView {
         // logo.removeEventListener('click', (e) => {
         //     urlRoute(e, '');
         // })
-
     }
     drawLogo() {
         const main = document.querySelector('main .container');
@@ -58,18 +57,17 @@ class PageView {
                                     </div>
                                 </div>
                            
-        `
+        `;
         const header = document.querySelector('header .container');
         const logoBlock = document.createElement('div');
         const checkLogoBlock = document.querySelector('.logo');
-        if (checkLogoBlock) checkLogoBlock.remove()
-        logoBlock.className = 'logo'
-        const logoContent =
-            `
+        if (checkLogoBlock) checkLogoBlock.remove();
+        logoBlock.className = 'logo';
+        const logoContent = `
         <a class='${classes.routingAddEvent}' href="/">
                 <img class='header__img forLink logoRouting' src="https://avatars.mds.yandex.net/i?id=f3f1bbeca8b5022d0770b3a81b8b558fa11b885e-7092330-images-thumbs&n=13" alt="logo">
          </a>
-        `
+        `;
         logoBlock.innerHTML = logoContent;
 
         const cartBlock = document.querySelector('.cart');
