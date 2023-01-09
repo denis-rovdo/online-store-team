@@ -265,6 +265,83 @@ class Model {
         })
    
     }
+    globalFilterBySlider() {
+        this.data = this.state.filter((el) => {
+            if (el.title.toLowerCase().indexOf(this.filters.search.toLocaleLowerCase()) > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        if (this.filters.categories.length !== 0) {
+            const filtersData: Product[] = [];
+            this.data = this.data.filter((el) => {
+                this.filters.categories.some((categoryValueFromArray) => {
+                    if (el.category.toLocaleLowerCase().indexOf(categoryValueFromArray.toLocaleLowerCase()) > -1) {
+                        filtersData.push(el);
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+            });
+            this.data = filtersData;
+        }
+        if (this.filters.brands.length !== 0) {
+            const filtersData: Product[] = [];
+            this.data = this.data.filter((el) => {
+                this.filters.brands.some((brandValueFromArray) => {
+                    if (el.brand.toLocaleLowerCase().indexOf(brandValueFromArray.toLocaleLowerCase()) > -1) {
+                        filtersData.push(el);
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+            });
+            this.data = filtersData;
+        }
+        if (this.filters.sortString.length !== 0) {
+            if (this.filters.sortString === 'PriceASC') {
+                this.data = this.data.sort((a, b) => {
+                    return a.price - b.price;
+                });
+            }
+            if (this.filters.sortString === 'PriceDESC') {
+                this.data = this.data.sort((a, b) => {
+                    return b.price - a.price;
+                });
+            }
+            if (this.filters.sortString === 'RatingASC') {
+                this.data = this.data.sort((a, b) => {
+                    return a.rating - b.rating;
+                });
+            }
+            if (this.filters.sortString === 'RatingDESC') {
+                this.data = this.data.sort((a, b) => {
+                    return b.rating - a.rating;
+                });
+            }
+        }
+    
+        this.data = this.data.filter((el) => {
+            if (this.filters.priceCount[0] <= el.price &&  el.price <=  this.filters.priceCount[1]) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+       
+        this.data = this.data.filter((el) => {
+            if (this.filters.stockCount[0] <= el.stock &&  el.stock <=  this.filters.stockCount[1]) {
+                return true;
+            } else {
+                return false;
+            }
+            
+        })
+   
+    }
 }
 
 export const modelSingleton: Model = new Model();

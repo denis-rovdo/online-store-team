@@ -37,15 +37,16 @@ class AppController {
     handlerChangeStock = (lowerNumber: string, upperNumber: string): void => {
         this.model.getMinAndMaxStock();
         this.model.filterByStock(lowerNumber, upperNumber);
-        this.model.globalFilter();
-        
+       // this.model.globalFilter();
+        this.model.globalFilterBySlider();
         this.view.card.drawCard(this.model.data);
 
     }
     handlerChangePrice = (lowerNumber: string, upperNumber: string): void => {
 
         this.model.filterByPrice(lowerNumber, upperNumber);
-        this.model.globalFilter();
+        //this.model.globalFilter();
+        this.model.globalFilterBySlider()
         //this.model.getMinAndMaxPrice();
         this.view.card.drawCard(this.model.data);
 
