@@ -1,22 +1,25 @@
+=hover_btn
+  transition: 0.8s
+  &:hover
+    transform: scale(1.15)
+    cursor: pointer
 .card
   padding: 5px
   flex-basis: 30%
   border: 1px solid black
-  display: flex
-  flex-direction: column
-  justify-content: space-between
-  text-align: center
+  border-radius: 10px
 
 .title
-  font-size: 16px
+  font-size: 18px
 
 .image
   display: block
   margin: 0 auto
-  height: 100px
+  height: 150px
 
-.price
-  color: blue
+.text
+  font-size: 15px
+  line-height: 110%
 
 .buttonLinkAdd
   display: block
@@ -29,8 +32,12 @@
 .btn
   display: block
   cursor: pointer
-  padding: 20px
+  padding: 10px
+  border-color: #2264D1
+  color: #2264D1
   border-radius: 10px
+  background-color: #fff
+  +hover_btn
 
 .buttonBlock
   display: flex
@@ -38,3 +45,4 @@
   justify-content: space-around
 
 .routingAddEvent
+  background-color: inherit

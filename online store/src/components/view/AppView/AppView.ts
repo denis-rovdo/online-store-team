@@ -7,6 +7,9 @@ import Search from './Search/Search';
 import Categories from './Categoreis/Categories';
 import Sort from './Sort/Sort';
 import CountProducts from './CountProducts/CountProducts';
+import CreateDubleInput from './dual_slider/slider';
+import CreateDubleInputStock from './dual_slider/sliderForStock';
+
 class AppView {
     card: Cards;
     mainPage: PageView;
@@ -17,6 +20,8 @@ class AppView {
     categories: Categories;
     sort: Sort;
     countProduct: CountProducts;
+    dualSlider: CreateDubleInput;
+    dualStockSlider: CreateDubleInputStock;
     constructor() {
         this.mainPage = new PageView();
         this.card = new Cards();
@@ -27,6 +32,8 @@ class AppView {
         this.search = new Search();
         this.sort = new Sort();
         this.countProduct = new CountProducts();
+        this.dualSlider = new CreateDubleInput();
+        this.dualStockSlider = new CreateDubleInputStock();
     }
 }
 export default AppView;

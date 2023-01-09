@@ -1918,6 +1918,5 @@ export const brandsFilter = [
         name: 'DeLonghi',
         checked: false,
     },
-    
-]
+];
 export default PRODUCTS;

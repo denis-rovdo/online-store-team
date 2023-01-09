@@ -1,18 +1,20 @@
 // import classes from './Filters.module.sass';
 
 class FiltersView {
-    drawFilter(data: {
-        name: string,
-        checked: boolean,
-    }[]) {
+    drawFilter(
+        data: {
+            name: string;
+            checked: boolean;
+        }[]
+    ) {
         const content = document.querySelector('.filters');
         const brand = document.createElement('div');
         brand.className = 'brandsBlock';
         content?.append(brand);
-        data.forEach(el => {
+        data.forEach((el) => {
             let checking = '';
             if (el.checked) {
-                checking = 'checked'
+                checking = 'checked';
             }
             const filterBlock = document.createElement('div');
             const filterByBrand = `
@@ -23,25 +25,23 @@ class FiltersView {
             filterBlock.innerHTML = filterByBrand;
 
             brand?.prepend(filterBlock);
-        })
+        });
     }
 
     bindAddBrand(handler: (data: string, value: string) => void) {
         const brandInputs = document.querySelectorAll('.brands');
-        brandInputs.forEach(inp => {
+        brandInputs.forEach((inp) => {
             inp.addEventListener('change', (e) => {
                 const target = e.target as HTMLInputElement;
                 if (target.checked) {
-                    handler(target.value, 'Check')
+                    handler(target.value, 'Check');
                 } else {
-                    console.log(target.value)
-                    handler(target.value, 'Uncheck')
+                    console.log(target.value);
+                    handler(target.value, 'Uncheck');
                 }
-            })
-
-        })
+            });
+        });
     }
-
 }
 
 export default FiltersView;

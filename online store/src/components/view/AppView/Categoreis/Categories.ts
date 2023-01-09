@@ -33,12 +33,12 @@ class Categories {
                 const categoryData: HTMLDivElement | null = target.closest(`.${classes.categoryBlock}`);
                 if (!categoryData?.classList.contains(`${classes.active}`)) {
                     categoryData?.classList.add(`${classes.active}`);
-                    const categoryAttribute = categoryData?.getAttribute('data');
-                    handler(categoryAttribute!.toLocaleLowerCase(), 'add');
+                    const categoryAttribute: string | null | undefined = categoryData?.getAttribute('data');
+                    if (categoryAttribute) handler(categoryAttribute.toLocaleLowerCase(), 'add');
                 } else {
                     categoryData?.classList.remove(`${classes.active}`);
-                    const categoryAttribute = categoryData?.getAttribute('data');
-                    handler(categoryAttribute!.toLocaleLowerCase(), 'delete');
+                    const categoryAttribute: string | null | undefined = categoryData?.getAttribute('data');
+                    if (categoryAttribute) handler(categoryAttribute.toLocaleLowerCase(), 'delete');
                 }
             }
         });
