@@ -41,8 +41,10 @@ class AppController {
         this.model.globalFilterBySlider();
         this.view.card.drawCard(this.model.data);
 
-    }
-    handlerChangePrice = (lowerNumber: string, upperNumber: string): void => {
+
+    handlerChangePrice = (lowerNumber: number, upperNumber: number) => {
+
+
 
         this.model.filterByPrice(lowerNumber, upperNumber);
         //this.model.globalFilter();
@@ -108,6 +110,7 @@ class AppController {
         }
         if (parameter === 'Delete') {
             this.model.deleteProduct(id);
+
         }
         this.view.cart.drawCart(this.model.cart.length);
         this.view.price.drawPrice(this.model.getTotalSum().toString());
