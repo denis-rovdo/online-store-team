@@ -4,7 +4,7 @@ class Search {
     drawSearch(value: string) {
         const categoryContainer = document.querySelector('.category');
         const inputBlock = document.createElement('div');
-        inputBlock.className = 'input'
+        inputBlock.className = 'inputBlock'
         const input = document.createElement('input');
         input.classList.add('inputText');
         input.setAttribute('type', 'text');
@@ -18,7 +18,7 @@ class Search {
         const input: HTMLInputElement | null = document.querySelector('.inputText');
         input?.focus();
         input?.addEventListener('input', () => {
-            const value = input.value
+            const value = input.value;
             handler(value);
         });
     }

@@ -1,7 +1,6 @@
 import { app } from './../main';
 import { Routes } from '../types/types';
 
-
 export const routes: Routes[] = [
     {
         path: /\/404/,
