@@ -55,17 +55,21 @@ const locationHandler = async (location: string) => {
     }
 
     const id = Number(window.location.pathname.split('/').at(-1));
-    const firstPath = window.location.pathname.split('/').at(-2);
+    let firstPath = window.location.pathname.split('/').at(-2);
+    if (!firstPath) {
+        firstPath = '/';
+    }
+    console.log(firstPath);
 
     // const pathName = window.location.pathname.split('/');
     const page =
-        window.location.pathname === '/'
+        firstPath === '/'
             ? '/'
             : '/' + firstPath === '/product' && id > 0 && id < 100
-            ? '/product'
-            : window.location.pathname === '/cart'
-            ? '/cart'
-            : '/404';
+                ? '/product'
+                : firstPath === '/cart'
+                    ? '/cart'
+                    : '/404';
     let controller;
     switch (page) {
         case '/':
