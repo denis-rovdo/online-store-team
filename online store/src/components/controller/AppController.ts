@@ -1,6 +1,5 @@
 import Model from '../model/Model';
 import AppView from '../view/AppView/AppView';
-import { urlRoute } from '../../main';
 
 class AppController {
     view: AppView;
@@ -32,25 +31,22 @@ class AppController {
         this.view.search.bindSearchProduct(this.handlerSearchProduct);
         this.view.sort.bindSort(this.handlerSelectSort);
         this.view.dualSlider.bindePriseInput(this.handlerChangePrice);
-        this.view.dualStockSlider.bindeStockInput(this.handlerChangeStock)
+        this.view.dualStockSlider.bindeStockInput(this.handlerChangeStock);
     }
     handlerChangeStock = (lowerNumber: string, upperNumber: string): void => {
         this.model.getMinAndMaxStock();
         this.model.filterByStock(lowerNumber, upperNumber);
-       // this.model.globalFilter();
+        // this.model.globalFilter();
         this.model.globalFilterBySlider();
         this.view.card.drawCard(this.model.data);
-
-    }
+    };
     handlerChangePrice = (lowerNumber: string, upperNumber: string): void => {
-
         this.model.filterByPrice(lowerNumber, upperNumber);
         //this.model.globalFilter();
-        this.model.globalFilterBySlider()
+        this.model.globalFilterBySlider();
         //this.model.getMinAndMaxPrice();
         this.view.card.drawCard(this.model.data);
-
-    }
+    };
 
     handlerSelectSort = (stringValue: string) => {
         this.model.addSortValue(stringValue);
@@ -61,7 +57,6 @@ class AppController {
     handlerAddCategory = (categoryValue: string, param: string): void => {
         if (param === 'add') {
             this.model.addFilterByCategories(categoryValue);
-
         }
         if (param === 'delete') {
             this.model.deleteFilterByCategories(categoryValue);
@@ -73,12 +68,11 @@ class AppController {
         this.model.getMinAndMaxPrice();
         this.view.dualSlider.bindePriseInput(this.handlerChangePrice);
         this.view.dualSlider.createLayout(this.model.filters.priceCount[0], this.model.filters.priceCount[1]);
-        
-        
+
         this.model.getMinAndMaxStock();
         this.view.dualStockSlider.createLayout(this.model.filters.stockCount[0], this.model.filters.stockCount[1]);
         this.view.dualStockSlider.bindeStockInput(this.handlerChangeStock);
-    }
+    };
     // фильтрация по брэнду
     handleFilterByBrand = (value: string, brand: string) => {
         if (brand === 'Check') {
@@ -113,16 +107,12 @@ class AppController {
         this.view.price.drawPrice(this.model.getTotalSum().toString());
         this.view.card.drawCard(this.model.data);
         this.view.countProduct.drawCount(this.model.data.length);
-
     };
     // для сортировки товара по тексту введенном в инпуте
     handlerSearchProduct = (textInput: string) => {
         this.model.filterByValue(textInput);
         this.startPage();
-
     };
-
-
 }
 
 export default AppController;

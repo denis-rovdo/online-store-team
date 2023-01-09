@@ -95,7 +95,7 @@ class ProductView {
           <button class='${classes.btn} forAddCard' >${checked}</button>
         </a>
         <a  class='${classes.buttonLinkBuy}'  card-id='${product.id}'>
-          <button class='${classes.btn} forAddCard' >Buy</button>
+          <button id='buyProduct' class='${classes.btn} forAddCard' >Buy</button>
         </a>
       </div>
     </div>

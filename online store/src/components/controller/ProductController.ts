@@ -1,7 +1,6 @@
 import { modelSingleton } from './../model/Model';
 import Model from '../model/Model';
 import ProductView from '../view/ProductView/ProductView';
-import { urlRoute } from '../../main';
 
 class ProductController {
     view: ProductView;

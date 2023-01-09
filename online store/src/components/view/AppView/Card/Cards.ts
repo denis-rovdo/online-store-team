@@ -1,5 +1,4 @@
-import { hungRouteListeners, urlRoute } from '../../../../main';
-import addHandlersNavigation from '../../../../router/addHandlers';
+import { hungRouteListeners } from '../../../../main';
 import { Product } from '../../../../types/types';
 import classes from './Cards.module.sass';
 
@@ -37,7 +36,7 @@ class Cards {
                                     <p class='${classes.text}'>Rating: ${el.rating}</p>
                                     <p class='${classes.text}'>Stock: ${el.stock}</p>  
                                 </div>`;
-           
+
             const buttonAdd = `<a  class='${classes.buttonLinkAdd}'  card-id='${el.id}'>
                                         <button class='${classes.btn} forAddCard' >${checked}</button>
                                 </a>`;

@@ -45,8 +45,9 @@ class PageView {
         // })
     }
     drawLogo() {
-        const main = document.querySelector('main .container');
-        main!.innerHTML = `
+        const main: Element | null = document.querySelector('main .container');
+        if (main)
+            main.innerHTML = `
                                 <div class="category">
                                 </div>
                                 <div class="content__block">

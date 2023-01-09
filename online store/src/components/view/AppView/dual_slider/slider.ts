@@ -1,16 +1,11 @@
 import classes from './slider.module.sass';
 
-
 class CreateDubleInput {
-    constructor() {
-    }
-
-    createLayout(min:number, max:number) {
-       
+    createLayout(min: number, max: number) {
         const body = document.querySelector('.filters');
-      
-        if(document.querySelector('.slider_container')){
-        document.querySelector('.slider_container')?.remove();
+
+        if (document.querySelector('.slider_container')) {
+            document.querySelector('.slider_container')?.remove();
         }
         const container = document.createElement('div');
         container.className = 'slider_container';
@@ -20,7 +15,7 @@ class CreateDubleInput {
         container.append(multiRange);
 
         const lowerInput = document.createElement('input');
-        
+
         lowerInput.className = `${classes.input}`;
         lowerInput.classList.add('lowerPriceInput');
         lowerInput.setAttribute('type', 'range');
@@ -29,23 +24,21 @@ class CreateDubleInput {
         lowerInput.setAttribute('value', `${min}`); //текущее значение
         multiRange.append(lowerInput);
 
-
         const upperInput = document.createElement('input');
         upperInput.className = `${classes.input}`;
         upperInput.classList.add('upperPriceInput');
         upperInput.setAttribute('type', 'range');
         upperInput.setAttribute('min', '42'); //минимальная цена
-        upperInput.setAttribute('max', '4500');// максимальная цена
+        upperInput.setAttribute('max', '4500'); // максимальная цена
         upperInput.setAttribute('value', `${max}`); // текущее значение
         multiRange.append(upperInput);
 
-        
         const containerForNumbers = document.createElement('div');
         containerForNumbers.className = classes.containerForNum;
         container.append(containerForNumbers);
         const lowerNumber = document.createElement('div');
         lowerNumber.className = 'lower_number';
-        lowerNumber.textContent = `${lowerInput.value} BYN`;;
+        lowerNumber.textContent = `${lowerInput.value} BYN`;
         containerForNumbers.append(lowerNumber);
 
         const upperNumber = document.createElement('div');
@@ -56,14 +49,13 @@ class CreateDubleInput {
         body?.append(container);
 
         const chengeUperInput = () => {
-
-            let lowerVal = parseInt(lowerInput.value);
-            let upperVal = parseInt(upperInput.value);
+            const lowerVal = parseInt(lowerInput.value);
+            const upperVal = parseInt(upperInput.value);
 
             if (upperVal < lowerVal + 4) {
                 lowerInput.value = `${upperVal - 4}`;
 
-                const inputNum = + lowerInput.min;
+                const inputNum = +lowerInput.min;
 
                 if (lowerVal == inputNum) {
                     upperInput.value = `${4}`;
@@ -75,20 +67,17 @@ class CreateDubleInput {
 
         upperInput.addEventListener('input', chengeUperInput);
 
-
-
         const chengeLowerInput = () => {
-            let lowerVal = parseInt(lowerInput.value);
-            let upperVal = parseInt(upperInput.value);
+            const lowerVal = parseInt(lowerInput.value);
+            const upperVal = parseInt(upperInput.value);
 
             if (lowerVal > upperVal - 4) {
                 upperInput.value = `${lowerVal + 4}`;
-                
+
                 const inputNumMax = +upperInput.max;
                 if (upperVal == inputNumMax) {
                     lowerInput.value = `${parseInt(upperInput.max) - 4}`;
                 }
-
             }
             lowerNumber.textContent = `${lowerVal} BYN`;
             upperNumber.textContent = `${upperVal} BYN`;
@@ -97,19 +86,18 @@ class CreateDubleInput {
         lowerInput.addEventListener('input', chengeLowerInput);
     }
 
-    bindePriseInput(handler){
-        const lowerPriceInput  = <HTMLInputElement> document.querySelector('.lowerPriceInput');
-        const upperPriceInput =  <HTMLInputElement> document.querySelector('.upperPriceInput');
-    
-        lowerPriceInput.addEventListener('change', ()=>{
-            console.log(lowerPriceInput.value)
-           handler(lowerPriceInput.value, upperPriceInput.value);
-        })
+    bindePriseInput(handler: (a: string, b: string) => void) {
+        const lowerPriceInput = <HTMLInputElement>document.querySelector('.lowerPriceInput');
+        const upperPriceInput = <HTMLInputElement>document.querySelector('.upperPriceInput');
 
-        upperPriceInput.addEventListener('change', ()=>{
+        lowerPriceInput.addEventListener('change', () => {
+            console.log(lowerPriceInput.value);
             handler(lowerPriceInput.value, upperPriceInput.value);
-         })
+        });
 
+        upperPriceInput.addEventListener('change', () => {
+            handler(lowerPriceInput.value, upperPriceInput.value);
+        });
     }
 }
 export default CreateDubleInput;

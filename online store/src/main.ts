@@ -9,6 +9,7 @@ import CartController from './components/controller/CartController';
 import ProductController from './components/controller/ProductController';
 import NotFoundController from './components/controller/NotFoundController';
 import CartView from './components/view/СartView/CartView';
+import { addListeners } from './components/view/СartView/ProductsFromCart/ProductsFromCart';
 
 export const app = new App(
     new AppController(new AppView(), modelSingleton),
@@ -90,6 +91,8 @@ window.addEventListener('load', () => {
     locationHandler('');
 });
 
-window.addEventListener('popstate', (event) => {
+window.addEventListener('popstate', () => {
     locationHandler('');
 });
+
+addListeners();

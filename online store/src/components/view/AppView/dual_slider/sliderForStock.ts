@@ -1,12 +1,7 @@
 import classes from './slider.module.sass';
 
-
 class CreateDubleInputStock {
-    constructor() {
-    }
-
     createLayout(min: number, max: number) {
-
         const body = document.querySelector('.filters');
 
         if (document.querySelector('.slider_container_stock')) {
@@ -29,13 +24,12 @@ class CreateDubleInputStock {
         lowerInput.setAttribute('value', `${min}`); //текущее значение
         multiRange.append(lowerInput);
 
-
         const upperInput = document.createElement('input');
         upperInput.className = `${classes.input}`;
         upperInput.classList.add('upperStockInput');
         upperInput.setAttribute('type', 'range');
         upperInput.setAttribute('min', '1'); //минимальное значение
-        upperInput.setAttribute('max', '52');// максимальное значение
+        upperInput.setAttribute('max', '52'); // максимальное значение
         upperInput.setAttribute('value', `${max}`); // текущее значение
         multiRange.append(upperInput);
 
@@ -45,7 +39,7 @@ class CreateDubleInputStock {
         container.append(containerForNumbers);
         const lowerNumber = document.createElement('div');
         lowerNumber.className = 'lower_number_stock';
-        lowerNumber.textContent = `${lowerInput.value}`;;
+        lowerNumber.textContent = `${lowerInput.value}`;
         containerForNumbers.append(lowerNumber);
 
         const upperNumber = document.createElement('div');
@@ -56,14 +50,13 @@ class CreateDubleInputStock {
         body?.append(container);
 
         const chengeUperInput = () => {
-
-            let lowerVal = parseInt(lowerInput.value);
-            let upperVal = parseInt(upperInput.value);
+            const lowerVal = parseInt(lowerInput.value);
+            const upperVal = parseInt(upperInput.value);
 
             if (upperVal < lowerVal + 4) {
                 lowerInput.value = `${upperVal - 4}`;
 
-                const inputNum = + lowerInput.min;
+                const inputNum = +lowerInput.min;
 
                 if (lowerVal == inputNum) {
                     upperInput.value = `${4}`;
@@ -75,11 +68,9 @@ class CreateDubleInputStock {
 
         upperInput.addEventListener('input', chengeUperInput);
 
-
-
         const chengeLowerInput = () => {
-            let lowerVal = parseInt(lowerInput.value);
-            let upperVal = parseInt(upperInput.value);
+            const lowerVal = parseInt(lowerInput.value);
+            const upperVal = parseInt(upperInput.value);
 
             if (lowerVal > upperVal - 4) {
                 upperInput.value = `${lowerVal + 4}`;
@@ -88,7 +79,6 @@ class CreateDubleInputStock {
                 if (upperVal == inputNumMax) {
                     lowerInput.value = `${parseInt(upperInput.max) - 4}`;
                 }
-
             }
             lowerNumber.textContent = `${lowerVal}`;
             upperNumber.textContent = `${upperVal}`;
@@ -97,18 +87,17 @@ class CreateDubleInputStock {
         lowerInput.addEventListener('input', chengeLowerInput);
     }
 
-    bindeStockInput(handler) {
-        const lowerStockInput = <HTMLInputElement> document.querySelector('.lowerStockInput');
-        const upperStockInput = <HTMLInputElement> document.querySelector('.upperStockInput');
-        
+    bindeStockInput(handler: (a: string, b: string) => void) {
+        const lowerStockInput = <HTMLInputElement>document.querySelector('.lowerStockInput');
+        const upperStockInput = <HTMLInputElement>document.querySelector('.upperStockInput');
+
         lowerStockInput?.addEventListener('change', () => {
             handler(lowerStockInput.value, upperStockInput.value);
-        })
+        });
 
         upperStockInput?.addEventListener('change', () => {
             handler(lowerStockInput.value, upperStockInput.value);
-        })
-
+        });
     }
 }
 export default CreateDubleInputStock;
