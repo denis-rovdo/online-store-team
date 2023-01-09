@@ -1,0 +1,45 @@
+
+.categoriesBlock
+  padding-left: 140px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-wrap: wrap
+  width: 100%
+
+  .categoryBlock
+    flex-basis: 33%
+    display: flex
+    align-items: center
+    justify-content: space-around
+    flex-direction: column
+    cursor: pointer
+
+.categoryBlock.active
+  box-shadow: 1px 1px 1px 1px gray
+
+.img
+  width: 50px
+  height: 50px
+
+.name
+  color: red
+
+.categoryButton
+  color: blue
+
+@media (max-width: 768px)
+
+.categoriesBlock
+  padding-left: 0
+.name
+  text-align: center
+@media (max-width: 400px)
+  .img
+    width: 25px
+    height: 25px
+  .name
+    font-size: 14px
+    // white-space: nowrap
+  .categoriesBlock.categoryBlock
+    flex-basis: 28%

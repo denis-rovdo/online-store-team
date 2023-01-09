@@ -1,0 +1,60 @@
+=hover_btn
+  transition: 0.8s
+  &:hover
+    transform: scale(1.15)
+    cursor: pointer
+.card
+  padding: 5px
+  flex-basis: 30%
+  border: 1px solid black
+  border-radius: 10px
+
+.title
+  font-size: 18px
+
+.image
+  display: block
+  margin: 0 auto
+  height: 150px
+
+.text
+  font-size: 15px
+  line-height: 110%
+
+.buttonLinkAdd
+  display: block
+  text-decoration: none
+
+.buttonLinkDetails
+  display: block
+  text-decoration: none
+
+.btn
+  display: block
+  cursor: pointer
+  padding: 10px
+  border-color: #2264D1
+  color: #2264D1
+  border-radius: 10px
+  background-color: #fff
+  +hover_btn
+
+.buttonBlock
+  display: flex
+  align-items: center
+  justify-content: space-around
+
+.routingAddEvent
+  background-color: inherit
+
+@media (max-width: 768px)
+
+.card
+  flex-basis: 28%
+  align-items: center
+  justify-content: space-between
+
+@media (max-width:561px)
+  .card
+    flex-basis: 90%
+    margin:0 auto
