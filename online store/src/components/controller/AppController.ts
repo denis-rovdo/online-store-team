@@ -13,6 +13,7 @@ class AppController {
         this.model.resetData();
         this.model.globalFilter();
         this.model.getMinAndMaxPrice();
+        this.model.getMinAndMaxStock();
         this.view.mainPage.drawLogo();
         this.view.card.drawCard(this.model.data);
         this.view.cart.drawCart(this.model.cart.length);
@@ -23,6 +24,7 @@ class AppController {
         this.view.sort.drawSort(this.model.filters.sortString);
         this.view.countProduct.drawCount(this.model.data.length);
         this.view.dualSlider.createLayout(this.model.filters.priceCount[0], this.model.filters.priceCount[1]);
+        this.view.dualStockSlider.createLayout(this.model.filters.stockCount[0], this.model.filters.stockCount[1]);
 
         this.view.filterByBrand.bindAddBrand(this.handleFilterByBrand);
         this.view.card.bindAddProduct(this.handleAddProduct);
@@ -30,12 +32,24 @@ class AppController {
         this.view.search.bindSearchProduct(this.handlerSearchProduct);
         this.view.sort.bindSort(this.handlerSelectSort);
         this.view.dualSlider.bindePriseInput(this.handlerChangePrice);
+        this.view.dualStockSlider.bindeStockInput(this.handlerChangeStock)
     }
+    handlerChangeStock = (lowerNumber: string, upperNumber: string): void => {
+        this.model.getMinAndMaxStock();
+        this.model.filterByStock(lowerNumber, upperNumber);
+       // this.model.globalFilter();
+        this.model.globalFilterBySlider();
+        this.view.card.drawCard(this.model.data);
+
 
     handlerChangePrice = (lowerNumber: number, upperNumber: number) => {
 
+
+
         this.model.filterByPrice(lowerNumber, upperNumber);
-        this.model.globalFilter();
+        //this.model.globalFilter();
+        this.model.globalFilterBySlider()
+        //this.model.getMinAndMaxPrice();
         this.view.card.drawCard(this.model.data);
 
     }
@@ -48,17 +62,24 @@ class AppController {
     // For categories handler
     handlerAddCategory = (categoryValue: string, param: string): void => {
         if (param === 'add') {
-            this.model.addFilterByCategories(categoryValue)
+            this.model.addFilterByCategories(categoryValue);
+
         }
         if (param === 'delete') {
-            this.model.deleteFilterByCategories(categoryValue)
+            this.model.deleteFilterByCategories(categoryValue);
         }
         this.model.globalFilter();
-        this.model.getMinAndMaxPrice();
         this.view.card.drawCard(this.model.data);
         this.view.countProduct.drawCount(this.model.data.length);
-        this.view.dualSlider.createLayout(this.model.filters.priceCount[0], this.model.filters.priceCount[1]);
+
+        this.model.getMinAndMaxPrice();
         this.view.dualSlider.bindePriseInput(this.handlerChangePrice);
+        this.view.dualSlider.createLayout(this.model.filters.priceCount[0], this.model.filters.priceCount[1]);
+        
+        
+        this.model.getMinAndMaxStock();
+        this.view.dualStockSlider.createLayout(this.model.filters.stockCount[0], this.model.filters.stockCount[1]);
+        this.view.dualStockSlider.bindeStockInput(this.handlerChangeStock);
     }
     // фильтрация по брэнду
     handleFilterByBrand = (value: string, brand: string) => {
@@ -72,9 +93,14 @@ class AppController {
         this.model.globalFilter();
         this.view.card.drawCard(this.model.data);
         this.view.countProduct.drawCount(this.model.data.length);
+
         this.model.getMinAndMaxPrice();
         this.view.dualSlider.createLayout(this.model.filters.priceCount[0], this.model.filters.priceCount[1]);
         this.view.dualSlider.bindePriseInput(this.handlerChangePrice);
+
+        this.model.getMinAndMaxStock();
+        this.view.dualStockSlider.createLayout(this.model.filters.stockCount[0], this.model.filters.stockCount[1]);
+        this.view.dualStockSlider.bindeStockInput(this.handlerChangeStock);
     };
 
     //  функция вызывается при добавлении продукта и закидывает продукт в массив корзины.Перерисовка страницы с новыми данными

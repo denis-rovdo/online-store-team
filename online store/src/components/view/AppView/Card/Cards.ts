@@ -29,18 +29,26 @@ class Cards {
             // thumbnail
             const thumbnail = `<img class='${classes.image}' src="${el.thumbnail}" alt='Grocery'>`;
             //    price
-            const price = `<p class='${classes.price}'>${el.price}</p>`;
+            const description = `<div>
+                                    <p class='${classes.text}'>Category: ${el.category}</p>
+                                    <p class='${classes.text}'>Brand: ${el.brand}</p> 
+                                    <p class='${classes.text}'>Price: ${el.price}</p>
+                                    <p class='${classes.text}'>Discount: ${el.discountPercentage}%</p>
+                                    <p class='${classes.text}'>Rating: ${el.rating}</p>
+                                    <p class='${classes.text}'>Stock: ${el.stock}</p>  
+                                </div>`;
+           
             const buttonAdd = `<a  class='${classes.buttonLinkAdd}'  card-id='${el.id}'>
                                         <button class='${classes.btn} forAddCard' >${checked}</button>
                                 </a>`;
             const buttonDetail = ` 
                                 <a class='${classes.buttonLinkDetails} ${classes.routingAddEvent}'  href='/product/${el.id}'>
-                                    <button class='${classes.btnDetails} forLink detailButton' id='${el.id}'>Details</button>
+                                    <button class='${classes.btn} forLink detailButton' id='${el.id}'>Details</button>
                                 </a>
             `;
             const buttonBlock = `<div class='${classes.buttonBlock}'>${buttonAdd}${buttonDetail}</div>`;
 
-            card.innerHTML = thumbnail + title + price + buttonBlock;
+            card.innerHTML = thumbnail + title + description + buttonBlock;
             cards?.append(card);
             const addLink = document.querySelector(`${classes.buttonLinkAdd}`);
             addLink?.setAttribute('data-id', `${el.id}`);
