@@ -5,6 +5,7 @@ class CountProducts {
             typeCardsBlock.removeChild(typeCardsBlock.firstChild);
         }
         const countProductsBlock = document.createElement('div');
+        countProductsBlock.classList.add('stockProducts')
         const countProductsContent = `
     Stock: ${value}
     `;

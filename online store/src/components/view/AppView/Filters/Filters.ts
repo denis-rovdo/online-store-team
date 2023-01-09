@@ -17,6 +17,7 @@ class FiltersView {
                 checking = 'checked';
             }
             const filterBlock = document.createElement('div');
+            filterBlock.classList.add('filterCheckbox');
             const filterByBrand = `
             <input class="brands" type="checkbox" id="${el.name}" name="brands" value="${el.name}" ${checking}/>
             <label for="${el.name}">${el.name}</label>

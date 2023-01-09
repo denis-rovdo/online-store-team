@@ -25,10 +25,10 @@ class ProductsFromCart {
         if (data.length !== 0) {
             // основной контейнер
             const mainCartContainer = document.createElement('div');
-            mainCartContainer.className = 'mainCartContainer';
-            mainCartContainer.style.width = '95%';
-            mainCartContainer.style.display = 'flex';
-            mainCartContainer.style.justifyContent = 'space-between';
+            mainCartContainer.className = `${classes.mainCartContainer}`
+            // mainCartContainer.style.width = '95%';
+            // mainCartContainer.style.display = 'flex';
+            // mainCartContainer.style.justifyContent = 'space-between';
             // верхний блок с контроллером лимита и страницами
             const productInCart = document.createElement('div');
             productInCart.className = `${classes.productInCart}`;
@@ -79,9 +79,8 @@ class ProductsFromCart {
         <div class='${classes.numberControl}'>
             <div class='${classes.stockControl}'>Stock: ${el.stock}</div>
             <div class='${classes.icDecControl}' data-id='${el.id}'>
-                <button class='${classes.icDecButton} buttonPlus'> + </button> <span>1</span> <button class='${
-                    classes.icDecButton
-                }  buttonMinus'> - </button>
+                <button class='${classes.icDecButton} buttonPlus'> + </button> <span>1</span> <button class='${classes.icDecButton
+                    }  buttonMinus'> - </button>
             </div>
             <div class='${classes.amountCount}'>${el.price}</div>
         </div>
