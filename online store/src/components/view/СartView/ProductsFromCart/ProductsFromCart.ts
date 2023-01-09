@@ -2,8 +2,7 @@ import { Product } from './../../../../types/types';
 import classes from './ProductsFromCart.module.sass';
 
 class ProductsFromCart {
-  drawCarts(data: Product[], totalSum, currentCountProducts) {
-    console.log(currentCountProducts)
+  drawCarts(data: Product[], totalSum: string, currentCountProducts: number) {
     const container = document.querySelector('main .container');
     while (container?.firstChild) {
       container.removeChild(container.firstChild);
@@ -51,7 +50,6 @@ class ProductsFromCart {
       data.forEach((el, id) => {
         const cartBlock = document.createElement('div');
         cartBlock.className = `${classes.cartBlock}`;
-
         const cartContent = `
         <div class='${classes.itemI}' >${id + 1}</div>
         <div class='${classes.itemInfo}'>
@@ -89,44 +87,47 @@ class ProductsFromCart {
       const totalCart = document.createElement('div');
       totalCart.className = `${classes.totalCart}`;
       const totalCartContent = `
-      <h2 class='${classes.totalCartTitle}'>Summary</h2>
-      <div class='${classes.countProducts}'>
-          <span>Products: ${data.length + currentCountProducts}</span>
-      </div>
-      <div class='${classes.totalPrice}'>
-        <span>Total: ${totalSum}</span>
-      </div>
-      <div class='${classes.promoCodeSearch}'>
-        <input type='search' placeholder='Enter promo code' class='${classes.promoCodeInput}' >
-      </div>
-      <span class='${classes.promoCodeTestText}'>Promo for test: 'RS', 'EPM'</span>
-      <button class='${classes.buyButton}'>BUY NOW</button>
-      `;
+<h2 class="${classes.totalCartTitle}">Summary</h2>
+<div class="${classes.countProducts}">
+  <span>Products: ${data.length + currentCountProducts}</span>
+</div>
+<div class="${classes.totalPrice}">
+  <span>Total: ${totalSum}</span>
+</div>
+<div class="${classes.promoCodeSearch}">
+  <input
+    type="search"
+    placeholder="Enter promo code"
+    class="${classes.promoCodeInput}"
+  />
+</div>
+<span class="${classes.promoCodeTestText}">Promo for test: 'RS', 'EPM'</span>
+<button class="${classes.buyButton}">BUY NOW</button>
+`;
       totalCart.innerHTML = totalCartContent;
       mainCartContainer.append(productInCart);
       mainCartContainer.append(totalCart);
       container?.append(mainCartContainer);
     }
-
   }
-  bindAddAndDeleteProduct(handler) {
+
+  bindAddAndDeleteProduct(handler: (id: string | null | undefined, status: string) => void) {
     const buttonController = document.querySelectorAll(`.${classes.icDecControl}`);
     buttonController.forEach(el => {
       el.addEventListener('click', (e) => {
         let target = e.target as Element;
         if (target.className === `${classes.icDecButton} buttonPlus`) {
           let status = 'add';
-          const id = target.parentElement?.getAttribute('data-id')
+          const id = target.parentElement?.getAttribute('data-id');
           handler(id, status);
         }
         if (target.className === `${classes.icDecButton}  buttonMinus`) {
           let status = 'delete';
-          const id = target.parentElement?.getAttribute('data-id')
+          const id = target.parentElement?.getAttribute('data-id');
           handler(id, status);
         }
       })
     })
-
   }
 }
 

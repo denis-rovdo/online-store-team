@@ -32,7 +32,7 @@ class AppController {
         this.view.dualSlider.bindePriseInput(this.handlerChangePrice);
     }
 
-    handlerChangePrice = (lowerNumber, upperNumber) => {
+    handlerChangePrice = (lowerNumber: number, upperNumber: number) => {
 
         this.model.filterByPrice(lowerNumber, upperNumber);
         this.model.globalFilter();
@@ -84,19 +84,19 @@ class AppController {
         }
         if (parameter === 'Delete') {
             this.model.deleteProduct(id);
-    
+
         }
         this.view.cart.drawCart(this.model.cart.length);
         this.view.price.drawPrice(this.model.getTotalSum().toString());
         this.view.card.drawCard(this.model.data);
         this.view.countProduct.drawCount(this.model.data.length);
-                
+
     };
     // для сортировки товара по тексту введенном в инпуте
     handlerSearchProduct = (textInput: string) => {
         this.model.filterByValue(textInput);
         this.startPage();
-        
+
     };
 
 
