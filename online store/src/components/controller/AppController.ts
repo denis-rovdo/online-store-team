@@ -71,6 +71,7 @@ class AppController {
 
         this.model.getMinAndMaxStock();
         this.view.dualStockSlider.createLayout(this.model.filters.stockCount[0], this.model.filters.stockCount[1]);
+        this.view.dualSlider.bindePriseInput(this.handlerChangePrice);
         this.view.dualStockSlider.bindeStockInput(this.handlerChangeStock);
     };
     // фильтрация по брэнду
